@@ -1,1 +1,1 @@
-ExceptionNotifier.api_key = Behavior.config[:shooter_api_key]
+ExceptionNotifier.api_key = Behavior.config[:shooter_api_key] rescue nil
