@@ -1,0 +1,503 @@
+/* tear it down */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+
+/* stitch it together */
+
+html {
+	height: 100%;
+	margin-bottom: 1px;
+}
+
+body {
+	background-color: #f1f1f1;
+	border: 0;
+	color: #555;
+	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
+	font-size: 62.5%;
+	line-height: 1.125em;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+strong { 
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #111;
+}
+
+/* the headers. */
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, Verdana, Geneva, sans-serif;
+	color: #000;
+    text-rendering: optimizeLegibility;
+}
+
+h2 {
+  font-size: 2.4em;
+  font-weight: bold;
+  text-align: left;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: left;
+}
+
+h4 {
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* the text. */
+
+.plain-text {
+  font-size: 1.3em;
+  line-height: 1.4em;
+  text-align: left;
+}
+
+.plain-text p, .plain-text ul {
+  margin-bottom: 1em;
+}
+
+/* the structure. */
+
+#frame {
+  position: relative;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 96em; }
+
+.column_one, .column_two, .column_three, .column_four, .column_five, .column_six, .column_seven, .column_eight, .column_nine, .column_ten, .column_eleven, .column_twelve {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 1em;
+  margin-right: 1em; }
+
+.container .column_one { width: 6em; }
+.container .column_two { width: 14em; }
+.container .column_three { width: 22em; }
+.container .column_four { width: 30em; }
+.container .column_five { width: 38em; }
+.container .column_six { width: 46em; }
+.container .column_seven { width: 54em; }
+.container .column_eight { width: 62em; }
+.container .column_nine { width: 70em; }
+.container .column_ten { width: 78em; }
+.container .column_eleven { width: 86em; }
+.container .column_twelve { width: 94em; }
+
+hr {
+  clear: both;
+  height: 0;
+  border: 0; }
+
+.clear {
+  margin: 0 auto;
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  border: 0; }
+
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+
+.clearfix {
+  display: block; }
+
+* html .clearfix {
+  height: 1%; }
+
+
+/* the header. */
+
+#header {
+  position: relative;
+  padding: 4.8em 0 3.6em;
+}
+
+#header h1 {
+  float: left;
+  width: 25em;
+  height: 3em;
+  overflow: visible;
+}
+
+#header h1 a, #header h1 a:visited {
+  float: left;
+  margin: -1.5em 0 0 -2.2em;
+  width: 30em;
+  height: 6.4em;
+  background: url('/images/sm_logo.jpg') top left no-repeat;
+  text-indent: -999em;
+}
+
+#header .call-to-action .plain-text {
+  text-align: right;
+}
+
+#header .call-to-action .plain-text strong {
+  font-size: 1.25em;
+}
+
+#header .call-to-action .button {
+  padding-top: .5em;
+  font-weight: bold;
+  margin: 0 -1em 0;
+}
+
+#header .user-navigation-list {
+  position: absolute;
+  top: .5em;
+  right: 0;
+}
+
+#header .user-navigation-list .user-navigation-item {
+  float: left;
+  padding: .125em 0 .125em .5em;
+  font-size: 1.2em;
+}
+
+#header .user-navigation-list .user-navigation-item a:hover {
+  border-bottom: 1px solid #ddd;
+}
+
+
+/* the search options. */
+
+.search-options {
+  padding: 0 0 3.6em;
+}
+
+
+/* the devs. */
+
+.developer {
+  padding: 0 0 3.6em;
+}
+
+.developer .imagery {
+  overflow: hidden;
+}
+
+.developer .imagery img {
+  float: left;
+  clear: both;
+}
+
+.developer .imagery .logo {
+  margin-top: .8em;
+}
+
+.developer .twitter {
+  overflow: hidden;
+  border-radius: .5em;
+  margin: -1em;
+}
+
+.developer .twitter .latest-tweets {
+  padding: 1em .555em;
+  color: #3e6285;
+  background: #b6d4f0 url('/images/twitter-bird.gif') top right no-repeat;
+}
+
+.developer .twitter .tweet-list {
+  padding: .25em 0 1em;
+}
+
+.developer .twitter .tweet-list .tweet-item {
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: .833em;
+  border-top: #cfdfed 1px solid;
+  color: #325373;
+}
+
+.developer .twitter .tweet-list .tweet-item:first-child {
+  border: 0px;
+}
+
+.developer .twitter .follow-link, .developer .twitter .follow-link:visited {
+  display: block;
+  background: #3789db;
+  color: #3d658e;
+  font-weight: bold;
+  font-size: 1.6em;
+  padding: .666em 0;
+  text-align: center;
+}
+
+.developer .twitter .follow-link:hover {
+  color: #30496f;
+}
+
+.developer .details h2 {
+  padding: .222em 0 0;
+}
+
+.developer .details .meta-data {
+  padding: .500em 0;
+}
+
+.developer .details .meta-data .meta-datum {
+  color: #565454;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, Verdana, Geneva, sans-serif;
+  font-size: 1.8em;
+  line-height: 1.4em;
+  text-align: left;
+}
+
+.developer .details .meta-data .meta-datum.price-range {
+  color: #818181;
+  font-size: 1.4em;
+}
+
+.developer .details .synopsis {
+  color: #000;
+}
+
+
+/* highlight */
+
+.highlight {
+  background: #226fb7 url(/images/highlight-light.png) center top no-repeat;
+}
+
+.highlight h3 {
+  font-size: 2.4em;
+  padding: .750em 0;
+  background: transparent url(/images/highlight-arrow.png) right center no-repeat;
+}
+
+.highlight h3 a, .highlight h3 a:visited {
+  color: #fff;
+}
+
+.highlight .contact-details li {
+  float: left;
+  padding: 1.8em;
+}
+
+.highlight .contact-details a, .highlight .contact-details a:visited {
+  color: #fff;
+  border-bottom: 1px solid #6097c9;
+  font-size: 1.6em;
+  text-shadow: 0 -1px 1px #216aad;
+}
+
+.highlight .developer-actions li {
+  float: left;
+  padding: 1.8em;
+}
+
+.highlight .developer-actions li a, .highlight .developer-actions li a:visited {
+  color: #fff;
+  font-size: 1.3em;
+  text-shadow: 0 -1px 1px #216aad;
+}
+
+/* the addendum */
+
+.addendum {
+  padding: 3.6em 0;
+  text-align: left;
+}
+
+.action-item {
+  float: left;
+  padding: .125em 0;
+  margin: .750em 0 0;
+}
+
+/* the developers */
+
+.developer-results .developer-result {
+  background-color: #fff;
+  margin-bottom: 1.2em;
+  padding: 1em 1em 3.6em;
+  border-radius: .50em;
+  border: 1px solid #e7e7e7;
+  -webkit-box-shadow: 0em .25em .125em #e7e7e7;
+  overflow: hidden;
+}
+
+.developer-result .imagery {
+  width: 10.8em;
+  float: left;
+  overflow: hidden;
+}
+
+.developer-result .imagery .avatar {
+  width: 10.8em;
+}
+
+.developer-result .details {
+  width: 31em;
+  float: right;
+}
+
+.developer-result .details h4 {
+  font-size: 1.8em;
+}
+
+.developer-result .details .meta-data {
+  padding: .500em 0;
+}
+
+.developer-result .details .meta-data .meta-datum {
+  color: #565454;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, Verdana, Geneva, sans-serif;
+  font-size: 1.6em;
+  line-height: 1.4em;
+  text-align: left;
+}
+
+.developer-result .details .meta-data .meta-datum.price-range {
+  color: #818181;
+  font-size: 1.4em;
+}
+
+
+/* the footer. */
+
+#footer .container .column_twelve {
+  border-top: 1px solid #dedede;
+  margin-top: 7.2em;
+  padding: 1em 0 3.6em;
+}
+
+#footer .footer-data {
+  text-align: center;
+}
+
+.footer-data li {
+  display: inline;
+  color: #808080;
+  padding: 0 1em;
+  font-size: 1.1em;
+}
+
+.footer-data li a, .footer-data li a:visited {
+  color: #808080;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.footer-data li a:hover {
+  color: #808080;
+  border-bottom: 1px solid #ddd;
+}
+
+
+/* some buttons. */
+
+.copy-button, .copy-button:visited {
+  text-align: center;
+  display: block;
+  background: #1388d6;
+  color: #fff;
+  font-size: 1.4em;
+  padding: .714em;
+  border-radius: .357em;
+}
+
+.copy-button:hover {
+  color: #fff;
+  background: #1f6dcb;
+}
+
+
+/* utilities */
+
+.action-item, .action-item:visited {
+  font-size: 1.4em;
+  color: #8d8d8d;
+  padding-left: 1em;
+  background: transparent url('/images/return-arrow.png') .15em .15em no-repeat;
+}
+
+.action-item:hover {
+  color: #727272;
+  background: transparent url('/images/return-arrow.png') 0 .15em no-repeat;
+}
+
+.focus {
+  background: #fff;
+}
