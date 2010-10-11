@@ -439,6 +439,32 @@ hr.lined {
   font-size: 1.2em;
 }
 
+/* errors! */
+
+.errorExplanation {
+  padding: 1em;
+  background: #f6ccca;
+  margin-bottom: 1em;
+}
+
+.errorExplanation h2 {
+  font-size: 1.8em;
+}
+
+.errorExplanation p {
+  font-size: 1.3em;
+  text-align: left;
+  padding: .5em 0;
+}
+
+.errorExplanation ul {
+  padding-left: 1em;
+  font-size: 1.3em;
+  text-align: left;
+  list-style: decimal inside;
+  line-height: 1.4;
+}
+
 
 /* the search options. */
 
