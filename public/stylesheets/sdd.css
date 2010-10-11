@@ -189,8 +189,12 @@ hr {
 * html .clearfix {
   height: 1%; }
 
-.padding {
+hr.padding {
   padding: 1em 0;
+}
+
+hr.lined {
+  border-bottom: 1px solid #f1f1f1;
 }
 
 
@@ -256,6 +260,17 @@ hr {
   padding: 2em 0;
 }
 
+.plain-form h3 {
+  clear: both;
+  float: left;
+  width: 35em;
+}
+
+.plain-form .explanation {
+  clear: both;
+  padding: .5em 0 2em;
+}
+
 .plain-form .fields {
   clear: both;
 }
@@ -270,24 +285,39 @@ hr {
 .plain-form .field label {
   text-align: right;
   float: left;
-  width: 10em;
+  width: 12em;
   padding: .8em 1em 0 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
+}
+
+.plain-form .field label em {
+  color: #777;
+}
+
+.plain-form .field label .charCount, .plain-form .field label .charCount em {
+  color: #999;
 }
 
 .plain-form .field input[type='text'], .plain-form .field input[type='password'] {
   float: left;
-  width: 18em;
+  width: 21em;
   padding: .5em .25em .35em;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
-  border: 1px solid #999;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bbb #eee;
+  background: #fafafa;
+}
+
+.plain-form .field input[type='text']:focus, .plain-form .field input[type='password']:focus, .plain-form .field textarea:focus {
+  border-color: #888 #ccc;
 }
 
 .plain-form .field .prefix {
   position: absolute;
   font-size: 1.1em;
-  left: 12.5em;
+  left: 15.85em;
   top: 1.35em;
   color: #888;
   -moz-user-select: none;
@@ -297,6 +327,7 @@ hr {
 
 .plain-form .field input[type='text'].prefixed {
   padding: .5em .25em .35em 1em;
+  width: 20.25em;
 }
 
 .plain-form .field input[type='file'] {
@@ -307,10 +338,15 @@ hr {
 
 .plain-form .field textarea {
   float: left;
-  width: 24em;
+  width: 21em;
+  height: 8em;
   padding: .5em .25em .35em;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bbb #eee;
+  background: #fafafa;
 }
 
 .plain-form .field select {
@@ -341,8 +377,20 @@ hr {
 }
 
 .plain-form .field .hint {
-  float: right;
+  float: left;
   display: block;
+  clear: none;
+  font-size: 1.2em;
+  padding: 1em;
+  text-align: left;
+}
+
+.plain-form .field .hint .charCount {
+  display: block;
+  margin: .5em 0;
+  padding: .25em;
+  background: #dbecfa;
+  float: left;
   clear: both;
 }
 
@@ -353,9 +401,18 @@ hr {
   color: #cc0000;
 }
 
+.plain-form .recaptcha {
+  clear: both;
+  position: relative;
+  padding: .5em 0;
+  overflow: hidden;
+  text-align: left;
+  padding-left: 17em;
+}
+
 .plain-form .field.tick {
   text-align: left;
-  padding-left: 12em;
+  padding-left: 17em;
 }
 
 .plain-form .field.tick label {
@@ -368,7 +425,7 @@ hr {
   border-top: 1px solid #f1f1f1;
   margin-top: 1em;
   padding-top: 1em;
-  padding-left: 12em;
+  padding-left: 17em;
   text-align: left;
 }
 
@@ -637,7 +694,20 @@ input.copy-button {
 /* general layout */
 
 .heading {
-  padding: 2.4em 0;
+  padding: 3.6em 0 1.8em;
+  margin-bottom: 1.8em;
+  border-bottom: 1px solid #ddd;
+}
+
+.heading h2 {
+  font-size: 3.6em;
+  text-align: center;
+  padding-bottom: .25em;
+}
+
+.heading .plain-text {
+  font-size: 1.4em;
+  text-align: center;
 }
 
 

@@ -4,7 +4,7 @@
 
 <hr class="clear" />
 
-<div class="column_six">
+<div class="column_twelve">
   <% form_for @session, :url => session_path, :html => { :class => 'plain-form' } do |f| -%>
   
     <%= f.error_messages %>
@@ -30,7 +30,4 @@
       <div class="cop-out"><%= link_to t('user.forgot_password'), new_password_reset_path %></div>
     </fieldset>
   <% end -%>
-</div>
-<div class="column_six">
-  &nbsp;
 </div>

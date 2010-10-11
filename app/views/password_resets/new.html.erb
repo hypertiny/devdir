@@ -2,7 +2,7 @@
   <h2><%= t('user.reset_password') %></h2>
 </div>
 
-<div class="column_six">
+<div class="column_twelve">
   <p class="plain-text"><%= t('user.reset_password_instructions') %></p>
   <% form_tag password_resets_path, :class => 'plain-form' do -%>
     <fieldset class="fields">
@@ -15,8 +15,4 @@
       <%= submit_tag t('user.send_new_password'), :class => 'copy-button' %>
     </div>
   <% end -%>
-</div>
-
-<div class="column_six">
-  &nbsp;
 </div>
