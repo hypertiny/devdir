@@ -12,7 +12,7 @@
       <%- if @provider.requests.recent.empty? -%>
         <div class="card-alert"><p class="plain-text"><%= t('provider.no_rfps') %></p></div>
       <%- else -%>
-        <table class="requests">
+        <table class="requests plain-table">
           <tr>
             <th><%= t('rfp.project_name') %></th>
             <th><%= t('rfp.submitted_by') %></th>
@@ -43,7 +43,7 @@
       <%- if @provider.endorsements.recent.empty? -%>
         <div class="card-alert"><p class="plain-text"><%= t('provider.no_endorsements')%></p></div>
       <%- else -%>
-        <table class="endorsements">
+        <table class="endorsements plain-table">
           <tr>
             <th><%= t('endorsement.admin.name') %></th>
             <th><%= t('endorsement.admin.email') %></th>

@@ -1,13 +1,12 @@
-<div class="dashboard">  
-  <h3><%= t('request.headline') %></h3>
-  
-  <!-- Uncomment this to add a page description -->
-  <!-- <p class="description"><%= t('request.description') %></p> -->
-  
+<div class="dashboard column_twelve">
+  <div class="box-heading">
+    <h3><%= t('request.headline') %></h3>
+  </div>
+  <div class="box-content">
   <%- if @requests.empty? -%>
-    <p><%= t('request.no_requests') %></p>
+    <div class="card-alert"><p class="plain-text"><%= t('request.no_requests') %></p></div>
   <%- else -%>
-    <table class="requests">
+    <table class="requests plain-table">
       <tr>
         <th><%= t('rfp.project_name') %></th>
         <th><%= t('request.submitted_by') %></th>
@@ -26,6 +25,7 @@
     <%- end -%>
     </table>
   <%- end -%>
+  </div>
 
   <%= will_paginate %>
 </div>

@@ -115,6 +115,28 @@ h4 {
   text-align: left;
 }
 
+/* the table. */
+
+.plain-table {
+  display: block;
+  font-size: 1.3em;
+  line-height: 1.4em;
+  text-align: left;
+}
+
+.plain-table td, .plain-table th {
+  padding: .5em 1em;
+}
+
+.plain-table th {
+  font-weight: bold;
+  border-bottom: 3px double #eee;
+}
+
+.plain-table td {
+  border-bottom: 1px solid #f3f3f3;;
+}
+
 /* the text. */
 
 .plain-text {
@@ -771,9 +793,6 @@ input.copy-button {
 .box-content {
   padding: 2em 0;
   margin: 0 0 4em;
-}
-
-.box-content table {
 }
 
 
