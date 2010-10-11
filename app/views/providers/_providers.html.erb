@@ -1,7 +1,7 @@
 <%- if @providers.empty? -%>
-  <p><%= t('provider.no_providers') %></p>
+  <div class="card-alert"><p class="plain-text"><%= t('provider.no_providers') %></p></div>
 <%- else -%>
-    <table>
+    <table class="plain-table">
       <tr>
         <th><%= t('provider.company_name') %></th>
         <th><%= t('provider.location') %></th>

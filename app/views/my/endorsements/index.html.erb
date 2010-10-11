@@ -34,7 +34,8 @@
             <%= render :partial => "endorsement", :collection => @endorsements %>
           </tbody>
           </table>
-          <%= submit_tag t('endorsement.approve_selected') %>
+          <hr class="padding">
+          <%= submit_tag t('endorsement.approve_selected'), :class => 'copy-button' %>
         <%- end -%>
       </div>
     <%- end -%>

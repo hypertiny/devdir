@@ -1,23 +1,37 @@
-<h2><%= t('provider.request_endorsement') %></h2>
+<div class="column_twelve">
+  <div class="box-heading">
+    <h3><%= t('provider.request_endorsement') %></h2>
+  </div>
 
-<% form_for [:my, @endorsement_request] do |f| -%>
-  <%= f.error_messages %>
-  <fieldset>
-    <%= f.label :recipient_addresses, t("endorsement_request.email_addresses") %>
-    <%= f.text_area :recipient_addresses %><br />
-    <p>
-      <%= t("endorsement_request.email_note") %>
-      <%= t("endorsement_request.email_format") %>
-    </p>
-  </fieldset>
+  <div class="box-content">
+    <% form_for [:my, @endorsement_request], :html => { :class => 'plain-form' } do |f| -%>
+      <%= f.error_messages %>
+      <fieldset class="fields">
+        <div class="field">
+          <%= f.label :recipient_addresses, t("endorsement_request.email_addresses") %>
+          <%= f.text_area :recipient_addresses %>
+          <div class="hint">
+            <%= t("endorsement_request.email_note") %><br />
+            <%= t("endorsement_request.email_format") %>
+          </div>
+        </div>
+      </fieldset>
 
-  <fieldset>
-    <p>
-      <strong><%= t('endorsement_request.subject') %></strong>
-      <%= t('email.endorsement_request.subject', :company_name => current_user.provider.company_name) %>
-    </p>
+      <fieldset class="fields">
+        <div class="field">
+          <label><%= t('endorsement_request.subject') %></label>
+          <span class="fake-input">
+            <%= t('email.endorsement_request.subject', :company_name => current_user.provider.company_name) %>
+          </span>
+        </div>
     
-    <%= f.label :message, t("endorsement_request.message") %> <%= f.text_area :message %>
-  </fieldset>
-  <%= f.submit t('endorsement_request.save') %>
-<%- end -%>
+        <div class="field">
+          <%= f.label :message, t("endorsement_request.message") %> <%= f.text_area :message %>
+        </div>
+      </fieldset>
+      <fieldset class="buttons">
+        <%= f.submit t('endorsement_request.save'), :class => 'copy-button' %>
+      </fieldset>
+    <%- end -%>
+  </div>
+</div>

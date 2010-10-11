@@ -1,17 +1,24 @@
-<h2><%= t('provider.by_state') %></h2>
+<div class="column_twelve">
+  <div class="heading">
+    <h2><%= t('provider.by_state') %></h2>
+    <p class="plain-text">or return to the <%= link_to "full developer listing", providers_path %>.</p>
+  </div>
 
-<ul>
-<%- @providers.group_by(&:country).each do |location, providers| -%>
-  <li>
-    <%= link_to t('countries')[location.to_sym], send(Country.path_for(location)) %>
-    <%- if location == 'US' -%>
-      <ul>
-        <%- @providers.select{ |p| p.country == 'US'}.group_by(&:state_province).each do |state_province, providers| -%>
-          <%- next if state_province.blank? or State.path_for(state_province) == '_path' -%>
-          <li><%= link_to State.by_code(state_province), send(State.path_for(state_province)) %></li>
-        <%- end -%>
-      </ul>
-    <%- end -%>
-  </li>
-<%- end -%>
-</ul>
+  <ul>
+  <%- @providers.group_by(&:country).each do |location, providers| -%>
+    <li>
+      <h4><%= link_to t('countries')[location.to_sym], send(Country.path_for(location)) %></h4>
+      <%- if location == 'US' -%>
+        <ul>
+          <%- @providers.select{ |p| p.country == 'US'}.group_by(&:state_province).each do |state_province, providers| -%>
+            <%- next if state_province.blank? or State.path_for(state_province) == '_path' -%>
+            <li class="plain-text"><%= link_to State.by_code(state_province), send(State.path_for(state_province)) %></li>
+          <%- end -%>
+        </ul>
+      <%- end -%>
+    </li>
+  <%- end -%>
+  </ul>
+  
+  <hr class="padding" />
+</div>

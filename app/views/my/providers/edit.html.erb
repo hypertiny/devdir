@@ -1,21 +1,25 @@
-<h2><%= t('company_profile.edit_headline') %></h2>
+<div class="column_twelve heading">
+  <h2><%= t('company_profile.edit_headline') %></h2>
+  
+  <p class="plain-text"><%= t('company_profile.edit_description') %></p>
+</div>
 
-<p class="description"><%= t('company_profile.edit_description') %></p>
+<hr class="clear" />
 
-<hr />
-
-<% form_for @provider, :url => my_provider_path, :html => {:multipart => true} do |f| -%>
+<% form_for @provider, :url => my_provider_path, :html => {:multipart => true, :class => 'plain-form'} do |f| -%>
   
   <%= f.error_messages %>
 
   <%- if current_user.can_admin?(@provider) -%>
-    <fieldset>
-      <%= f.label :user_id, t("provider.admin") %> <%= f.select :user_id, @provider.users_for_select %>
+    <fieldset class="fields">
+      <div class="field"><%= f.label :user_id, t("provider.admin") %> <%= f.select :user_id, @provider.users_for_select %></div>
     </fieldset>
   <%- end -%>
   
   <%= render :partial => 'providers/form', :locals => {:f => f} %>
   
-    <%= f.submit t('forms.save') %> <%= t('forms.or')%> <%= link_to t('forms.cancel'), @provider %>
+  <fieldset class="buttons">
+    <%= f.submit t('forms.save'), :class => 'copy-button' %> <div class="cop-out"><%= t('forms.or')%> <%= link_to t('forms.cancel'), @provider %></div>
+  </fieldset>
 
 <% end -%>
