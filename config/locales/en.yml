@@ -88,7 +88,7 @@ en:
     logo: /images/logo-rails.jpg
     welcome: "Looking for a Rails Developer?"
     description: "<p>If you’re a business searching for an established, professional Rails development firm to build your Ruby on Rails application, then you’ve come to the right place!</p><p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Development Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
-    find_a_provider: Find a Rails Developer
+    find_a_provider: Find a developer
     full_listing: Full listing
     by_location: Geographic listing
     provider_signup: Rails Developer? Get Listed...
@@ -128,12 +128,12 @@ en:
       user_email_cannot_be_different_domain: Please ensure that you use an email address on the same domain name as your company website
       valid_url: Please enter a valid URL
       reserved_name: is reserved. Please try another.
-    signup: Create an account
+    signup: Sign up
     signup_headline: Get Better Referrals
     signup_description: "It only takes a few minutes to create an account."
-    sign_in: Sign in to your account
+    sign_in: Log in
     
-    directory_headline: Find a Rails Developer
+    directory_headline: Find a Developer
     directory_description: "Give us a little information, and we'll show you Rails developers who best match your requirements."
     directory_results_description: "Click on the developer's name to view their company profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
     visit_website: Visit this company's website

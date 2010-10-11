@@ -194,6 +194,7 @@ hr {
 }
 
 #header h1 {
+  font-size: 1em;
   float: left;
   width: 25em;
   height: 3em;
@@ -231,12 +232,89 @@ hr {
 
 #header .user-navigation-list .user-navigation-item {
   float: left;
-  padding: .125em 0 .125em .5em;
+  padding: .125em 0 .125em 2em;
   font-size: 1.2em;
 }
 
 #header .user-navigation-list .user-navigation-item a:hover {
   border-bottom: 1px solid #ddd;
+}
+
+
+/* forms! */
+
+.plain-form {
+  clear: both;
+  padding: 2em 0;
+}
+
+.plain-form .fields {
+  clear: both;
+  border-top: #f9f9f9 solid 1px;
+  border-bottom: #f1f1f1 solid 1px;
+}
+
+.plain-form .fields .field {
+  clear: both;
+  border-bottom: #f9f9f9 solid 1px;
+  border-top: #f1f1f1 solid 1px;
+  padding: .5em 0;
+  overflow: hidden;
+}
+
+.plain-form .field label {
+  float: left;
+  width: 8em;
+  padding: .5em 0 0;
+  font-size: 1.1em;
+}
+
+.plain-form .field input[type='text'], .plain-form .field input[type='password'] {
+  float: left;
+  width: 12em;
+  padding: .5em .25em .35em;
+  font-size: 1.1em;
+  font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
+}
+
+.plain-form .field .hint {
+  float: right;
+  display: block;
+  clear: both;
+}
+
+.plain-form .field .error {
+  float: right;
+  display: block;
+  clear: both;
+  color: #cc0000;
+}
+
+.plain-form .field.tick {
+  text-align: left;
+  padding-left: 8.5em;
+}
+
+.plain-form .field.tick label {
+  display: inline;
+  float: none;
+  padding: 0;
+}
+
+.plain-form .buttons {
+  padding-top: 1em;
+  padding-left: 8.5em;
+  text-align: left;
+}
+
+.plain-form .buttons input.copy-button {
+  display: inline;
+}
+
+.plain-form .buttons .cop-out {
+  display: inline;
+  padding: 0 0 0 .5em;
+  font-size: 1.2em;
 }
 
 
@@ -478,9 +556,23 @@ hr {
   border-radius: .357em;
 }
 
+input.copy-button {
+  border-width: 0;
+  padding: .5em .714em;
+	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
+}
+
 .copy-button:hover {
   color: #fff;
   background: #1f6dcb;
+  cursor: pointer;
+}
+
+
+/* general layout */
+
+.heading {
+  padding: 2.4em 0;
 }
 
 

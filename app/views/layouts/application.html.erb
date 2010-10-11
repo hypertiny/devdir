@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sencha Developer Directory</title>
+  <title>
+    <% if @page_content and @page_content.title.not.empty? %>
+      <%= @page_content.title %> |
+    <%- else -%>
+      <%= yield :title %>
+    <%- end -%>
+    <%= t('general.site_title') %>
+  </title>
+  <meta name="page" content="<%= @page_url || "#{controller.controller_name}/#{controller.action_name}" %>"/>
+      <%- if @page_content and @page_content.enable_keywords? -%>
+        <meta name="keywords" content="<%= @page_content.keywords %>">
+      <%- else -%>
+        <%= yield :keywords %>
+      <%- end -%>
+      <%- if @page_content and @page_content.description.to_s.not.empty? -%>
+        <meta name="description" content="<%= @page_content.description %>">
+      <%- else -%>
+        <%= yield :description %>
+      <%- end -%>
+      <%- if @page_content and @page_content.enable_canonical? -%>
+        <link href="<%= @page_content.canonical %>" rel="canonical" />
+      <%- end -%>
+      <%- if @page_content and @page_content.robots.not.blank? -%>
+        <meta name="robots" content="<%= @page_content.robots %>">
+      <%- end -%>
   <link rel="stylesheet" type="text/css" href="/stylesheets/sdd.css" />
+  <script type="text/javascript" charset="utf-8">
+    AUTH_TOKEN = '<%= u(form_authenticity_token) %>';
+  </script>
 </head>
 <body>
   <div class="focus">
     <div id="header" class="container">
       <div class="column_seven">
         <h1>
-          <a href="/">SenchaDevs</a>
+          <%= link_to t('general.site_title_logo'), root_path %>
         </h1>
       </div>
       <div class="call-to-action">
@@ -21,21 +48,32 @@
         </div>
         <div class="column_one">
           <div class="button">
-            <a href="#" class="copy-button">
-              Sign up
-            </a>
+            <%= link_to t('provider.signup'), new_provider_path, :class => 'copy-button', :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %>
           </div>
         </div>
       </div>
       <hr class="clear" />
       <ul class="user-navigation-list">
-        <li class="user-navigation-item">
-          <a href="/login">Log in</a>
-        </li>
+        <%- if logged_in? -%>
+          <li class="username user-navigation-item"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>
+          <% if current_user.admin? %>
+            <li class="user-navigation-item"><%= link_to t('navigation.admin'), admin_dashboard_path %></li>
+          <%- end -%>
+          <li class="user-navigation-item"><%= link_to t('navigation.provider_directory'), provider_directory_path %></li>
+          <li class="user-navigation-item"><%= link_to t('general.sign_out'), logout_path %></li>
+        <%- else -%>
+          <li class="user-navigation-item"><%= link_to t('home.find_a_provider'), provider_directory_path %></li>
+          <li class="user-navigation-item"><%= link_to t('provider.sign_in'), login_path, :rel => "nofollow" %></li>
+        <%- end -%>
       </ul>
     </div>
   </div>
-  <%= yield %>
+  <div class="focus">
+    <div class="container">
+      <%= yield %>
+      <hr class="clear" />
+    </div>
+  </div>
   <div id="footer">
     <div class="container">
       <div class="column_twelve">
