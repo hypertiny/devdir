@@ -736,6 +736,46 @@ input.copy-button {
   text-align: center;
 }
 
+.box-heading {
+  border-bottom: 1px solid #ddd;
+  clear: both;
+  overflow: hidden;
+  margin-top: 4em;
+}
+
+.box-heading h3 {
+  float: left;
+  border-bottom: 0;
+}
+
+.box-heading .utility {
+  float: right;
+}
+
+.box-heading .utility li {
+  float: left;
+  padding: 0 0 0 1em;
+}
+
+.box-heading .utility li a, .box-heading .utility li a:visited {
+  display: block;
+  font-size: 1.2em;
+  padding: .25em .5em;
+  background: #dbecfa;
+}
+
+.box-heading .utility li a:hover {
+  background: #cae0f8;
+}
+
+.box-content {
+  padding: 2em 0;
+  margin: 0 0 4em;
+}
+
+.box-content table {
+}
+
 
 /* utilities */
 
@@ -753,4 +793,13 @@ input.copy-button {
 
 .focus {
   background: #fff;
+}
+
+.card-alert {
+  background: #f8f8f8;
+  border-bottom: 1px solid #f3f3f3;
+  margin: 2em;
+  padding: 2em;
+  width: 32em;
+  margin: 0 auto;
 }
