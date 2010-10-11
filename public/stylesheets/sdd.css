@@ -103,6 +103,10 @@ h3 {
   font-size: 1.8em;
   font-weight: bold;
   text-align: left;
+  color: #444;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: .25em;
+  margin-bottom: .25em;
 }
 
 h4 {
@@ -185,6 +189,10 @@ hr {
 * html .clearfix {
   height: 1%; }
 
+.padding {
+  padding: 1em 0;
+}
+
 
 /* the header. */
 
@@ -254,23 +262,82 @@ hr {
 
 .plain-form .fields .field {
   clear: both;
+  position: relative;
   padding: .5em 0;
   overflow: hidden;
 }
 
 .plain-form .field label {
+  text-align: right;
   float: left;
-  width: 8em;
-  padding: .5em 0 0;
-  font-size: 1.1em;
+  width: 10em;
+  padding: .8em 1em 0 0;
+  font-size: 1.2em;
 }
 
 .plain-form .field input[type='text'], .plain-form .field input[type='password'] {
   float: left;
-  width: 12em;
+  width: 18em;
   padding: .5em .25em .35em;
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
+  border: 1px solid #999;
+}
+
+.plain-form .field .prefix {
+  position: absolute;
+  font-size: 1.1em;
+  left: 12.5em;
+  top: 1.35em;
+  color: #888;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.plain-form .field input[type='text'].prefixed {
+  padding: .5em .25em .35em 1em;
+}
+
+.plain-form .field input[type='file'] {
+  float: left;
+  padding: .5em 0 .35em;
+  font-size: 1.2em;
+}
+
+.plain-form .field textarea {
+  float: left;
+  width: 24em;
+  padding: .5em .25em .35em;
+  font-size: 1.2em;
+  font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
+}
+
+.plain-form .field select {
+  float: left;
+  width: 18em;
+  margin: .5em 0em .35em;
+  font-size: 1.2em;
+  font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
+}
+
+.plain-form .field .ticks {
+  float: left;
+  padding: .5em 0;
+  width: 24em;
+}
+
+.plain-form .field .ticks li {
+  display: block;
+  clear: both;
+  text-align: left;
+}
+
+.plain-form .field .ticks li input, .plain-form .field .ticks li label {
+  float: none;
+  display: inline;
+  font-size: 1.1em;
+  padding: 0;
 }
 
 .plain-form .field .hint {
@@ -288,7 +355,7 @@ hr {
 
 .plain-form .field.tick {
   text-align: left;
-  padding-left: 8.5em;
+  padding-left: 12em;
 }
 
 .plain-form .field.tick label {
@@ -298,8 +365,10 @@ hr {
 }
 
 .plain-form .buttons {
+  border-top: 1px solid #f1f1f1;
+  margin-top: 1em;
   padding-top: 1em;
-  padding-left: 8.5em;
+  padding-left: 12em;
   text-align: left;
 }
 

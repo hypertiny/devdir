@@ -9,9 +9,9 @@ en:
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
-    copyright: 'Created by <a href="http://www.engineyard.com"><img src="/images/logo-ey-horiz.png" alt="Engine Yard, Ruby on Rails Hosting" /></a>. Runs on <a href="http://www.engineyard.com/products/cloud">Engine Yard Cloud</a>.'
+    copyright: '&copy; 2010 Sencha Inc.'
     contact_us: 'Contact Us'
-    terms: 'Terms and Conditions'
+    terms: 'Terms of Use'
     
     ago: '{{date}} ago'
     

@@ -1,9 +1,22 @@
-<h1><%= t('user.reset_password') %></h1>
+<div class="column_twelve heading">
+  <h2><%= t('user.reset_password') %></h2>
+</div>
 
-<p><%= t('user.reset_password_instructions') %></p>
-<% form_tag password_resets_path do -%>
-  <fieldset>
-    <%= label_tag :email, t("user.email") %> <%= text_field_tag :email %> <br />
-  </fieldset>
-  <%= submit_tag t('user.send_new_password') %>
-<% end -%>
+<div class="column_six">
+  <p class="plain-text"><%= t('user.reset_password_instructions') %></p>
+  <% form_tag password_resets_path, :class => 'plain-form' do -%>
+    <fieldset class="fields">
+      <div class="field">
+        <%= label_tag :email, t("user.email") %>
+        <%= text_field_tag :email %>
+      </div>
+    </fieldset>
+    <fieldset class="buttons">
+      <%= submit_tag t('user.send_new_password'), :class => 'copy-button' %>
+    </div>
+  <% end -%>
+</div>
+
+<div class="column_six">
+  &nbsp;
+</div>

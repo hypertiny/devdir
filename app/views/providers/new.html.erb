@@ -1,45 +1,69 @@
-<h2><%= t('provider.signup_headline') %></h2>
+<div class="column_twelve heading">
+  <h2><%= t('provider.signup_headline') %></h2>
 
-<p class="description"><%= t('provider.signup_description') %></p>
+  <p class="plain-text"><%= t('provider.signup_description') %></p>
+</div>
+
+<hr class="clear" />
 
 <%= @page_content.content if @page_content %>
 
-<hr />
+<hr class="clear" />
 
-<% form_for setup_provider(@provider), :html => {:multipart => true} do |f| -%>
+<div class="column_eight">
+
+<% form_for setup_provider(@provider), :html => {:multipart => true, :class => 'plain-form'} do |f| -%>
 
   <%= f.error_messages %>
 
-    <h3><%= t('provider.administrator_password_headline') %></h3>
+  <h3><%= t('provider.administrator_password_headline') %></h3>
 
-    <p><%= t('provider.administrator_password_description')%></p>
+  <p class="plain-text explanation"><%= t('provider.administrator_password_description')%></p>
+    
+  <fieldset class="fields">
     
     <%- f.fields_for :users do |uf| -%>
-      <fieldset>
-        <%= uf.label :first_name, t("user.first_name") %> <%= uf.text_field :first_name %> <br />
-        <%= uf.label :last_name, t("user.last_name") %> <%= uf.text_field :last_name %> <br />
-      </fieldset>
-
-        <%= uf.label :email, t("user.email") %> <%= uf.text_field :email %><br />
-        <%= uf.label :password, t("user.password") %> <%= uf.password_field :password %> <br />
-        <%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %>
-
+      <div class="field"><%= uf.label :first_name, t("user.first_name") %> <%= uf.text_field :first_name %></div>
+      <div class="field"><%= uf.label :last_name, t("user.last_name") %> <%= uf.text_field :last_name %></div>
+      <div class="field"><%= uf.label :email, t("user.email") %> <%= uf.text_field :email %></div>
+      <div class="field"><%= uf.label :password, t("user.password") %> <%= uf.password_field :password %></div>
+      <div class="field"><%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %></div>
     <%- end -%>
-  
-    <h3><%= t('provider.company_details_headline') %></h3>
-    <p><% t('provider.company_details_descrpition') %></p>
     
-    <%= render :partial => 'providers/form', :locals => {:f => f} %>
-  <fieldset>
+  </fieldset>
+  
+  <hr class="padding" />
+  
+  <h3><%= t('provider.company_details_headline') %></h3>
+  <p class="plain-text explanation"><% t('provider.company_details_descrpition') %></p>
+    
+  <%= render :partial => 'providers/form', :locals => {:f => f} %>
 
-    <label><%= t('provider.terms_of_service') %></label>
-    <ul>
-      <li><%= f.check_box :terms_of_service %> <%= f.label :terms_of_service, t('provider.accept_terms_of_service')%></li>
-    </ul>
+  <h3><%= t('provider.terms_of_service') %></h3>
+
+  <fieldset class="fields">
+    
+    <div class="field">
+      <label><%= t('provider.terms_of_service') %></label>
+      <ul class="ticks">
+        <li>
+          <%= f.check_box :terms_of_service %>
+          <%= f.label :terms_of_service, t('provider.accept_terms_of_service') %>
+        </li>
+      </ul>
+    </div>
   </fieldset>
   
   <%= recaptcha_tags(:ssl => true) %>
 
-  <%= f.submit t('forms.signup') %>
+  <fieldset class="buttons">
+    <%= f.submit t('forms.signup'), :class => 'copy-button' %>
+  </fieldset>
 
 <% end -%>
+
+</div>
+
+<div class="column_four">
+  &nbsp;
+</div>
