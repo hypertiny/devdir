@@ -2,11 +2,11 @@
   <div class="field"><%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %></div>
 	<div class="field">
   	<%= f.label :marketing_description, "#{t("provider.marketing_description")}" %>
-  	<%= f.text_area :marketing_description, :'data-count' => 300  %>
+  	<%= f.text_area :marketing_description, :'data-count' => 800  %>
   	<div class="hint">
   	  <%= t("provider.marketing_description_limit") %>
   	  <div class='charCount'>
-      	<em class=\"number\"><%= 300 - (@provider.marketing_description ? @provider.marketing_description.size : 0) %></em>
+      	<em class=\"number\"><%= 800 - (@provider.marketing_description ? @provider.marketing_description.size : 0) %></em>
       	<%= t('provider.remaining') %>
     	</div>
   	</div>

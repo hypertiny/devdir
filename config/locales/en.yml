@@ -187,7 +187,7 @@ en:
     company_name: Company Name
     slug: URL code / slug
     marketing_description: Marketing Description
-    marketing_description_limit: Please limit to 300 characters
+    marketing_description_limit: Please limit to 500 characters
     remaining: remaining
     location: Location
     street_address: Street Address

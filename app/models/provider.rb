@@ -6,7 +6,7 @@ class Provider < ActiveRecord::Base
   validates_uniqueness_of :slug
   validate_on_create :first_user_has_email_matching_company_url
   validates_acceptance_of :terms_of_service
-  validates_length_of :marketing_description, :maximum => 300, :allow_nil => true
+  validates_length_of :marketing_description, :maximum => 800, :allow_nil => true
   validate :name_is_not_a_reserved_country_name
   
   audit
