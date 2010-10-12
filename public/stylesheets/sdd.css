@@ -509,6 +509,7 @@ hr.lined {
 /* the search options. */
 
 .search-options {
+  height: auto;
   padding: 0 0 3.6em;
 }
 

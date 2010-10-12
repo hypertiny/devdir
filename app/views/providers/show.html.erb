@@ -76,15 +76,56 @@
       <dd class="favorite-data">99</dd>
     </dl>
   </div>
+  <hr class="clear" />
 </div>
-<hr class="clear" />
+
+<div class="developer">
+  <div class="column_three">
+    <div class="imagery">
+      <%- if @provider.logo_file_name.not.blank? -%>
+        <%= image_tag(@provider.logo.url(:thumb)) %>
+      <%- end -%>
+      <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar" />
+      <img src="/images/gc/webadvanced-logo.jpg" alt="Web Advanced Logo" class="logo" />
+    </div>
+  </div>
+  <div class="column_six">
+    <div class="details">
+      <h2><%= @provider.company_name %></h2>
+      <ul class="meta-data">
+        <li class="meta-datum">
+          <%= @provider.private_address.join(", ") %>
+        </li>
+        <li class="meta-datum price-range">
+          &#36;5,000 - &#36;15,000
+        </li>
+      </ul>
+      <% if @provider.marketing_description.not.blank? %>
+        <div class="synopsis plain-text"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="column_three">
+    <div class="twitter">
+      <h3 class="latest-tweets">Latest Tweets</h3>
+      <ul class="tweet-list">
+        <li class="tweet-item">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </li>
+        <li class="tweet-item">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </li>
+        <li class="tweet-item">
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </li>
+      </ul>
+      <a href="http://www.twitter.com/" class="follow-link">Follow @davekaneda</a>
+    </div>
+  </div>
+  <hr class="clear" />
+</div>
 
 <div class="column_twelve">
-  <%- if @provider.logo_file_name.not.blank? -%>
-    <%= image_tag(@provider.logo.url(:thumb)) %>
-  <%- end -%>
-  
-  <h2 class="narrow"><%= @provider.company_name %></h2>
 
   <ul class="sidebar links">
     <% if logged_in? and current_user.can_edit?(@provider) %>
