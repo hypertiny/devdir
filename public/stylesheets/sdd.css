@@ -901,8 +901,28 @@ input.copy-button {
   border-bottom: 0;
 }
 
+.box-heading .action-items {
+  clear: both;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0 1em;
+}
+
+.box-heading .action-items li {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.box-heading .action-items li a {
+  margin: 0;
+  padding: 0;
+  padding-left: 1em;
+}
+
 .box-heading .utility {
-  float: right;
+  position: absolute;
+  right: 0;
 }
 
 .box-heading .utility li {
@@ -962,4 +982,11 @@ input.copy-button {
   border: 1px solid #eee;
   -webkit-box-shadow: 0em .25em .125em #efefef;
   overflow: hidden;
+}
+
+.card-list .card-item cite.date {
+  text-align: left;
+  display: block;
+  font-size: 1.2em;
+  padding: .5em 0 0;
 }

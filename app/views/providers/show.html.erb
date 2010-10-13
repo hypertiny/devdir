@@ -164,64 +164,6 @@
       </ul>
     <%- end -%>
   </div>
-
-
-  <%- if @provider.portfolio_items.empty? -%>
-    <% # t('provider.no_portfolio_items') %>
-    <%- if logged_in? and current_user.can_edit?(@provider) -%>
-      <div class="block portfolio">
-        <h4><%= t('provider.portfolio_items_headline') %></h4>
-        <%= link_to t('provider.add_now'), new_my_portfolio_item_path %>
-      </div>
-    <%- end -%>
-  <%- else -%>
-    <div class="block portfolio">
-      <h4><%= t('provider.portfolio_items_headline') %></h4>
-      <dl>
-        <%- @provider.portfolio_items.each do |item| -%>
-          <dt><%= link_to item.name, item.url %></dt>
-          <dd><%= item.description %></dd>
-          <dd class="date"><%= t('portfolio_item.project_completed_in') + item.year_completed %></dd>
-        <%- end -%>
-      </dl>
-    </div>
-  <%- end -%>
-
-</div>
-
-<div class="sidebar">
-  
-  <!-- <% form_for :provider, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
-      <%= hidden_field_tag "provider_id", @provider.id %>
-      <%= f.submit t('provider.send_rfp') %>
-    <% end -%> -->
-  
-  <h3><%= t('provider.endorsements_headline') %></h3>
-  
-  <%- if @provider.endorsements.approved.empty? -%>
-    <p><%= t('provider.no_endorsements') %></p>
-  <%- else -%>
-    <% @provider.endorsements.recent.approved.each do |endorsement| %>
-      <div>
-        <blockquote>&#8220;<%= h endorsement.endorsement %>&#8221;</blockquote>
-        <cite>
-          <% # This part needs to get cleaned up %>
-          <%=h endorsement.name %>, <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %><br />
-          <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>
-        </cite>
-      </div>
-    <%- end -%> 
-  <%- end -%>
-  
-  <%- if @provider.endorsements.approved.count > 3 -%>
-    <%= link_to t('provider.more_endorsements'), provider_endorsements_path(@provider), :id => 'more-endorsements' %>
-    | 
-  <%- end -%>
-  <% if logged_in? and current_user.provider == @provider %>
-    <%= link_to t('endorsement.ask_for_endorsement'), new_my_endorsement_request_path %>
-  <%- else -%>
-    <%= link_to t('provider.endorse'), new_provider_endorsement_path(@provider) %>
-  <%- end -%>
 </div>
 
 <% content_for :highlight do %>
