@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091210164854) do
+ActiveRecord::Schema.define(:version => 20101012110613) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20091210164854) do
     t.string   "company_url"
     t.text     "marketing_description"
     t.integer  "endorsements_count",                                    :default => 0
+    t.string   "avatar_file_name"
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"

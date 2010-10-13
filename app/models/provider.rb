@@ -10,7 +10,8 @@ class Provider < ActiveRecord::Base
   validate :name_is_not_a_reserved_country_name
   
   audit
-  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "64x64>" }
+  has_attached_file :avatar, :styles => { :larger => "384x384>", :display => "108x108>" }
+  has_attached_file :logo, :styles => { :larger => "384x384>", :display => "108x108>" }
   xss_terminate :sanitize => [:marketing_description]
   format_dates :timestamps
   

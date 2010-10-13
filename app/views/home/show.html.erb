@@ -2,41 +2,126 @@
 <%- content_for :description do -%><meta name="description" content="<%= @page.description if @page %>"><%- end -%>
 
 
-<div class="welcome">
-  <h1><%= t('home.welcome') %></h1>
-  <div><%= t('home.description') %></div>
-  <div class="clear"></div>
-</div>
-
-<div class="searchWizard">
-  <h3><%= t('provider.directory.description') %></h3>
-  <div class="provider search">
-    <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
-      <table>
-        <tr>
-          <td>
-            <%= label_tag 'budget', t('provider.directory.budget') %> <%= text_field_tag 'budget', '', :class => "number" %> <br />
-            <span class="note"><%= t('provider.directory.note') %></span>
-            <%= label_tag 'location', t('provider.directory.location') %>
-            <%= location_select %>
-
-            
-          </td>
-          <td>
-            <h4><%= t('provider.directory.services') %></h4>
-            <ul>
-              <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <label><%= t('provider.directory.default_service') %></label></li>
-              <%- Service.ordered_not_checked.each do |service| -%>
-                <li> <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %> <%= label_tag dom_id(service), service.name %></li>
-              <%- end -%>
-            </ul>
-          </td>
-        </tr>
-      </table>
-
-        <%= submit_tag t('provider.directory.find_providers') %>
-    <% end -%>
-  </div>
+<div class="heading">
+  <h2><%= t('home.welcome') %></h2>
+  <div class="plain-text"><%= t('home.description') %></div>
 </div>
 
 <%= @page.content if @page %>
+
+<%- content_for :highlight do %>
+  <div class="highlight">
+    <div class="container">
+      <div class="column_three">
+        <h3>
+          <%= link_to t('home.find_a_provider'), provider_directory_path %>
+        </h3>
+      </div>
+      <div class="column_six">
+        <div class="provider search">
+          <% form_tag search_providers_path, :method => :get, :id => 'search-form', :class => 'plain-form' do -%>
+                  <%= label_tag 'budget', t('provider.directory.budget') %> <%= text_field_tag 'budget', '', :class => "number" %> <br />
+                  <span class="note"><%= t('provider.directory.note') %></span>
+                  <%= label_tag 'location', t('provider.directory.location') %>
+                  <%= location_select %>
+                <td>
+                  <h4><%= t('provider.directory.services') %></h4>
+                  <ul>
+                    <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <label><%= t('provider.directory.default_service') %></label></li>
+                    <%- Service.ordered_not_checked.each do |service| -%>
+                      <li><%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %> <%= label_tag dom_id(service), service.name %></li>
+                    <%- end -%>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+            <%= submit_tag t('provider.directory.find_providers'), :class => 'copy-button' %>
+          <% end -%>
+        </div>
+      </div>
+      <div class="column_three">
+        &nbsp;
+      </div>
+      <hr class="clear" />
+    </div>
+  </div>
+<% end -%>
+<% content_for :addendum do -%>
+  <div class="container">
+    <div class="column_twelve addendum">
+      <h3>Featured Developers</h3>
+    </div>
+    <hr class="clear" />
+    <ul class="developer-results">
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr class="clear" />
+  </div>
+<% end %>

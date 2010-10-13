@@ -83,11 +83,16 @@
   <div class="column_three">
     <div class="imagery">
       <%- if @provider.logo_file_name.not.blank? -%>
-        <%= image_tag(@provider.logo.url(:thumb)) %>
+        <%= image_tag(@provider.logo.url(:display)) %>
       <%- end -%>
       <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar" />
       <img src="/images/gc/webadvanced-logo.jpg" alt="Web Advanced Logo" class="logo" />
     </div>
+    <ul class="developer-actions">
+      <li class=""><a href="/" class="copy-button">send a request</a></li>
+      <li class=""><a href="/" class="copy-button">view endorsements</a></li>
+      <li class=""><a href="/" class="copy-button">view portfolio</a></li>
+    </ul>
   </div>
   <div class="column_six">
     <div class="details">
@@ -126,7 +131,6 @@
 </div>
 
 <div class="column_twelve">
-
   <ul class="sidebar links">
     <% if logged_in? and current_user.can_edit?(@provider) %>
       <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
@@ -139,18 +143,7 @@
 </div>
 
 <div class="narrow">
-  <% if @provider.marketing_description.not.blank? %>
-  	<div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
-  <% end %>
-  
   <div class="block companyInfo">
-    <div class="column">
-      <h4><%= t('provider.location') %></h4>
-      <address>
-        <%= @provider.private_address.join(", ") %>
-      </address>
-
-    </div>
     <div class="column">    
       <h4><%= t('provider.company_size') %></h4>
       <%= company_size(@provider) %>
@@ -229,3 +222,120 @@
     <%= link_to t('provider.endorse'), new_provider_endorsement_path(@provider) %>
   <%- end -%>
 </div>
+
+<% content_for :highlight do %>
+  <div class="highlight">
+    <div class="container">
+      <div class="column_three">
+        <h3>
+          <a href="/">Get in touch!</a>
+        </h3>
+      </div>
+      <div class="column_six">
+        <ul class="contact-details">
+          <li class="website">
+            <a href="http://www.webadvanced.com">webadvanced.com</a>
+          </li>
+          <li class="email">
+            <a href="mailto:brian@webadvanced.com">brian@webadvanced.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="column_three">
+        <ul class="developer-actions">
+          <li>
+            <a href="/" class="favorite">
+              Favorite
+            </a>
+          </li>
+          <li>
+            <a href="/" class="share">
+              Share
+            </a>
+          </li>
+        </ul>
+      </div>
+      <hr class="clear" />
+    </div>
+  </div>
+<% end -%>
+<% content_for :addendum do -%>
+  <div class="container">
+    <div class="column_twelve addendum">
+      <h3>Other developers from your search</h3>
+      <a href="/search" class="action-item">Return to full results</a>
+    </div>
+    <hr class="clear" />
+    <ul class="developer-results">
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr class="clear" />
+  </div>
+<% end %>

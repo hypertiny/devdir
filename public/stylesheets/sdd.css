@@ -218,6 +218,10 @@ hr {
 
 * html .clearfix {
   height: 1%; }
+  
+hr.fatty {
+  padding: 3.6em 0;
+}
 
 hr.padding {
   padding: 1em 0;
@@ -601,6 +605,10 @@ hr.lined {
   margin-top: .8em;
 }
 
+.developer .developer-actions li {
+  margin-top: 1em;
+}
+
 .developer .twitter {
   overflow: hidden;
   border-radius: .5em;
@@ -680,15 +688,26 @@ hr.lined {
   font-size: 2.4em;
   padding: .750em 0;
   background: transparent url(/images/highlight-arrow.png) right center no-repeat;
+  border-width: 0;
+  margin: 0;
 }
 
 .highlight h3 a, .highlight h3 a:visited {
   color: #fff;
+  text-shadow: 0 -1px 1px #1c488c;
 }
 
 .highlight .contact-details li {
   float: left;
-  padding: 1.8em;
+  padding: 1.8em 1.8em 1.8em 3.6em;
+}
+
+.highlight .contact-details .website {
+  background: transparent url('../images/link-icon.png') .30em 1.30em no-repeat;
+}
+
+.highlight .contact-details .email {
+  background: transparent url('../images/mail-icon.png') left 1.70em no-repeat;
 }
 
 .highlight .contact-details a, .highlight .contact-details a:visited {
@@ -698,15 +717,36 @@ hr.lined {
   text-shadow: 0 -1px 1px #216aad;
 }
 
+.highlight .developer-actions {
+  float: right;
+}
+
 .highlight .developer-actions li {
   float: left;
-  padding: 1.8em;
 }
 
 .highlight .developer-actions li a, .highlight .developer-actions li a:visited {
+  display: block;
   color: #fff;
   font-size: 1.3em;
   text-shadow: 0 -1px 1px #216aad;
+  padding: 1.538em 1.538em 1.538em 2.307em;
+}
+
+.highlight .developer-actions li .favorite {
+  background: transparent url('../images/btn-favorite.png') .25em 1em no-repeat;
+}
+
+.highlight .developer-actions li .favorite:hover {
+  background: transparent url('../images/btn-favorite-hover.png') .25em 1em no-repeat;
+}
+
+.highlight .developer-actions li .share {
+  background: transparent url('../images/btn-share.png') .25em 1em no-repeat;
+}
+
+.highlight .developer-actions li .share:hover {
+  background: transparent url('../images/btn-share-hover.png') .25em 1em no-repeat;
 }
 
 /* the addendum */

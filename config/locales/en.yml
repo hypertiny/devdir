@@ -86,8 +86,8 @@ en:
       
   home:
     logo: /images/logo-rails.jpg
-    welcome: "Looking for a Rails Developer?"
-    description: "<p>If you’re a business searching for an established, professional Rails development firm to build your Ruby on Rails application, then you’ve come to the right place!</p><p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Development Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
+    welcome: "Looking for a developer?"
+    description: "Take a few minutes to find a high-quality web development firm that meets your needs and fits your budget."
     find_a_provider: Find a developer
     full_listing: Full listing
     by_location: Geographic listing
@@ -187,7 +187,7 @@ en:
     company_name: Company Name
     slug: URL code / slug
     marketing_description: Marketing Description
-    marketing_description_limit: Please limit to 500 characters
+    marketing_description_limit: Please limit to 800 characters
     remaining: remaining
     location: Location
     street_address: Street Address
@@ -200,6 +200,7 @@ en:
     company_url: Company Website
     company_size: Number of Employees
     logo: Company Logo
+    avatar: Profile Image
     hourly_rate: Hourly Rate
     min_budget: Minimum Budget
     endorsements: Endorsements
@@ -270,9 +271,8 @@ en:
     admin: Admin user?
 
   portfolio_item:
-    add_new: Add a new project to your portfolio
-    add_new_to: Add a new project to the {{provider}} portfolio
-    add_new_for: Add a new project to the portfolio for {{provider}}
+    add_new: Add new project
+    add_new_to: Add a new project to {{provider}}&rsquo;s portfolio
     edit: Edit this portfolio project
     edit_on: Edit porfolio project on {{provider}}
     delete: Delete this portfolio project

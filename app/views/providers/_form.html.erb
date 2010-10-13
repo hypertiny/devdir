@@ -22,7 +22,11 @@
   <div class="field"><%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %></div>
   <div class="field"><%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %></div>
   <%- if @provider.not.new_record? and @provider.logo_file_name.not.blank? -%>
-    <div class="field"><%= image_tag(@provider.logo.url(:thumb)) %></div>
+    <div class="field"><%= image_tag(@provider.logo.url(:display)) %></div>
+  <%- end -%>
+  <div class="field"><%= f.label :avatar, t('provider.avatar') %><%= f.file_field :avatar %></div>
+  <%- if @provider.not.new_record? and @provider.avatar_file_name.not.blank? -%>
+    <div class="field"><%= image_tag(@provider.avatar.url(:display)) %></div>
   <%- end -%>
 </fieldset>
 
