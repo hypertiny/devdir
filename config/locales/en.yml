@@ -119,7 +119,7 @@ en:
     rails_developer_in: Rails Developer in
     developer_description: "View the Rails developer profile for {{name}}, located in {{address}}, providing {{services_offered}}"
     
-    by_state: View list by country / state
+    by_state: Developers by Country or State
     outside_us: Outside United States
     all_locations: All Locations
     international: International
@@ -146,7 +146,7 @@ en:
       services: "Services Required:"
       default_service: "Ruby on Rails Development"
     
-    request_rfp: Fill out request
+    request_rfp: send a request
     send_rfp: "Request a Proposal"
     
     endorse: Write an endorsement
@@ -156,7 +156,7 @@ en:
     request_endorsement: Ask a customer for an endorsement
     sort_endorsements: Sort endorsements
     done_sorting: Done Sorting
-    more_endorsements: "Read all endorsements"
+    view_endorsements: view endorsements
     confirmed: Confirmed
     confirmed_explanation: "Confirmed means that these companies have verified the accuracy of their information in the directory, and had at least three customers endorse their work."
     
@@ -164,6 +164,7 @@ en:
     no_portfolio_items: No portfolio items have been added to this developer profile yet.
     add_now: You can add one now
     portfolio_items_headline: Portfolio
+    view_portfolio_items: view portfolio
 
     endorsement_headline: Satisfied customer? Endorse this developer
     endorsement_description: "Please let us know your experience with {{company}}"
@@ -278,6 +279,7 @@ en:
     delete: Delete this portfolio project
     no_portfolio_items: You haven't added any projects to your portfolio yet
     manage: Manage portfolio
+    items_for: "{{company_name}}&rsquo;s Portfolio"
 
     show_portfolio_item: Portfolio Project
     headline: Portfolio

@@ -1,19 +1,40 @@
-<h2><%= t('endorsement.endorsements_for', :company_name => @provider.company_name) %></h2>
+<div class="column_twelve">
+  <div class="heading">
+    <h2><%= t('endorsement.endorsements_for', :company_name => @provider.company_name) %></h2>
+    <ul class="action-items">
+      <li>
+        <%= link_to "return to summary", @provider, :class => 'action-item' %>
+      </li>
+    </ul>
+    <hr class="clear" />
+  </div>
+</div>
+
+<hr class="clear" />
 
 <%- if @endorsements.empty? -%>
-  <p><%= t('provider.no_endorsements')%></p>
-<%- else -%>
-  <div class="allEndorsements">
-    <% @endorsements.each do |endorsement| %>
-      <p><%=h endorsement.name %></p>
-      <blockquote>&#8220;<%= endorsement.endorsement %>&#8221;</blockquote>
-      <cite>
-        <% # This part needs to get cleaned up %>
-        <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %>. 
-        <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>.
-      </cite>
-    <%- end -%>
+  <div class="column_twelve">
+    <div class="card-alert"><p class="plain-text"><%= t('provider.no_endorsements')%></p></div>
   </div>
+<%- else -%>
+  <ul class="card-list">
+    <% @endorsements.each do |endorsement| %>
+      <li class="column_six">
+        <div class="card-item">
+          <p><%=h endorsement.name %></p>
+          <blockquote>&#8220;<%= endorsement.endorsement %>&#8221;</blockquote>
+          <cite>
+            <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %>. 
+            <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>.
+          </cite>
+        </div>
+      </li>
+    <%- end -%>
+  </ul>
 <%- end -%>
 
-<%= will_paginate %>
+<hr class="padding" />
+<div class="column_twelve">
+  <%= will_paginate %>
+</div>
+<hr class="fatty" />

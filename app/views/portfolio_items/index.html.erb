@@ -1,0 +1,37 @@
+<div class="column_twelve">
+  <div class="heading">
+    <h2><%= t('portfolio_item.items_for', :company_name => @provider.company_name) %></h2>
+    <ul class="action-items">
+      <li>
+        <%= link_to "return to summary", @provider, :class => 'action-item' %>
+      </li>
+    </ul>
+    <hr class="clear" />
+  </div>
+</div>
+
+<hr class="clear" />
+
+<%- if @portfolio_items.empty? -%>
+  <div class="column_twelve">
+    <div class="card-alert"><p class="plain-text"><%= t('provider.no_portfolio_items')%></p></div>
+  </div>
+<%- else -%>
+  <ul class="card-list">
+    <%- @portfolio_items.each do |item| -%>
+      <li class="column_six">
+        <div class="card-item">
+          <h4><%= link_to item.name, item.url %></h4>
+          <cite class="date"><%= t('portfolio_item.project_completed_in') + item.year_completed %></cite>
+          <div class="plain-text"><p><%= item.description %></p></div>
+        </div>
+      </li>
+    <%- end -%>
+  </ul>
+<%- end -%>
+
+<hr class="padding" />
+<div class="column_twelve">
+  <%= will_paginate %>
+</div>
+<hr class="fatty" />

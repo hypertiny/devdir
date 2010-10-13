@@ -605,8 +605,12 @@ hr.lined {
   margin-top: .8em;
 }
 
+.developer .developer-actions {
+  padding-top: 3.6em;
+}
+
 .developer .developer-actions li {
-  margin-top: 1em;
+  margin-top: 1.2em;
 }
 
 .developer .twitter {
@@ -948,4 +952,14 @@ input.copy-button {
   padding: 2em;
   width: 32em;
   margin: 0 auto;
+}
+
+.card-list .card-item {
+  background-color: #fcfcfc;
+  margin-bottom: 1.2em;
+  padding: 1em 1em 3.6em;
+  border-radius: .50em;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 0em .25em .125em #efefef;
+  overflow: hidden;
 }

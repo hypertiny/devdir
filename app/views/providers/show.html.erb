@@ -82,6 +82,9 @@
 <div class="developer">
   <div class="column_three">
     <div class="imagery">
+      <%- if @provider.avatar_file_name.not.blank? -%>
+        <%= image_tag(@provider.avatar.url(:display)) %>
+      <%- end -%>
       <%- if @provider.logo_file_name.not.blank? -%>
         <%= image_tag(@provider.logo.url(:display)) %>
       <%- end -%>
@@ -89,9 +92,19 @@
       <img src="/images/gc/webadvanced-logo.jpg" alt="Web Advanced Logo" class="logo" />
     </div>
     <ul class="developer-actions">
-      <li class=""><a href="/" class="copy-button">send a request</a></li>
-      <li class=""><a href="/" class="copy-button">view endorsements</a></li>
-      <li class=""><a href="/" class="copy-button">view portfolio</a></li>
+      <% if logged_in? and current_user.can_edit?(@provider) %>
+        <li><%= link_to t('company_profile.edit'), edit_my_provider_path, :class => 'copy-button' %></li>
+        <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path, :class => 'copy-button' %></li>
+        <li><%= link_to t('endorsement.manage'), my_endorsements_path, :class => 'copy-button' %></li>
+      <%- else -%>
+        <li class="request"><strong><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class => 'copy-button' %></strong></li>
+        <%- if @provider.endorsements.approved.not.empty? -%>
+          <li><%= link_to t('provider.view_endorsements'), provider_endorsements_path(@provider), :class => 'copy-button' %></li>
+        <%- end -%>
+        <%- if @provider.portfolio_items.not.empty? -%>
+          <li><%= link_to t('provider.view_portfolio_items'), provider_portfolio_items_path(@provider), :class => 'copy-button' %></li>
+        <%- end -%>
+      <%- end -%>
     </ul>
   </div>
   <div class="column_six">
@@ -128,18 +141,6 @@
     </div>
   </div>
   <hr class="clear" />
-</div>
-
-<div class="column_twelve">
-  <ul class="sidebar links">
-    <% if logged_in? and current_user.can_edit?(@provider) %>
-      <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
-      <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
-      <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
-    <%- else -%>
-      <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');" %></li>
-    <%- end -%>
-  </ul>
 </div>
 
 <div class="narrow">

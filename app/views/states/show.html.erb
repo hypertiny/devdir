@@ -1,5 +1,23 @@
 <%- content_for :title do -%><%= t("state.providers_in", :state => State.from_slug(params[:state]).name) %> | <%- end -%>
 
-<h2><%= t("state.providers_in", :state => State.from_slug(params[:state]).name) %></h2>
+<div class="column_twelve">
+  <div class="heading">
+    <h2><%= t("state.providers_in", :state => State.from_slug(params[:state]).name) %></h2>
+    <ul class="action-items">
+      <li>
+        <%= link_to "return to location listing", by_location_providers_path, :class => 'action-item' %>
+      </li>
+    </ul>
+    <hr class="clear" />
+  </div>
+</div>
 
-<%= render :partial => 'providers/providers' %>
+<hr class="clear" />
+
+<div class="column_twelve">
+
+  <%= render :partial => 'providers/providers' %>
+
+  <hr class="fatty" />
+
+</div>
