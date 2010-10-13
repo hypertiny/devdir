@@ -5,6 +5,11 @@
       <li><%= link_to t('provider.request_endorsement'), new_my_endorsement_request_path %></li>
       <li><%= link_to t('provider.sort_endorsements'), '#', :class => 'sort-endorsements' %></li>
     </ul>
+    <ul class="action-items">
+      <li>
+        <%= link_to "return to dashboard", my_dashboard_path, :class => 'action-item' %>
+      </li>
+    </ul>
   </div>
   <div class="box-content">
     <%- if @endorsements.blank? -%>

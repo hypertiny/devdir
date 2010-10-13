@@ -1,7 +1,14 @@
 <div class="dashboard column_twelve">
   <div class="box-heading">
     <h3><%= t('request.headline') %></h3>
+    <ul class="action-items">
+      <li>
+        <%= link_to "return to dashboard", my_dashboard_path, :class => 'action-item' %>
+      </li>
+    </ul>
+    <hr class="clear" />
   </div>
+
   <div class="box-content">
   <%- if @requests.empty? -%>
     <div class="card-alert"><p class="plain-text"><%= t('request.no_requests') %></p></div>
