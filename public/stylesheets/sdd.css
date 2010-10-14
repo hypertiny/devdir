@@ -684,10 +684,13 @@ hr.lined {
   font-size: 1.4em;
   float: left;
   margin-right: 1em;
+  padding: 0;
 }
 
 .developer .details .meta-data .meta-datum.inline img {
+  float: left;
   width: 1.2em;
+  margin: .125em .35em 0 0;
 }
 
 .developer .details .synopsis {
@@ -712,6 +715,7 @@ hr.lined {
   background: transparent url(/images/highlight-arrow.png) right center no-repeat;
   border-width: 0;
   margin: 0;
+  line-height: .65;
 }
 
 .highlight h3 a, .highlight h3 a:visited {
@@ -831,8 +835,16 @@ hr.lined {
 
 .developer-result .details .meta-data .meta-datum.inline {
   color: #818181;
-  font-size: 1.4em;
+  font-size: 1.2em;
   float: left;
+  margin-right: 1em;
+  padding: 0;
+}
+
+.developer-result .details .meta-data .meta-datum.inline img {
+  float: left;
+  width: 1.2em;
+  margin: .125em .35em 0 0;
 }
 
 
