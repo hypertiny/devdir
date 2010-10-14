@@ -89,6 +89,7 @@ a:hover {
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, Verdana, Geneva, sans-serif;
+	line-height: 1.1;
 	color: #000;
     text-rendering: optimizeLegibility;
 }
@@ -155,6 +156,10 @@ h4 {
 
 .plain-text a:hover {
   border-bottom: 1px solid #ddd;
+}
+
+ul.bulleted {
+  list-style: square inside;
 }
 
 /* the structure. */
@@ -662,6 +667,8 @@ hr.lined {
 
 .developer .details .meta-data {
   padding: .500em 0;
+  clear: both;
+  overflow: hidden;
 }
 
 .developer .details .meta-data .meta-datum {
@@ -672,13 +679,23 @@ hr.lined {
   text-align: left;
 }
 
-.developer .details .meta-data .meta-datum.price-range {
+.developer .details .meta-data .meta-datum.inline {
   color: #818181;
   font-size: 1.4em;
+  float: left;
+  margin-right: 1em;
+}
+
+.developer .details .meta-data .meta-datum.inline img {
+  width: 1.2em;
 }
 
 .developer .details .synopsis {
   color: #000;
+}
+
+.developer .details .services {
+  margin-top: .5em;
 }
 
 
@@ -686,6 +703,7 @@ hr.lined {
 
 .highlight {
   background: #226fb7 url(/images/highlight-light.png) center top no-repeat;
+  border-bottom: 1px solid #c4d8f1;
 }
 
 .highlight h3 {
@@ -799,6 +817,8 @@ hr.lined {
 
 .developer-result .details .meta-data {
   padding: .500em 0;
+  clear: both;
+  overflow: hidden;
 }
 
 .developer-result .details .meta-data .meta-datum {
@@ -809,9 +829,10 @@ hr.lined {
   text-align: left;
 }
 
-.developer-result .details .meta-data .meta-datum.price-range {
+.developer-result .details .meta-data .meta-datum.inline {
   color: #818181;
   font-size: 1.4em;
+  float: left;
 }
 
 
@@ -963,6 +984,7 @@ input.copy-button {
 
 .focus {
   background: #fff;
+  border-bottom: 1px solid #c4d8f1;
 }
 
 .card-alert {

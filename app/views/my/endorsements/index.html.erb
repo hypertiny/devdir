@@ -17,13 +17,12 @@
     <%- else -%>
   
       <div id="sorting-endorsements">
-          <ul>
-            <%- @endorsements.each do |endorsement| -%>
-              <li class="sortable" id="<%= dom_id(endorsement) %>">
-                <strong><%= endorsement.name %></strong> <em><%= truncate(endorsement.endorsement) %></em></li>
-            <%- end -%>
-          </ul>
-        
+        <ul>
+          <%- @endorsements.each do |endorsement| -%>
+            <li class="sortable" id="<%= dom_id(endorsement) %>">
+              <strong><%= endorsement.name %></strong> <em><%= truncate(endorsement.endorsement) %></em></li>
+          <%- end -%>
+        </ul>
       </div>
       <div id="non-sorting-endorsements">
         <%- form_tag update_all_my_endorsements_path do -%>
