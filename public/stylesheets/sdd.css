@@ -524,6 +524,49 @@ hr.lined {
 
 /* the search options. */
 
+.highlight .search-options {
+  padding: 0;
+}
+
+.highlight .search-options .go-button {
+  text-align: center;
+  display: block;
+  background: #1a65ad;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.4em;
+  border-radius: .357em;
+  border-width: 0;
+  padding: .45em .714em .55em;
+	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
+  text-shadow: 0 1px 1px #1c488c;
+}
+
+.highlight .search-options .go-button:hover {
+  color: #fff;
+  background: #125ba1;
+  cursor: pointer;
+  text-shadow: 0 -1px 1px #1c488c;
+}
+
+.highlight .search-options-list {
+  margin: 0 0 1em -1em;
+}
+
+.highlight .search-options .search-option h3 {
+  color: #d3dceb;
+  background-color: #1a65ad;
+}
+
+.highlight .search-options .search-option .search-details {
+  top: 2.4em;
+  background: #98b9d9;
+}
+
+.highlight .search-options .search-option .search-details li {
+  color: #134a80;
+}
+
 .search-options {
   height: auto;
   padding: 0 0 3.6em;
@@ -596,7 +639,6 @@ hr.lined {
   padding: 1.25em 1em 1em;
   background: transparent url('/images/favorite-icon.png') center center no-repeat;
 }
-
 
 /* the devs. */
 

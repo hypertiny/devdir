@@ -549,7 +549,7 @@ en:
 
     endorsement_request: 
       greeting: "Hi {{name}}"
-      subject: 'Can you endorse {{company_name}}'
+      subject: 'Can you endorse {{company_name}}?'
       instructions: "To write your endorsement, go to:"
       appendage: This was sent from the Rails Development Directory.
     
