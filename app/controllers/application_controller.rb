@@ -35,7 +35,7 @@ protected
 
 private
 
-  def self.ssl_required
+  def self.ssl_required(*args)
     return true
   end
 
