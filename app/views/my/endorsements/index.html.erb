@@ -20,7 +20,8 @@
         <ul>
           <%- @endorsements.each do |endorsement| -%>
             <li class="sortable" id="<%= dom_id(endorsement) %>">
-              <strong><%= endorsement.name %></strong> <em><%= truncate(endorsement.endorsement) %></em></li>
+              <strong><%= endorsement.name %></strong> <em><%= truncate(endorsement.endorsement) %></em>
+            </li>
           <%- end -%>
         </ul>
       </div>
