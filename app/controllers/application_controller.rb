@@ -35,6 +35,10 @@ protected
 
 private
 
+  def ssl_required
+    return true
+  end
+
   def ssl_allowed?
     true
   end
