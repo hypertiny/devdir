@@ -1,20 +1,164 @@
-<h2><%= t('provider.directory_headline') %></h2>
+<div class="heading">
+  <h2><%= t('provider.directory_headline') %></h2>
+  <div class="plain-text"><p class="description"><%= t('provider.directory_description') %></p></div>
+</div>
 
-<p class="description"><%= t('provider.directory_description') %></p>
-
-<% form_tag search_providers_path, :method => :get, :id => "search-form" do -%>
-  <%= label_tag 'budget', t('provider.directory.budget') %> <%= text_field_tag 'budget' %>
-  
-  <span class="note"><%= t('provider.directory.note') %></span><br/>
-  
-  <%= label_tag 'location', t('provider.directory.location') %> <%= location_select %><br/>
-  <label><%= t('provider.directory.services') %></label>
-  <ul>
-    <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <%= t('provider.directory.default_service') %></li>
-  <%- Service.ordered_not_checked.each do |service| -%>
-    <li> <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %> <%= label_tag dom_id(service), service.name %></li>
-  <%- end -%>
-  </ul>
-  
-  <%= submit_tag t('provider.directory.find_providers') %>
+<%- content_for :highlight do %>
+  <div class="highlight">
+    <div class="container">
+      <div class="column_three">
+        <h3>
+          <%= link_to t('home.find_a_provider'), provider_directory_path %>
+        </h3>
+      </div>
+      <div class="column_six">
+        <div class="search-options">
+          <ul class="search-options-list">
+            <li class="search-option price-range">
+              <h3>&#36;2,000 - &#36;3,000</h3>
+              <ul class="search-details">
+                <li>
+                  <input type="radio" id="onethousand" />
+                  <label for="onethousand">&#36;1,000</label>
+                </li>
+                <li>
+                  <input type="radio" id="fivethousand" />
+                  <label for="fivethousand">&#36;5,000</label>
+                </li>
+                <li>
+                  <input type="radio" id="tenthousand" />
+                  <label for="tenthousand">&#36;10,000</label>
+                </li>
+                <li>
+                  <input type="radio" id="fiftythousand" />
+                  <label for="fiftythousand">&#36;50,000</label>
+                </li>
+                <li>
+                  <input type="radio" id="onehundredthousand" />
+                  <label for="onehundredthousand">&#36;100,000</label>
+                </li>
+              </ul>
+            </li>
+            <li class="search-option capabilities">
+              <h3>Ext JS, Rails, P...</h3>
+              <ul class="search-details">
+                <li>
+                  <input type="checkbox" id="extjs" />
+                  <label for="extjs">Ext JS</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="jquery" />
+                  <label for="jquery">jQuery</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="rails" />
+                  <label for="rails">Rails</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="java" />
+                  <label for="java">Java</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="css3" />
+                  <label for="css3">CSS3</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="php" />
+                  <label for="php">PHP</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="touch" />
+                  <label for="touch">Sencha Touch</label>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <input class="go-button" type="submit" value="Go." />
+        </div>
+      </div>
+      <div class="column_three">
+        &nbsp;
+      </div>
+      <hr class="clear" />
+    </div>
+  </div>
 <% end -%>
+<% content_for :addendum do -%>
+  <div class="container">
+    <div class="column_twelve addendum">
+      <h3>Featured Developers</h3>
+    </div>
+    <hr class="clear" />
+    <ul class="developer-results">
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="column_six">
+        <div class="developer-result">
+          <div class="imagery">
+            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
+          </div>
+          <div class="details">
+            <h4>Surf Studio</h4>
+            <ul class="meta-data">
+              <li class="meta-datum">Palo Alto, CA</li>
+              <li class="meta-datum price-range">&#36;5,000 - &#36;15,000</li>
+            </ul>
+            <div class="synopsis plain-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr class="clear" />
+  </div>
+<% end %>
