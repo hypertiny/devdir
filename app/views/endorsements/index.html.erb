@@ -21,12 +21,16 @@
     <% @endorsements.each do |endorsement| %>
       <li class="column_six">
         <div class="card-item">
-          <p><%=h endorsement.name %></p>
-          <blockquote>&#8220;<%= endorsement.endorsement %>&#8221;</blockquote>
-          <cite>
-            <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %>. 
-            <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>.
-          </cite>
+          <div class="plain-text">
+            <blockquote>&#8220;<%= endorsement.endorsement %>&#8221;</blockquote>
+          </div>
+          <div class="source">
+            <h4><%=h endorsement.name %></h4>
+            <cite>
+              <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %><br />
+              <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>
+            </cite>
+          </div>
         </div>
       </li>
     <%- end -%>
