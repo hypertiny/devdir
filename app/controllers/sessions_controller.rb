@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
 private
-  def ssl_required?
-    true
-  end
+  # def ssl_required?
+  #   true
+  # end
 end
