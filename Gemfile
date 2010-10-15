@@ -4,6 +4,7 @@ gem 'rails', '2.3.10'
 gem 'mysql'
 
 gem "highline"
+gem 'hpricot'
 gem "RedCloth", :require => 'redcloth'
 gem "authlogic", '2.1.2'
 gem "fastercsv"

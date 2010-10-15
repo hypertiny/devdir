@@ -3,9 +3,9 @@
 
 en:
   general:
-    site_title: Rails Development Directory
-    site_title_logo: "<img src='/images/type-rdd.png' alt='Rails Development Directory' />"
-    site_title_admin: Rails Development Directory Admin
+    site_title: Sencha Development Directory
+    site_title_logo: "<img src='/images/type-rdd.png' alt='Sencha Development Directory' />"
+    site_title_admin: Sencha Development Directory Admin
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
@@ -72,7 +72,7 @@ en:
     change_password: Change Password
     dashboard:
       title: Admin Dashboard
-      welcome: This is the administrator section of the Rails Development Directory
+      welcome: This is the administrator section of the Sencha Development Directory
       total_providers: "Total number of developers: {{providers_size}}"
       active_providers: "active: {{active_providers_size}}"
       inactive_providers: "inactive: {{inactive_providers_size}}"
@@ -91,7 +91,7 @@ en:
     find_a_provider: Find a developer
     full_listing: Full listing
     by_location: Geographic listing
-    provider_signup: Rails Developer? Get Listed...
+    provider_signup: Sencha Developer? Get Listed...
     enter_budget: Please enter your budget
     everywhere: Everywhere
     top_cities: Top Cities
@@ -116,8 +116,8 @@ en:
 
   provider:
     developer_profile: Developer Profile
-    rails_developer_in: Rails Developer in
-    developer_description: "View the Rails developer profile for {{name}}, located in {{address}}, providing {{services_offered}}"
+    rails_developer_in: Sencha Developer in
+    developer_description: "View the Sencha developer profile for {{name}}, located in {{address}}, providing {{services_offered}}"
     
     by_state: Developers by Country or State
     outside_us: Outside United States
@@ -134,17 +134,17 @@ en:
     sign_in: Log in
     
     directory_headline: Find a Developer
-    directory_description: "Give us a little information, and we'll show you Rails developers who best match your requirements."
+    directory_description: "Give us a little information, and we'll show you Sencha developers who best match your requirements."
     directory_results_description: "Click on the developer's name to view their company profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
     visit_website: Visit this company's website
     directory:
-      description: "Give us a little information about your project, and we'll show you Rails developers that best match your requirements."
+      description: "Give us a little information about your project, and we'll show you Sencha developers that best match your requirements."
       find_providers: Find a developer
       budget: "Your Budget ($US):"
       note: "Please enter numbers only"
       location: "Location:"
       services: "Services Required:"
-      default_service: "Ruby on Rails Development"
+      default_service: "Sencha Development"
     
     request_rfp: send a request
     send_rfp: "Request a Proposal"
@@ -337,7 +337,7 @@ en:
     three_provider_max: Please choose a maximum of three providers to submit a request to.
     
     new_rfp_headline: Submit a Request
-    new_rfp_description: Fill out the form below to send an enquiry to the Rails developers you've selected.
+    new_rfp_description: Fill out the form below to send an enquiry to the Sencha developers you've selected.
     
     first_name: First Name
     last_name: Last Name
@@ -348,7 +348,7 @@ en:
     postal_code: ZIP / Post code
     created_on: Sent on
     
-    disclaimer: <strong>Disclaimer:</strong> Engine Yard does not represent the companies in this directory.
+    disclaimer: <strong>Disclaimer:</strong> Sencha does not represent the companies in this directory.
     
     about_your_project: Please tell us about your project
     services: "Services Required:"
@@ -531,10 +531,10 @@ en:
     providers: Export Providers
 
   country:
-    providers_in: "Rails Developers in {{country}}"
+    providers_in: "Sencha Developers in {{country}}"
     
   state:
-    providers_in: "US Rails Developers in {{state}}"
+    providers_in: "US Sencha Developers in {{state}}"
     
   email:
     subject: Subject
@@ -545,40 +545,40 @@ en:
       greeting: "Hi {{name}}"
       introduction: A new request has been submitted. Click below to view the request.
       thanks: Thanks.
-      signoff: The Rails Development Directory team
+      signoff: The Sencha Development Directory team
 
     endorsement_request: 
       greeting: "Hi {{name}}"
       subject: 'Can you endorse {{company_name}}?'
       instructions: "To write your endorsement, go to:"
-      appendage: This was sent from the Rails Development Directory.
+      appendage: This was sent from the Sencha Development Directory.
     
     endorsement_notification:
       greeting: "Hi {{name}}"
-      subject: You've been endorsed in the Rails Development Directory
-      instructions: "{{name}} has endorsed you on the Rails Development Directory. To approve this endorsement, go to:"
-      appendage: This was sent from the Rails Development Directory
+      subject: You've been endorsed in the Sencha Development Directory
+      instructions: "{{name}} has endorsed you on the Sencha Development Directory. To approve this endorsement, go to:"
+      appendage: This was sent from the Sencha Development Directory
 
     user_welcome: 
-      subject: 'Welcome to the Rails Development Directory'
+      subject: 'Welcome to the Sencha Development Directory'
       greeting: "Hi {{name}}"
-      message: You've been set up with an account on the Rails Development Directory
+      message: You've been set up with an account on the Sencha Development Directory
       credentials: "You can get started by clicking the link below"
       email: "Email:"
       password: "You can get started using the link below"
-      signoff: "Regards, The Engine Yard Team"
+      signoff: "Regards, The Sencha Team"
 
     provider_welcome: 
-      subject: 'Welcome to the Rails Development Directory'
+      subject: 'Welcome to the Sencha Development Directory'
       greeting: Hi {{name}},
-      message: Thanks for signing up to the Rails Development Directory
+      message: Thanks for signing up to the Sencha Development Directory
       credentials: "You can log in at {{url}} and your details are below"
       email: "Email:"
       password: "Password:"
-      signoff: "Regards, The Engine Yard Team"
+      signoff: "Regards, The Sencha Team"
 
     password_reset: 
-      subject: 'Welcome to the Rails Development Directory'
+      subject: 'Welcome to the Sencha Development Directory'
       greeting: Hi {{name}},
       instructions: You can reset your password using the link below
-      signoff: "Regards, The Engine Yard Team"
+      signoff: "Regards, The Sencha Team"

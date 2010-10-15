@@ -5,8 +5,7 @@ $(document).ready(function(){
   
   function textarea_maxlength(){
     remaining = $(this).attr('data-count') - $(this).val().length
-    console.log(remaining)
-    $('.number').html(remaining + '')
+    $('em.number').text(remaining + '')
     if(remaining >= 0)
     {
         $('.number').removeClass('over-limit')
