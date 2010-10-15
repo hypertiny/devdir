@@ -1,6 +1,8 @@
-As an Engine Yard administrator
-I want to browse and create users for providers
-So that I can see the activity on the provider account and provide support if necessary
+Feature: Admin Developer Users
+
+  As an Engine Yard administrator
+  I want to browse and create users for providers
+  So that I can see the activity on the provider account and provide support if necessary
 
   Scenario: Adding a new user to a provider
     Given a logged in admin user

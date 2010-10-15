@@ -1,6 +1,8 @@
-As a Provider
-I want to be able manage my account
-So that I can make sure my profile is accurate and up-to-date
+Feature: Provider Managing Account
+
+  As a Provider
+  I want to be able manage my account
+  So that I can make sure my profile is accurate and up-to-date
 
   Scenario: Provider manages their account
     Given a provider "Kooky" belonging to "paul@dopo.com"

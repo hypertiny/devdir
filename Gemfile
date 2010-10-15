@@ -16,16 +16,18 @@ group :development do
   gem 'mongrel'
 end
 
-group :test do
+group :cucumber do
   gem 'capybara'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'
-  gem 'email_spec' 
+  gem 'email_spec', '0.6.4'
+  gem 'factory_girl'
   gem 'faker'
   gem 'fakeweb'
   gem 'launchy'
+  gem 'machinist', '1.0.6'
   gem 'ruby-debug'
-  gem 'rspec', :require => 'spec'
-  gem 'rspec-rails', :require => 'spec/rails'
+  gem 'rspec', '1.3.1'
+  gem 'rspec-rails', '1.3.3'
 end

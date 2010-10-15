@@ -33,9 +33,9 @@ When /^I attach the file at "([^\"]*)" to "([^\"]*)" translation$/ do |path, fie
 end
 
 Then /^I should see "([^\"]*)" translation$/ do |text|
-  response.should contain(I18n.t(text))
+  page.should have_content(I18n.t(text))
 end
 
 Then /^I should not see "([^\"]*)" translation$/ do |text|
-  response.should_not contain(I18n.t(text))
+  page.should_not have_content(I18n.t(text))
 end

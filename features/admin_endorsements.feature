@@ -1,6 +1,7 @@
-As a developer and EY admin
-I want a full listing of endorsements in the admin section
-So that examine all submitted endorsements independent of providers
+Feature: Endorsements Admin
+  As a developer and EY admin
+  I want a full listing of endorsements in the admin section
+  So that examine all submitted endorsements independent of providers
 
   Scenario: Seeing a list of endorsements
     Given a provider "Tim Stafford" with an approved endorsement from "Steve Martin"
@@ -19,8 +20,8 @@ So that examine all submitted endorsements independent of providers
       And I follow "Endorsements"
       And I follow "Steve Martin"
     Then I should see "Steve Martin"
-			And I should see "Tim Stafford"
-			And I should not see "Chris Thile"
+      And I should see "Tim Stafford"
+      And I should not see "Chris Thile"
 
   Scenario: Deleting a endorsement
     Given a provider "Tim Stafford" with a rejected endorsement from "Steve Martin"

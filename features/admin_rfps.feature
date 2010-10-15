@@ -1,6 +1,7 @@
-As a developer and EY admin
-I want a full listing of rfps in the admin section
-So that examine all submitted rfps independent of providers
+Feature: Admin RFPS
+  As a developer and EY admin
+  I want a full listing of rfps in the admin section
+  So that examine all submitted rfps independent of providers
 
   Scenario: Seeing a list of rfps
     Given a provider "Tim Stafford" with an RFP called "Unwieldy"
@@ -26,7 +27,7 @@ So that examine all submitted rfps independent of providers
       And I follow "Requests"
       And I follow "Unwieldy"
     Then I should see "Unwieldy"
-			And I should see "Tim Stafford"
+      And I should see "Tim Stafford"
 
   Scenario: Deleting an RFP
     Given a provider "Tim Stafford" with an RFP called "Unwieldy"

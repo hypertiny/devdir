@@ -1,6 +1,8 @@
-As a Provider
-I want to be able sign up
-So that I can can receive Rails project referrals
+Feature: Provider Signup
+
+  As a Provider
+  I want to be able sign up
+  So that I can can receive Rails project referrals
 
   Scenario: Signing up with an invalid password confirmation
     Given I am on the homepage

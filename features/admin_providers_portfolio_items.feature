@@ -1,6 +1,7 @@
-As an Engine Yard administrator
-I want to browse and create portfolio items for providers
-So that I can see the activity on the provider account and provide support if necessary
+Feature: Providers Portfolio Admin
+  As an Engine Yard administrator
+  I want to browse and create portfolio items for providers
+  So that I can see the activity on the provider account and provide support if necessary
 
   Scenario: Adding a new portfolio item to a provider
     Given a logged in admin user

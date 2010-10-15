@@ -1,6 +1,8 @@
-As a developer and EY admin
-I want an unrestricted admin section
-So that I can edit database fields within the UI of the site
+Feature: Admin Providers
+
+  As a developer and EY admin
+  I want an unrestricted admin section
+  So that I can edit database fields within the UI of the site
 
   Scenario: Creating a new provider
     Given a logged in admin user

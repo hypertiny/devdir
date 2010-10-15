@@ -1,6 +1,8 @@
-As an Engine Yard administrator
-I want to see the RFPs that a provider has generated
-So that I can monitor the performance of the system
+Feature: Provider Requests
+
+  As an Engine Yard administrator
+  I want to see the RFPs that a provider has generated
+  So that I can monitor the performance of the system
 
   Scenario: Viewing RFPs for a particular provider
     Given a provider "Jinglicious" with an RFP called "Nice work finger"
