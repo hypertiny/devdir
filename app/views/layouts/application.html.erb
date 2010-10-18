@@ -91,7 +91,11 @@
     <div class="container">
       <div class="column_twelve">
         <ul class="footer-data">
-          <li><a target="_BLANK" href="/pages/provider-terms-of-use"><%= t('general.terms') %></a></li>
+          <li><%= link_to t('general.contact_us'), '/pages/contact-us', :rel => "nofollow" %></li>
+          <li><%= link_to t('general.terms'), '/pages/terms-of-use', :rel => "nofollow" %></li>
+          <li><%= link_to t('home.full_listing'), providers_path %></li>
+          <li><%= link_to t('home.by_location'), by_location_providers_path %></li>
+          <li><%= link_to t('home.top_cities'), top_cities_path %></li>
           <li><%= t('general.copyright') %></li>
         </ul>
       </div>
