@@ -39,19 +39,21 @@
           <%= link_to t('general.site_title_logo'), root_path %>
         </h1>
       </div>
-      <div class="call-to-action">
-        <div class="column_four text">
-          <div class="plain-text">
-            <strong>Devs: Get listed today!</strong><br />
-            Aliquam erat volutpat vel neque sit amet.
+      <%- if !logged_in? -%>
+        <div class="call-to-action">
+          <div class="column_four text">
+            <div class="plain-text">
+              <strong>Devs: Get listed today!</strong><br />
+              Aliquam erat volutpat vel neque sit amet.
+            </div>
+          </div>
+          <div class="column_one">
+            <div class="button">
+              <%= link_to t('provider.signup'), new_provider_path, :class => 'copy-button', :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %>
+            </div>
           </div>
         </div>
-        <div class="column_one">
-          <div class="button">
-            <%= link_to t('provider.signup'), new_provider_path, :class => 'copy-button', :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %>
-          </div>
-        </div>
-      </div>
+      <%- end -%>
       <hr class="clear" />
       <ul class="user-navigation-list">
         <%- if logged_in? -%>
