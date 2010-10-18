@@ -9,10 +9,10 @@ Feature: Admin Providers
       And I am on the admin dashboard
       And I follow "Developers"
       And I follow "Add a new developer"
-    When I fill in "Company name" with "Pullover"
+    When I fill in "Company Name" with "Pullover"
       And I fill in "City" with "Dublin"
-      And I fill in "Company email" with "paul@rslw.com"
-      And I fill in "Company website" with "http://www.rslw.com"
+      And I fill in "Company Email" with "paul@rslw.com"
+      And I fill in "Company Website" with "http://www.rslw.com"
       And I press "Save"
     Then I should see the translation for "provider.edit"
     
@@ -26,11 +26,11 @@ Feature: Admin Providers
       And I follow "Developers"
       And I follow "Pullover"
       And I follow "Edit developer"
-    When I fill in "Company name" with "Gown"
-      And I fill in "Street address" with "Market street"
+    When I fill in "Company Name" with "Gown"
+      And I fill in "Street Address" with "Market street"
       And I fill in "provider[marketing_description]" with "Cheap, Fast, Reliable"
       And I select "flagged" from "Status"
-      And I select "Paul Campbell" from "Account admin"
+      And I select "Paul Campbell" from "Account Admin"
       And I check "Ruby on Rails"
       And I check "Visual design"
       

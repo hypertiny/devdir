@@ -1,3 +1,3 @@
 Then /^I should see the translation for "([^\"]*)"$/ do |key|
-  response.should contain(I18n.t(key))
+  page.should have_content(I18n.t(key))
 end
