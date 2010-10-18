@@ -93,6 +93,7 @@
     </div>
     <ul class="developer-actions">
       <% if logged_in? and current_user.can_edit?(@provider) %>
+        <li><%= link_to 'Manage Users', my_users_path, :class => 'copy-button' %></li>
         <li><%= link_to t('company_profile.edit'), edit_my_provider_path, :class => 'copy-button' %></li>
         <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path, :class => 'copy-button' %></li>
         <li><%= link_to t('endorsement.manage'), my_endorsements_path, :class => 'copy-button' %></li>

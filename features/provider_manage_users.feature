@@ -7,10 +7,11 @@ Feature: Managing users on an account
     Given a provider "Kooky" belonging to "paul@joy.com"
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "navigation.users" translation
+      And I follow "My Company Profile"
+      And I follow "Manage Users"
       And I follow "company_profile.users.add_new" translation
-      And I fill in "First name" with "Ciara"
-      And I fill in "Last name" with "McGuire"
+      And I fill in "First Name" with "Ciara"
+      And I fill in "Last Name" with "McGuire"
       And I fill in "Email" with "ciara@ciarascakes.com"
       And I press "Save"
     Then I should see "Ciara McGuire"
@@ -21,12 +22,13 @@ Feature: Managing users on an account
       And a user "Billow" belonging to the "Kooky" provider
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "navigation.users" translation
+      And I follow "My Company Profile"
+      And I follow "Manage Users"
     Then I should see "billow"
       And I follow "billow"
       And I follow "user.edit" translation
-    When I fill in "First name" with "Joe"
-      And I fill in "Last name" with "Arnold"
+    When I fill in "First Name" with "Joe"
+      And I fill in "Last Name" with "Arnold"
       And I press "Save"
     Then I should see "Joe Arnold"
       And I should see "company_profile.users.manage_headline" translation
@@ -36,7 +38,8 @@ Feature: Managing users on an account
       And a user "Billow" belonging to the "Kooky" provider
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "navigation.users" translation
+      And I follow "My Company Profile"
+      And I follow "Manage Users"
       Then I should see "billow"
     When I follow "billow"
       And I follow "user.edit" translation
@@ -49,6 +52,7 @@ Feature: Managing users on an account
       And a user "Billow" belonging to the "Kooky" provider
     When I am on the homepage
       And I log in as "billowlowha@test.com" with password "buxtonbuxton"
-      And I follow "navigation.users" translation
+      And I follow "My Company Profile"
+      And I follow "Manage Users"
     Then I should not see "general.edit"
     
