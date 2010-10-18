@@ -9,7 +9,7 @@ Feature: Providers Portfolio Admin
       And a provider "Old Grey Mare"
     When I follow "Developers"
       And I follow "Old Grey Mare"
-      And I follow "Add a new project to your portfolio"
+      And I follow "Add new project"
       And I fill in "Name" with "Norman Blake"
       And I fill in "portfolio_item_url" with "http://www.normanblake.com"
       And I select "2007" from "portfolio_item[year_completed]"
