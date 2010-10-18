@@ -58,6 +58,11 @@
       <ul class="user-navigation-list">
         <%- if logged_in? -%>
           <li class="username user-navigation-item"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>
+          <%- if current_user.can_edit?(current_user.provider) -%>
+            <li class="user-navigation-item">
+              <%= link_to "My Company Profile", provider_path(current_user.provider) %>
+            </li>
+          <%- end -%>
           <% if current_user.admin? %>
             <li class="user-navigation-item"><%= link_to t('navigation.admin'), admin_dashboard_path %></li>
           <%- end -%>
@@ -70,6 +75,12 @@
       </ul>
     </div>
     <div class="container">
+      <%- if flash[:notice] -%>
+        <div class="notice"><%= flash[:notice] %></div>
+      <%- end -%>
+      <%- if flash[:error] -%>
+        <div class="notice"><%= flash[:error] %></div>
+      <%- end -%>
       <%= yield %>
       <hr class="clear" />
     </div>
