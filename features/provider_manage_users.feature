@@ -7,7 +7,7 @@ Feature: Managing users on an account
     Given a provider "Kooky" belonging to "paul@joy.com"
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "My Company Profile"
+      And I follow "Kooky Profile"
       And I follow "Manage Users"
       And I follow "company_profile.users.add_new" translation
       And I fill in "First Name" with "Ciara"
@@ -22,7 +22,7 @@ Feature: Managing users on an account
       And a user "Billow" belonging to the "Kooky" provider
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "My Company Profile"
+      And I follow "Kooky Profile"
       And I follow "Manage Users"
     Then I should see "billow"
       And I follow "billow"
@@ -38,7 +38,7 @@ Feature: Managing users on an account
       And a user "Billow" belonging to the "Kooky" provider
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "My Company Profile"
+      And I follow "Kooky Profile"
       And I follow "Manage Users"
       Then I should see "billow"
     When I follow "billow"
@@ -52,7 +52,7 @@ Feature: Managing users on an account
       And a user "Billow" belonging to the "Kooky" provider
     When I am on the homepage
       And I log in as "billowlowha@test.com" with password "buxtonbuxton"
-      And I follow "My Company Profile"
+      And I follow "Kooky Profile"
       And I follow "Manage Users"
     Then I should not see "general.edit"
     
