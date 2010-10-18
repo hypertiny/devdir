@@ -10,7 +10,7 @@ Feature: Managing services
       And there are no services
     When I follow "Services"
     Then I should see "No services have been added yet"
-    When I follow "Add a New Service"
+    When I follow "Add a new Service"
       And I fill in "Name" with "Java"
       And I check "service[checked]"
       And I press "Save"

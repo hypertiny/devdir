@@ -20,6 +20,6 @@ Feature: User administration
       And I press "forms.save" translation
     Then I should see "Elvie Miller"  
     When I follow "navigation.users" translation
-      And I follow "general.delete" translation
+      And I follow "Delete" within ".elvie-miller"
     Then I should not see "Elvie Miller"
       And I should see "user.deleted_successfully" translation

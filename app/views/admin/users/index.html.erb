@@ -15,7 +15,7 @@
       <th>&nbsp;</th>
     </tr>
     <% @users.each do |user| %>      
-      <tr>
+      <tr class="<%= user.full_name.parameterize %>">
         <td><%= link_to user.email, edit_admin_user_path(user) %></td>
         <td><%= user.name %></td>
         <td><%= user.admin? ? t('general.yes') : t('general.no') %></td>
