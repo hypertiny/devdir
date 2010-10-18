@@ -58,7 +58,7 @@
       <ul class="user-navigation-list">
         <%- if logged_in? -%>
           <li class="username user-navigation-item"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>
-          <%- if current_user.can_edit?(current_user.provider) -%>
+          <%- if current_user.provider and current_user.can_edit?(current_user.provider) -%>
             <li class="user-navigation-item">
               <%= link_to "My Company Profile", provider_path(current_user.provider) %>
             </li>
