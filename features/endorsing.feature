@@ -19,10 +19,9 @@ Feature: Recommending a provider
       And "Hashrocket" has an approved endorsement "Super cool" "1.day.ago"
       And "Hashrocket" has a new endorsement "Nice work" "1.day.ago"
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+      And I follow "Full listing"
       And I follow "Hashrocket"
-    Then I should see "provider.more_endorsements" translation
+    Then I should see "view endorsements"
     Given "Hashrocket" have requested "Brian Flanagan <btf@coralmade.net>" submit an endorsement
       And "btf@coralmade.net" follows the emailed endorsement link
     Then I should see "provider.endorsement_headline" translation
@@ -37,8 +36,6 @@ Feature: Recommending a provider
     Then I should see "endorsement.thanks" translation
       And I should not see "80% perfect"
       And I should not see "Nice work"
-    When I follow "more-endorsements"
-      Then I should not see "Nice work"
       
   Scenario: A provider with lots of endorsements
     Given an "active" provider "Hashrocket"
@@ -50,11 +47,9 @@ Feature: Recommending a provider
       And "Hashrocket" has an approved endorsement "Deadly" "2.days.ago"
       And "Hashrocket" has an approved endorsement "OK" "1.day.ago"
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+      And I follow "Full listing"
       And I follow "Hashrocket"
-    Then I should see "provider.more_endorsements" translation
-    When I follow "more-endorsements"
+      And I follow "view endorsements"
     Then I should not see "Nice work"
       And I should not see "Very good"
       And I should not see "Nice work"
@@ -78,7 +73,8 @@ Feature: Recommending a provider
       And "Hotpocket" has a rejected endorsement "Literally crap. Totally awful. Barely even Ruby." "2.days.ago"
       And I am on the homepage
     When I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+      And I follow "Full listing"
       And I follow "Hotpocket"
+      And I follow "view endorsements"
     Then I should see "Vaguely competent service"
       And I should not see "Literally crap."
