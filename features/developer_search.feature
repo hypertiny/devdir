@@ -14,7 +14,6 @@ Feature: Searching for a developer
     When I am on the homepage
       And I choose "5,000"
       And I check "Sencha"
-      And show me the page
       And I press "go-button"
     Then I should see "Hashrock"
       And I should not see "Clearright"
