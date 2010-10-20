@@ -42,34 +42,12 @@
             <li class="search-option capabilities">
               <h3>Ext JS, Rails, P...</h3>
               <ul class="search-details">
-                <li>
-                  <input type="checkbox" id="extjs" />
-                  <label for="extjs">Ext JS</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="jquery" />
-                  <label for="jquery">jQuery</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="rails" />
-                  <label for="rails">Rails</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="java" />
-                  <label for="java">Java</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="css3" />
-                  <label for="css3">CSS3</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="php" />
-                  <label for="php">PHP</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="touch" />
-                  <label for="touch">Sencha Touch</label>
-                </li>
+                <%- Service.ordered.each do |service| -%>
+                  <li>
+                    <input type="checkbox" id="<%= service.name.parameterize %>" value="<%= service.id %>"/>
+                    <label for="<%= service.name.parameterize %>"><%= service.name %></label>
+                  </li>
+                <%- end -%>
               </ul>
             </li>
           </ul>

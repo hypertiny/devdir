@@ -73,7 +73,7 @@ $(document).ready(function(){
   })
   
   $('form#search-form').submit(function(){
-    if($.trim($('input#budget').val()) == '')
+    if($.trim($('input[name=budget]').val()) == '')
     {
       alert(I18n.t('home.enter_budget'))
       return false
