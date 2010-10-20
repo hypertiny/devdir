@@ -8,7 +8,7 @@ class Admin::ServicesController < ApplicationController
   end
   
   def new
-    @service = Service.new(:position => Service.maximum(:position))
+    @service = Service.new(:position => (Service.maximum(:position).to_i + 1))
   end
   
   def create
