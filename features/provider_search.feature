@@ -8,7 +8,6 @@ Feature: Provider directory
     Given an "active" provider "Trulio"
       And "Trulio" has a new endorsement from "George Tenet"
       And "Trulio" has a minimum budget of "15000"
-      And pre checked services "Ruby on Rails"
       And primary services "AJAX, Visual design, UI"
       And "Trulio" provides "AJAX"
       And an "inactive" provider "Boolio"
@@ -56,7 +55,6 @@ Feature: Provider directory
       And I fill in "rfp.office_location" translation with "Dublin"
       And I check "rfp[general_liability_insurance]"
       And I check "rfp[professional_liability_insurance]"
-    Then I should see "Ruby on Rails"
     When I check "Visual design"
       And I check "UI"
       And I press "rfp.submit" translation

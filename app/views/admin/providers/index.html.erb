@@ -21,7 +21,7 @@
         <td><%= link_to provider.company_name, admin_provider_path(provider) %></td>
         <td><%= provider.created_at_formatted %></td>
         <td><%= provider.status %></td>
-        <td><%= @provider.featured? ? "Yes" : "No" %></td>
+        <td><%= provider.featured? ? "Yes" : "No" %></td>
       </tr>
     <%- end -%>
   </table>
