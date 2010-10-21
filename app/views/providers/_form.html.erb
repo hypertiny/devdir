@@ -20,6 +20,10 @@
   <div class="field"><%= f.label :phone_number, t("provider.phone_number") %> <%= f.text_field :phone_number %></div>
   <div class="field"><%= f.label :email, t("provider.email") %> <%= f.text_field :email %></div>
   <div class="field"><%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %></div>
+  <div class="field">
+    <%= f.label :twitter, "Twitter Username" %>
+    <%= f.text_field :twitter %>
+  </div>
   <div class="field"><%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %></div>
   <%- if @provider.not.new_record? and @provider.logo_file_name.not.blank? -%>
     <div class="field"><%= image_tag(@provider.logo.url(:display)) %></div>
