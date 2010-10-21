@@ -167,10 +167,10 @@
       <div class="column_six">
         <ul class="contact-details">
           <li class="website">
-            <a href="http://www.webadvanced.com">webadvanced.com</a>
+            <%= link_to @provider.company_url, @provider.company_url %>
           </li>
           <li class="email">
-            <a href="mailto:brian@webadvanced.com">brian@webadvanced.com</a>
+            <a href="mailto:<%= @provider.email %>"><%= @provider.email %></a>
           </li>
         </ul>
       </div>
