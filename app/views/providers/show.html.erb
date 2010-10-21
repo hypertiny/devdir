@@ -83,13 +83,11 @@
   <div class="column_three">
     <div class="imagery">
       <%- if @provider.avatar_file_name.not.blank? -%>
-        <%= image_tag(@provider.avatar.url(:display)) %>
+        <%= image_tag(@provider.avatar.url(:display), :class => "avatar") %>
       <%- end -%>
       <%- if @provider.logo_file_name.not.blank? -%>
-        <%= image_tag(@provider.logo.url(:display)) %>
+        <%= image_tag(@provider.logo.url(:display), :class => "logo") %>
       <%- end -%>
-      <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar" />
-      <img src="/images/gc/webadvanced-logo.jpg" alt="Web Advanced Logo" class="logo" />
     </div>
     <ul class="developer-actions">
       <% if logged_in? and current_user.can_edit?(@provider) %>
