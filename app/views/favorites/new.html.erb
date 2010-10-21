@@ -1,0 +1,5 @@
+<h2>Add <%= @provider.company_name %> to Favorites.</h2>
+
+<%- form_for([@provider, @favorite]) do |f| -%>
+  <%= f.submit "Add" %>
+<%- end -%>

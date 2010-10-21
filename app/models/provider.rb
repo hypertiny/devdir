@@ -29,6 +29,7 @@ class Provider < ActiveRecord::Base
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count, :featured
   
   has_many :users, :dependent => :destroy
+  has_many :favorites
   has_many :requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :rfps, :through => :requests
   has_many :endorsements, :order => "sort_order asc"

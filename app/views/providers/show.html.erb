@@ -72,8 +72,8 @@
   </div>
   <div class="column_two">
     <dl class="favorite-dictionary">
-      <dt class="favorite-term">Favorites</dt>
-      <dd class="favorite-data">99</dd>
+      <dt class="favorite-term"><%= link_to 'Favorites', favorites_path %></dt>
+      <dd class="favorite-data"><%= @favorites.count %></dd>
     </dl>
   </div>
   <hr class="clear" />
@@ -177,9 +177,9 @@
       <div class="column_three">
         <ul class="developer-actions">
           <li>
-            <a href="/" class="favorite">
+            <%- link_to new_provider_favorite_path(@provider), :class => 'favorite' do %>
               Favorite
-            </a>
+            <%- end -%>
           </li>
           <li>
             <a href="/" class="share">

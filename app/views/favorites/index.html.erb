@@ -1,0 +1,18 @@
+<div class="column_twelve">
+  <div class="heading">
+    <h2>Favorites</h2>
+    <p class="plain-text">
+      Developers that you have ear-marked.
+    </p>
+  </div>
+</div>
+
+<hr class='clear' />
+
+<div class="column_eight">
+  <%= render :partial => 'providers/providers' %>
+
+  <%= will_paginate(@favorites) %>
+  
+  <hr class="padding" />
+</div>

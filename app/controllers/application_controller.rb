@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :number
   
   before_filter :get_page_content
+  before_filter :get_favorites
   
   def permission_denied
     respond_to do |format|
@@ -25,6 +26,11 @@ class ApplicationController < ActionController::Base
   end
   
 protected
+  
+  def get_favorites
+    @favorites = Favorite.paginate(:conditions => {:session_id => session.session_id}, :page => params[:page])
+  end
+
   def admin_required
     return access_denied unless logged_in? and current_user.admin?
   end

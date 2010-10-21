@@ -22,9 +22,12 @@ ActionController::Routing::Routes.draw do |map|
   # App routes
   map.resource :home, :controller => 'home'
   map.resource :provider_directory, :as => :developer_directory, :controller => "provider_directory"
+  
+  map.resources :favorites
   map.resources :providers, :as => :developers, :shallow => true, :collection => {:search => :get, :by_location => :get} do |provider|
     provider.resources :endorsements
     provider.resources :portfolio_items
+    provider.resources :favorites
   end  
   map.resources :rfps
   map.resources :pages, :requirements => { :id => /.*/}

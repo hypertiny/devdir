@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101021114801) do
+ActiveRecord::Schema.define(:version => 20101021170928) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20101021114801) do
   end
 
   add_index "endorsements", ["aasm_state"], :name => "index_recommendations_on_aasm_state"
+
+  create_table "favorites", :force => true do |t|
+    t.string   "session_id"
+    t.integer  "provider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["session_id", "provider_id"], :name => "index_favorites_on_session_id_and_provider_id", :unique => true
 
   create_table "homepages", :force => true do |t|
     t.text     "content"

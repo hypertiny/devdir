@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+
+one:
+
+  session_id: MyString
+
+  provider_id: 1
+
+
+two:
+
+  session_id: MyString
+
+  provider_id: 1
+
+
