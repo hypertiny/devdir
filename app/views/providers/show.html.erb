@@ -117,7 +117,7 @@
         </li>
         <li class="meta-datum inline">
           <img src="/images/icon_money.gif" alt="Price Range" title="price range">
-          &#36;5,000 - &#36;15,000
+          &#36;<%= number_with_delimiter @provider.min_budget.to_i %> +
         </li>
         <li class="meta-datum inline">
           <img src="/images/icon_people.gif" alt="employees icon" title="number of employees">

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101021103425) do
+ActiveRecord::Schema.define(:version => 20101021114801) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -128,8 +128,10 @@ ActiveRecord::Schema.define(:version => 20101021103425) do
     t.integer  "endorsements_count",                                    :default => 0
     t.string   "avatar_file_name"
     t.string   "twitter"
+    t.boolean  "featured",                                              :default => false
   end
 
+  add_index "providers", ["featured"], :name => "index_providers_on_featured"
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
 
   create_table "recommendations", :force => true do |t|

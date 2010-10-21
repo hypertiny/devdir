@@ -26,7 +26,7 @@ class Provider < ActiveRecord::Base
   
   url_field :company_url
   
-  attr_protected :aasm_state, :slug, :user_id, :endorsements_count
+  attr_protected :aasm_state, :slug, :user_id, :endorsements_count, :featured
   
   has_many :users, :dependent => :destroy
   has_many :requests, :dependent => :destroy, :order => 'created_at desc'
@@ -50,15 +50,16 @@ class Provider < ActiveRecord::Base
   after_create :set_default_services
   
   named_scope :active, :conditions => {:aasm_state => 'active'}, :order => :company_name
-  named_scope :inactive, :conditions => {:aasm_state => 'inactive'}, :order => :company_name
-  named_scope :flagged, :conditions => {:aasm_state => 'flagged'}, :order => :company_name
   named_scope :all_by_company_name, :order => :company_name
+  named_scope :all_by_location, :order => "country, state_province", :conditions => "country != ''"
   named_scope :by_country, :group => :country, :order => :country, :select => :country, :conditions => "country != ''"
   named_scope :by_state, :conditions => "state_province != 'NA' and state_province != ''", :group => :state_province, :order => :state_province, :select => :state_province
-  named_scope :us_based, :conditions => {:country => 'US'}
-  named_scope :all_by_location, :order => "country, state_province", :conditions => "country != ''"
+  named_scope :featured, :conditions => {:featured => true}
+  named_scope :flagged, :conditions => {:aasm_state => 'flagged'}, :order => :company_name
   named_scope :from_country, lambda { |country| {:conditions => {:country => country.to_s}}}
   named_scope :from_state, lambda { |state| {:conditions => {:state_province => state.to_s}}}
+  named_scope :inactive, :conditions => {:aasm_state => 'inactive'}, :order => :company_name
+  named_scope :us_based, :conditions => {:country => 'US'}
   
   def self.find(*args)
     if args.not.many? and args.first.kind_of?(String) and args.first.not.match(/^\d*$/)

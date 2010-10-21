@@ -67,3 +67,9 @@ Given /^"([^\"]*)" is located in "([^\"]*)"$/ do |company_name, city_state_count
     :state_province => city_state_country == "nowhere" ? "" : city_state_country.split(',')[1].strip,
     :country => city_state_country == "nowhere" ? "" : city_state_country.split(',').last.strip)
 end
+
+Given /^provider "([^"]*)" is featured$/ do |name|
+  p = Provider.find_by_company_name(name)
+  p.featured = true
+  p.save!
+end
