@@ -121,19 +121,16 @@ $(document).ready(function(){
       return text;
   }
 
-  $(function(){
-    $('ul.tweet-list').each(function(){
-      var ul = $(this);
-      var twitter_username = ul.attr('data-username');
-      $.jTwitter(twitter_username, 3, function(posts){
-        for(var i=0; i<posts.length; i++){
-          ul.append('<li class="tweet-item">'  + linkify(posts[i].text) +  '</li>');
-        }
-        return false;
-      });
+  $('ul.tweet-list').each(function(){
+    var ul = $(this);
+    var twitter_username = ul.attr('data-username');
+    $.jTwitter(twitter_username, 3, function(posts){
+      for(var i=0; i<posts.length; i++){
+        ul.append('<li class="tweet-item">'  + linkify(posts[i].text) +  '</li>');
+      }
       return false;
-    })
-
+    });
+    return false;
   });
   
   $('ul.search-details').click(function(){
