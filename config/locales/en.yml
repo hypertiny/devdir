@@ -4,7 +4,6 @@
 en:
   general:
     site_title: Sencha Development Directory
-    site_title_logo: "<img src='/images/type-rdd.png' alt='Sencha Development Directory' />"
     site_title_admin: Sencha Development Directory Admin
     "yes": "Yes"
     "no": "No"
