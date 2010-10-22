@@ -186,7 +186,7 @@
   </div>
 <% end -%>
 <% content_for :addendum do -%>
-  <%- if @other_providers.any? -%>
+  <%- if @other_providers.present? -%>
     <div class="container">
       <div class="column_twelve addendum">
         <h3>Other developers from your search</h3>
