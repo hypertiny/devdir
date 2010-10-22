@@ -113,7 +113,7 @@ class Provider < ActiveRecord::Base
       end
     end
 
-    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, CASE WHEN endorsements_count >= 3 THEN endorsements_count ELSE 0 END desc, RAND()", :limit => 10)
+    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, CASE WHEN endorsements_count >= 3 THEN endorsements_count ELSE 0 END desc, RANDOM()", :limit => 10)
   end
   
   def self.locations_for_select
