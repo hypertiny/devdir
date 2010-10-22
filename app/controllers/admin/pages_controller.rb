@@ -1,4 +1,5 @@
 class Admin::PagesController < ApplicationController
+  skip_before_filter :get_favorites
   before_filter :admin_required
   layout 'admin'
   
