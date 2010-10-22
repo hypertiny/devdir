@@ -154,6 +154,17 @@ $(document).ready(function(){
   })
 })
 
+$('.search-option').click(function(){
+  $(this).find('.search-details').toggleClass('clicked')
+})
+
+$('body').click(function(e){
+  if($(e.target).parents('.search-option').length === 0)
+  {
+    $('.search-details').removeClass('clicked')
+  }
+})
+
 var RecaptchaOptions = {
   theme : 'clean'
 };
