@@ -104,7 +104,7 @@ class Provider < ActiveRecord::Base
     
     if params[:states].not.blank? and params[:states].is_a?(Array)
       if params[:countries].not.blank? and params[:countries].is_a?(Array)
-        conditions[0] << " and if(country = 'US', state_province IN (?), ?)"
+        conditions[0] << "CASE WHEN country = 'US' THEN state_province IN (?) ELSE ? END"
         conditions << params[:states]
         conditions << true
       else
@@ -113,7 +113,7 @@ class Provider < ActiveRecord::Base
       end
     end
 
-    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, CASE WHEN endorsements_count >= 3 THEN endorsements_count ELSE 0 END desc, RAND()", :limit => 10)
   end
   
   def self.locations_for_select
