@@ -191,110 +191,46 @@
   </div>
 <% end -%>
 <% content_for :addendum do -%>
-  <div class="container">
-    <div class="column_twelve addendum">
-      <h3>Other developers from your search</h3>
-      <a href="/search" class="action-item">Return to full results</a>
+  <%- if @other_providers.any? -%>
+    <div class="container">
+      <div class="column_twelve addendum">
+        <h3>Other developers from your search</h3>
+        <%- link_to(search_providers_path(params)) do -%>
+          Return to full results
+        <%- end -%>
+      </div>
+      <hr class="clear" />
+      <ul class="developer-results">
+        <%- @other_providers.each do |provider| -%>
+          <li class="column_six">
+            <div class="developer-result">
+              <div class="imagery">
+                <%- if provider.avatar.exists? -%>
+                  <%= image_tag(provider.avatar.url(:display), :alt => provider.company_name, :class => "avatar") %>
+                <%- end -%>
+              </div>
+              <div class="details">
+                <h4><%= provider.company_name %></h4>
+                <ul class="meta-data">
+                  <li class="meta-datum"><%= provider.private_address.join(", ") %></li>
+                  <li class="meta-datum inline">
+                    <img src="/images/icon_money.gif" alt="price-range">
+                    &#36;<%= number_with_delimiter provider.min_budget.to_i %>+
+                  </li>
+                  <li class="meta-datum inline">
+                    <img src="/images/icon_people.gif" alt="price-range">
+                    <%= company_size(provider) %>
+                  </li>
+                </ul>
+                <div class="synopsis plain-text">
+                  <%= sanitize(simple_format(provider.marketing_description)) %>
+                </div>
+              </div>
+            </div>
+          </li>
+        <%- end -%>
+      </ul>
+      <hr class="clear" />
     </div>
-    <hr class="clear" />
-    <ul class="developer-results">
-      <li class="column_six">
-        <div class="developer-result">
-          <div class="imagery">
-            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
-          </div>
-          <div class="details">
-            <h4>Surf Studio</h4>
-            <ul class="meta-data">
-              <li class="meta-datum">Palo Alto, CA</li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_money.gif" alt="price-range">
-                &#36;5,000 - &#36;15,000
-              </li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_people.gif" alt="price-range">
-                2-10
-              </li>
-            </ul>
-            <div class="synopsis plain-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="column_six">
-        <div class="developer-result">
-          <div class="imagery">
-            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
-          </div>
-          <div class="details">
-            <h4>Surf Studio</h4>
-            <ul class="meta-data">
-              <li class="meta-datum">Palo Alto, CA</li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_money.gif" alt="price-range">
-                &#36;5,000 - &#36;15,000
-              </li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_people.gif" alt="price-range">
-                2-10
-              </li>
-            </ul>
-            <div class="synopsis plain-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="column_six">
-        <div class="developer-result">
-          <div class="imagery">
-            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
-          </div>
-          <div class="details">
-            <h4>Surf Studio</h4>
-            <ul class="meta-data">
-              <li class="meta-datum">Palo Alto, CA</li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_money.gif" alt="price-range">
-                &#36;5,000 - &#36;15,000
-              </li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_people.gif" alt="price-range">
-                2-10
-              </li>
-            </ul>
-            <div class="synopsis plain-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="column_six">
-        <div class="developer-result">
-          <div class="imagery">
-            <img src="/images/gc/webadvanced-avatar.jpg" alt="Web Advanced Avatar" class="avatar">
-          </div>
-          <div class="details">
-            <h4>Surf Studio</h4>
-            <ul class="meta-data">
-              <li class="meta-datum">Palo Alto, CA</li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_money.gif" alt="price-range">
-                &#36;5,000 - &#36;15,000
-              </li>
-              <li class="meta-datum inline">
-                <img src="/images/icon_people.gif" alt="price-range">
-                2-10
-              </li>
-            </ul>
-            <div class="synopsis plain-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <hr class="clear" />
-  </div>
+  <%- end -%>
 <% end %>

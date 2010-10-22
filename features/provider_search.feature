@@ -34,8 +34,13 @@ Feature: Provider directory
       And I press "Go."
     Then I should see "Trulio"
       And I should see "Boolio"
-    When I press "general.next" translation
-      Then I should see "rfp.provider_required" translation
+    When I follow "Trulio"
+    Then I should see "Boolio"
+    
+    When I follow "Return to full results"
+      And I press "general.next" translation
+    Then I should see "rfp.provider_required" translation
+    
     When I follow "Trulio"
     Then I should see "Trulio"
       And I should not see "Dublin Avenue"
