@@ -4,6 +4,7 @@ gem 'rails', '2.3.10'
 gem 'pg'
 
 gem 'eyeballs'
+gem 'eyeballs_rails', '0.1.3'
 gem "highline"
 gem 'hpricot'
 gem "RedCloth", :require => 'redcloth'

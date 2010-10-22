@@ -1,3 +1,0 @@
-
-
-# ActionController::Base.helper(EyeballsRailsHelper)
