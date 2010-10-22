@@ -17,6 +17,7 @@ class ProvidersController < ApplicationController
   def show
     @provider = Provider.find(params[:id])
     @other_providers = Provider.search(params).reject { |p| p == @provider }
+    @services = Service.find(params[:service_ids]) if params[:service_ids]
   end
   
   def new

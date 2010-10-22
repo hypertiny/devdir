@@ -9,66 +9,55 @@
 
 <div class="search-options">
   <div class="column_ten">
-    <ul class="search-options-list">
-      <li class="search-option price-range">
-        <h3>&#36;2,000 - &#36;3,000</h3>
-        <ul class="search-details">
-          <li>
-            <input type="radio" id="onethousand" />
-            <label for="onethousand">&#36;1,000</label>
-          </li>
-          <li>
-            <input type="radio" id="fivethousand" />
-            <label for="fivethousand">&#36;5,000</label>
-          </li>
-          <li>
-            <input type="radio" id="tenthousand" />
-            <label for="tenthousand">&#36;10,000</label>
-          </li>
-          <li>
-            <input type="radio" id="fiftythousand" />
-            <label for="fiftythousand">&#36;50,000</label>
-          </li>
-          <li>
-            <input type="radio" id="onehundredthousand" />
-            <label for="onehundredthousand">&#36;100,000</label>
-          </li>
-        </ul>
-      </li>
-      <li class="search-option capabilities">
-        <h3>Ext JS, Rails, P...</h3>
-        <ul class="search-details">
-          <li>
-            <input type="checkbox" id="extjs" />
-            <label for="extjs">Ext JS</label>
-          </li>
-          <li>
-            <input type="checkbox" id="jquery" />
-            <label for="jquery">jQuery</label>
-          </li>
-          <li>
-            <input type="checkbox" id="rails" />
-            <label for="rails">Rails</label>
-          </li>
-          <li>
-            <input type="checkbox" id="java" />
-            <label for="java">Java</label>
-          </li>
-          <li>
-            <input type="checkbox" id="css3" />
-            <label for="css3">CSS3</label>
-          </li>
-          <li>
-            <input type="checkbox" id="php" />
-            <label for="php">PHP</label>
-          </li>
-          <li>
-            <input type="checkbox" id="touch" />
-            <label for="touch">Sencha Touch</label>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
+      <ul class="search-options-list">
+        <li class="search-option price-range">
+          <h3>
+            <%- if params[:budget].present? -%>
+              &#36;<%= number_with_delimiter(params[:budget].to_i) %>
+            <%- else -%>
+              Choose budget...
+            <%- end -%>
+          </h3>
+          <ul class="search-details">
+            <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
+              <li>
+                <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:budget] == amount %>/>
+                <label for="amount-<%= amount %>">&#36;<%= number_with_delimiter(amount) %></label>
+              </li>
+            <%- end -%>
+          </ul>
+        </li>
+        <li class="search-option capabilities">
+          <h3 data-original-value="Choose Service(s)...">
+            <%- if @services.present? -%>
+              <%= truncate(@services.collect { |s| s.name }.join(', '), :length => 17) %>
+            <%- else -%>
+              <%= Service.checked.collect { |s| s.name }.join(', ') %>
+            <%- end -%>
+          </h3>
+          <ul class="search-details">
+            <%- Service.ordered.each do |service| -%>
+              <li>
+                <input
+                 name="service_ids[]"
+                 data-label="<%= service.name %>"
+                 type="checkbox"
+                 id="<%= service.name.parameterize %>"
+                 value="<%= service.id %>"
+                 <%- if @services.present? -%>
+                  <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %>
+                 <%- else -%>
+                   <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
+                 <%- end -%>
+                <label for="<%= service.name.parameterize %>"><%= service.name %></label>
+              </li>
+            <%- end -%>
+          </ul>
+        </li>
+      </ul>
+      <input name="commit" id="go-button" class="go-button" type="submit" value="Go." />
+    <%- end -%>
   </div>
   <div class="column_two">
     <dl class="favorite-dictionary">
