@@ -13,8 +13,8 @@
       <ul class="search-options-list">
         <li class="search-option price-range">
           <h3>
-            <%- if params[:budget].present? -%>
-              &#36;<%= number_with_delimiter(params[:budget].to_i) %>
+            <%- if params[:search_params].present? && params[:search_params][:budget].present? -%>
+              &#36;<%= number_with_delimiter(params[:search_params][:budget].to_i) %>
             <%- else -%>
               Choose budget...
             <%- end -%>
@@ -22,7 +22,7 @@
           <ul class="search-details">
             <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
               <li>
-                <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:budget] == amount %>/>
+                <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:search_params].present? && params[:search_params][:budget] == amount %>/>
                 <label for="amount-<%= amount %>">&#36;<%= number_with_delimiter(amount) %></label>
               </li>
             <%- end -%>

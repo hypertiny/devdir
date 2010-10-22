@@ -19,7 +19,7 @@
           </tr>
           <%- @providers.each do |provider| -%>
             <tr>
-              <td><%= link_to provider.company_name, provider_path(provider, params) %></td>
+              <td><%= link_to provider.company_name, provider_path(provider, :search_params => params) %></td>
               <td><%= provider.private_address.join(', ') %></td>
               <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
               <td><%= provider.endorsements.approved.size %></td>
