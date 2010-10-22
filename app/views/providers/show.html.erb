@@ -164,8 +164,14 @@
       <div class="column_three">
         <ul class="developer-actions">
           <li>
-            <%- link_to new_provider_favorite_path(@provider), :class => 'favorite' do %>
-              Favorite
+            <%- if @favorites.collect { |f| f.provider}.include?(@provider).present? -%>
+              <a href="#" class="favorite" data-bind="favorites#destroy" data-id="<%= @favorites.select { |f| f.provider_id == @provider.id }.first.id %>">
+                Remove
+              </a>
+            <%- else -%>
+              <%- link_to new_provider_favorite_path(@provider), :class => 'favorite', 'data-bind' => 'favorites#create', 'data-provider-id' => @provider.id do %>
+                Favorite
+              <%- end -%>
             <%- end -%>
           </li>
           <li>

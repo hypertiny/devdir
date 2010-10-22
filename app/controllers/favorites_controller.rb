@@ -14,6 +14,17 @@ class FavoritesController < ApplicationController
     @favorite = @provider.favorites.create(params[:favorite])
     @favorite.session_id = session.session_id
     flash[:notice] = "#{@provider.company_name} was added to your favorites."
-    redirect_to @provider
+    respond_to do |format|
+      format.html { redirect_to @provider }
+      format.js { render :json => @favorite }
+    end
+  end
+  
+  def destroy
+    @favorite = Favorite.find_by_session_id_and_id(session.session_id, params[:id])
+    respond_to do |format|
+      format.html { redirect_to @favorite.provider }
+      format.js { render :json => @favorite }
+    end
   end
 end

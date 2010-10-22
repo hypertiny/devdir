@@ -44,6 +44,9 @@ GEM
     database_cleaner (0.5.2)
     diff-lcs (1.1.2)
     email_spec (0.6.4)
+    eyeballs (0.5.10.1)
+      activesupport
+      thor
     factory_girl (1.3.2)
     faker (0.3.1)
     fakeweb (1.3.0)
@@ -101,6 +104,7 @@ GEM
       json_pure
       rubyzip
     term-ansicolor (1.0.5)
+    thor (0.14.3)
     xpath (0.1.2)
       nokogiri (~> 1.3)
 
@@ -116,6 +120,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   email_spec (= 0.6.4)
+  eyeballs
   factory_girl
   faker
   fakeweb

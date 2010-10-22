@@ -3,6 +3,7 @@ source "http://rubygems.org"
 gem 'rails', '2.3.10'
 gem 'pg'
 
+gem 'eyeballs'
 gem "highline"
 gem 'hpricot'
 gem "RedCloth", :require => 'redcloth'
