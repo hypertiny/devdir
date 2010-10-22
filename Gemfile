@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem 'rails', '2.3.10'
-gem 'mysql'
+gem 'pg'
 
 gem "highline"
 gem 'hpricot'

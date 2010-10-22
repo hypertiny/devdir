@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20101021170928) do
     t.integer  "endorsement_request_recipient_id"
   end
 
-  add_index "endorsements", ["aasm_state"], :name => "index_recommendations_on_aasm_state"
+  add_index "endorsements", ["aasm_state"], :name => "index_endorsements_on_aasm_state"
 
   create_table "favorites", :force => true do |t|
     t.string   "session_id"

@@ -25,6 +25,7 @@ class Bootstrapper
       
       Service.make
       Service.make(:name => "Visual Design", :checked => false)
+      Service.make(:name => "Ext JS", :checked => true)
       
     end
     

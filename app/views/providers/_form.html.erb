@@ -43,7 +43,8 @@
     <label><%= t('provider.services') %></label>
     <ul class="ticks">
       <%- Service.checked.each do |service| -%>
-        <li><%= check_box_tag "dummy_tech_types[]", service.id, true, :disabled => true, :id => dom_id(service), :class=>'hidden' %> <%= image_tag '/images/icon-check.png', :class=>"check" %><%= label_tag dom_id(service), service.name %></li>
+        <li><%= check_box_tag "dummy_tech_types[]", service.id, true, :disabled => true, :id => dom_id(service) %>
+        <%= label_tag dom_id(service), service.name %></li>
       <%- end -%>
       <%- Service.ordered_not_checked.each do |service| -%>
         <li><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %></li>
