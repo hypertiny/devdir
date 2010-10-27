@@ -573,7 +573,7 @@ hr.lined {
 }
 
 .search-options-list {
-  margin: -.5em 0 1em -1em;
+  margin: -1.35em 0 1em -1em;
 }
 
 .search-options-list .search-option {
@@ -648,6 +648,7 @@ hr.lined {
 
 .developer .imagery {
   overflow: hidden;
+  padding-bottom: 3.6em;
 }
 
 .developer .imagery img {
@@ -660,7 +661,6 @@ hr.lined {
 }
 
 .developer .developer-actions {
-  padding-top: 3.6em;
 }
 
 .developer .developer-actions li {
@@ -1090,4 +1090,23 @@ input.copy-button {
 .card-list .card-item .source cite {
   font-size: 1.1em;
   line-height: 1.3;
+}
+
+/* flashes! */
+
+.notice, .error {
+  display: block;
+  width: 36em;
+  margin: 1em auto;
+  padding: 1em;
+  background: #e6cfcf;
+  border: 1px solid #d99898;
+  border-radius: 3px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.notice {
+  background-color: #d0e6cf;
+  border-color: #9cd998;
 }
