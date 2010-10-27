@@ -861,7 +861,7 @@ hr.lined {
 
 .developer-result .details {
   width: 31em;
-  float: right;
+  float: left;
 }
 
 .developer-result .details h4 {

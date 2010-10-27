@@ -13,11 +13,11 @@
   <%- @providers.each do |provider| -%>
     <li class="column_six">
       <div class="developer-result">
-        <div class="imagery">
-          <%- if provider.avatar.exists? -%>
+        <%- if provider.avatar.exists? -%>
+          <div class="imagery">
             <%= image_tag(provider.avatar.url(:display), :alt => provider.company_name, :class => "avatar") %>
-          <%- end -%>
-        </div>
+          </div>
+        <%- end -%>
         <div class="details">
           <h4><%= provider.company_name %></h4>
           <ul class="meta-data">

@@ -89,11 +89,11 @@
       <%- Provider.featured.each do |provider| -%>
       <li class="column_six">
         <div class="developer-result">
-          <div class="imagery">
-            <%- if provider.avatar.exists? -%>
+          <%- if provider.avatar.exists? -%>
+            <div class="imagery">
               <%= image_tag(provider.avatar.url(:display), :class => "avatar", :alt => provider.company_name) %>
-            <%- end -%>
-          </div>
+            </div>
+          <%- end -%>
           <div class="details">
             <h4><%= link_to provider.company_name, provider %></h4>
             <ul class="meta-data">
