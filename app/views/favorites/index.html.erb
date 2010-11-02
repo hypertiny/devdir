@@ -2,17 +2,46 @@
   <div class="heading">
     <h2>Favorites</h2>
     <p class="plain-text">
-      Developers that you have ear-marked.
+      Developers that you&rsquo;ve ear-marked.
     </p>
   </div>
 </div>
 
 <hr class='clear' />
 
-<div class="column_eight">
-  <%= render :partial => 'providers/providers' %>
+<ul class="developer-results">
+  <%- @providers.each do |provider| -%>
+    <li class="column_six">
+      <div class="developer-result">
+        <%- if provider.avatar.exists? -%>
+          <div class="imagery">
+            <%= image_tag(provider.avatar.url(:display), :alt => provider.company_name, :class => "avatar") %>
+          </div>
+        <%- end -%>
+        <div class="details">
+          <h4><%= provider.company_name %></h4>
+          <ul class="meta-data">
+            <li class="meta-datum"><%= provider.private_address.join(", ") %></li>
+            <li class="meta-datum inline">
+              <img src="/images/icon_money.gif" alt="price-range">
+              &#36;<%= number_with_delimiter provider.min_budget.to_i %>+
+            </li>
+            <li class="meta-datum inline">
+              <img src="/images/icon_people.gif" alt="price-range">
+              <%= company_size(provider) %>
+            </li>
+          </ul>
+          <div class="synopsis plain-text">
+            <%= sanitize(simple_format(provider.marketing_description)) %>
+          </div>
+        </div>
+      </div>
+    </li>
+  <%- end -%>
+</ul>
 
-  <%= will_paginate(@favorites) %>
-  
-  <hr class="padding" />
-</div>
+<hr class="padding" />
+
+<%= will_paginate(@favorites) %>
+
+<hr class="clear" />

@@ -56,7 +56,7 @@
           </ul>
         </li>
       </ul>
-      <input name="commit" id="go-button" class="go-button" type="submit" value="Go." />
+      <input name="commit" id="go-button" class="copy-button" type="submit" value="Go." />
     <%- end -%>
   </div>
   <div class="column_two">
@@ -70,18 +70,20 @@
 
 <div class="developer">
   <div class="column_three">
-    <div class="imagery">
-      <%- if @provider.avatar_file_name.not.blank? -%>
-        <%= image_tag(@provider.avatar.url(:display), :class => "avatar") %>
-      <%- end -%>
-      <%- if @provider.logo_file_name.not.blank? -%>
-        <%= image_tag(@provider.logo.url(:display), :class => "logo") %>
-      <%- end -%>
-    </div>
+    <%- if @provider.avatar_file_name.not.blank? or @provider.logo_file_name.not.blank? -%>
+      <div class="imagery">
+        <%- if @provider.avatar_file_name.not.blank? -%>
+          <%= image_tag(@provider.avatar.url(:display), :class => "avatar") %>
+        <%- end -%>
+        <%- if @provider.logo_file_name.not.blank? -%>
+          <%= image_tag(@provider.logo.url(:display), :class => "logo") %>
+        <%- end -%>
+      </div>
+    <% end -%>
     <ul class="developer-actions">
       <% if logged_in? and current_user.can_edit?(@provider) %>
         <li><%= link_to t('company_profile.edit'), edit_my_provider_path, :class => 'copy-button' %></li>
-        <li><%= link_to 'Manage Users', my_users_path, :class => 'copy-button' %></li>
+        <li><%= link_to 'Manage users', my_users_path, :class => 'copy-button' %></li>
         <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path, :class => 'copy-button' %></li>
         <li><%= link_to t('endorsement.manage'), my_endorsements_path, :class => 'copy-button' %></li>
       <%- else -%>
@@ -151,7 +153,7 @@
           <a href="/">Get in touch!</a>
         </h3>
       </div>
-      <div class="column_six">
+      <div class="column_seven">
         <ul class="contact-details">
           <li class="website">
             <%= link_to @provider.company_url, @provider.company_url %>
@@ -161,7 +163,7 @@
           </li>
         </ul>
       </div>
-      <div class="column_three">
+      <div class="column_two">
         <ul class="developer-actions">
           <li>
             <%- if @favorites.collect { |f| f.provider}.include?(@provider).present? -%>
@@ -173,12 +175,6 @@
                 Favorite
               <%- end -%>
             <%- end -%>
-          </li>
-          <li>
-            <a href="/" class="share">
-              Share
-            </a>
-          </li>
         </ul>
       </div>
       <hr class="clear" />

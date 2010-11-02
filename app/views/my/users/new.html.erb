@@ -1,5 +1,7 @@
-<h1><%= t('company_profile.users.add_new_headline') %></h1>
+<div class="column_twelve heading">
+  <h2><%= t('company_profile.users.add_new_headline') %></h2>
+</div>
 
-<p><%= t('company_profile.users.add_new_description') %></p>
-
-<%= render :partial => 'my/users/form' %>
+<% form_for [:my, @user], :html => { :class => 'plain-form' } do |f| -%>
+  <%= render :partial => 'my/users/form', :locals => {:f => f} %>
+<% end %>

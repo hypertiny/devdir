@@ -1,11 +1,15 @@
-<h2><%= t('company_profile.users.edit_headline', :user => @user.email) %></h2>
+<div class="column_twelve heading">
+  <h2><%= t('company_profile.users.edit_headline', :user => @user.email) %></h2>
 
-<p class="description"><%= t('company_profile.users.edit_description') %></p>
+  <ul class="utility">
+    <li style="float:right;">
+      <% form_for [:my, @user], :html => {:method => :delete} do |f| -%>
+        <%= f.submit t('user.delete'), :class => "confirm copy-button" %>
+      <% end -%>
+    </li>
+  </ul>
+</div>
 
-<%= render :partial => 'my/users/form' %>
-
-<p>
-  <% form_for [:my, @user], :html => {:method => :delete} do |f| -%>
-    <%= f.submit t('user.delete'), :class => "confirm" %>
-  <% end -%>
-</p>
+<% form_for [:my, @user], :html => { :class => 'plain-form' } do |f| -%>
+  <%= render :partial => 'my/users/form', :locals => {:f => f} %>
+<% end %>

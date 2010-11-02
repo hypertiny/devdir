@@ -22,6 +22,7 @@ class FavoritesController < ApplicationController
   
   def destroy
     @favorite = Favorite.find_by_session_id_and_id(session.session_id, params[:id])
+    @favorite.destroy
     respond_to do |format|
       format.html { redirect_to @favorite.provider }
       format.js { render :json => @favorite }

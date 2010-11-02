@@ -1,9 +1,15 @@
-<% form_for [:my, @portfolio_item] do |f| -%>
+<div class="column_twelve heading">
+  <h2><%= t('portfolio_item.edit_on', :provider => @portfolio_item.provider.company_name) %></h2>
+
+  <ul class="utility">
+    <li style="float:right;">
+      <% form_for [:my, @portfolio_item], :html => {:method => :delete} do |f| -%>
+        <%= f.submit t('portfolio_item.delete') , :class => "confirm copy-button" %>
+      <% end -%>
+    </li>
+  </ul>
+</div>
+
+<% form_for [:my, @portfolio_item], :html => { :class => 'plain-form' } do |f| -%>
   <%= render :partial => 'my/portfolio_items/form', :locals => {:f => f} %>
 <% end %>
-
-<p>
-  <% form_for [:my, @portfolio_item], :html => {:method => :delete} do |f| -%>
-    <%= f.submit t('portfolio_item.delete') , :class => "confirm" %>
-  <% end -%>
-</p>
