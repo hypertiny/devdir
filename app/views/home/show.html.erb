@@ -3,8 +3,13 @@
 
 
 <div class="heading">
-  <h2><%= t('home.welcome') %></h2>
-  <div class="plain-text"><p><%= t('home.description') %></p></div>
+  <%- if @page -%>
+    <h2><%= @page.title %></h2>
+    <div class="plain-text"><p><%= @page.description %></p></div>
+  <%- else -%>
+    <h2><%= t('home.welcome') %></h2>
+    <div class="plain-text"><p><%= t('home.description') %></p></div>
+  <%- end -%>
 </div>
 
 <%= @page.content if @page %>
