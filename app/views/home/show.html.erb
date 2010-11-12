@@ -56,7 +56,13 @@
                 </ul>
               </li>
               <li class="search-option capabilities">
-                <h3 data-original-value="Choose Service(s)..."><%= Service.checked.collect { |s| s.name }.join(', ') %></h3>
+                <h3 data-original-value="Choose Service(s)...">
+                  <%- if Service.checked.any? -%>
+                    <%= Service.checked.collect { |s| s.name }.join(', ') %>
+                  <%- else -%>
+                    Choose Service(s)...
+                  <%- end -%>
+                </h3>
                 <ul class="search-details">
                   <%- Service.ordered.each do |service| -%>
                     <li>
