@@ -582,18 +582,8 @@ hr.lined {
   padding: 0;
 }
 
-.highlight .search-options .go-button {
-  text-align: center;
+.highlight .search-options .copy-button {
   display: block;
-  background: #1a65ad;
-  font-weight: bold;
-  color: #fff;
-  font-size: 1.4em;
-  border-radius: .357em;
-  border-width: 0;
-  padding: .45em .714em .55em;
-	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
-  text-shadow: 0 1px 1px #1c488c;
 }
 
 .highlight .search-options .go-button:hover {
@@ -608,8 +598,7 @@ hr.lined {
 }
 
 .highlight .search-options .search-option h3 {
-  color: #d3dceb;
-  background-color: #1a65ad;
+  padding: 1.125em 2em .75em 1em;
 }
 
 .highlight .search-options .search-option .search-details {
@@ -819,14 +808,14 @@ hr.lined {
 /* highlight */
 
 .highlight {
-  background: #226fb7 url(/images/highlight-light.png) center top no-repeat;
-  border-bottom: 1px solid #c4d8f1;
+  background: url('/images/highlight-light.png') center top no-repeat, #226fb7 url('/images/highlight-bg.jpg') left bottom repeat-x;
+  border-bottom: 1px solid #0b4184;
 }
 
 .highlight h3 {
   font-size: 2.4em;
-  padding: .750em 0;
-  background: transparent url(/images/highlight-arrow.png) right center no-repeat;
+  padding: .72em 0;
+  background: transparent url('/images/highlight-arrow.png') right center no-repeat;
   border-width: 0;
   margin: 0;
   line-height: .65;
@@ -1006,7 +995,7 @@ hr.lined {
 }
 
 input.copy-button {
-  border-width: 0;
+  border: 1px solid #0f58cd;
   padding: .5em .714em;
 	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
 }
