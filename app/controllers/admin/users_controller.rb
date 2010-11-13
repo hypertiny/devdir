@@ -42,7 +42,9 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.admin = params[:user][:admin] unless current_user == @user
-    if @user.update_attributes(params[:user].merge({:password_confirmation => params[:user][:password]}))
+    @user.password = params[:user][:password] if params[:user][:password].present?
+    @user.password_confirmation = params[:user][:password] if params[:user][:password].present?
+    if @user.update_attributes(params[:user])
       flash[:notice] = t('user.saved_successfully')
       redirect_to [:admin, @user]
     else
