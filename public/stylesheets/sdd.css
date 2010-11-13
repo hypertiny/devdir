@@ -239,6 +239,11 @@ hr.lined {
 
 /* the header. */
 
+.top-bar {
+  background: transparent bottom left repeat-x url('/images/header-bg.jpg');
+  border-bottom: 1px solid #a1a1a1;
+}
+
 #header {
   position: relative;
   padding: 4.8em 0 3.6em;
@@ -257,7 +262,7 @@ hr.lined {
   margin: -1.5em 0 0 -2.2em;
   width: 30em;
   height: 6.4em;
-  background: url('/images/sm_logo.jpg') top left no-repeat;
+  background: url('/images/header-logo.png') top left no-repeat;
   text-indent: -999em;
 }
 
@@ -981,7 +986,8 @@ hr.lined {
 .copy-button, .copy-button:visited {
   text-align: center;
   display: block;
-  background: #1388d6;
+  background: #1388d6 url('/images/btn-bg.jpg') top left repeat-x;
+  border: 1px solid #0f58cd;
   color: #fff;
   font-size: 1.4em;
   padding: .714em;
