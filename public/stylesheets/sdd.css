@@ -621,9 +621,15 @@ hr.lined {
   color: #134a80;
 }
 
+.search-options-bar {
+  border-bottom: 1px solid #8c8c8c;
+  background: #dadada url('/images/search-options-bar.jpg') top left repeat-x;
+  margin-bottom: 3em;
+}
+
 .search-options {
   height: auto;
-  padding: 0 0 3.6em;
+  padding: .65em 0 .15em;
 }
 
 .search-options-list {
@@ -641,8 +647,9 @@ hr.lined {
   font-weight: normal;
   margin: 0 .833em 0 0;
   padding: 1.041em 2.083em 0.833em 1.041em;
-  background: #e6e6e6 url('../images/selector.png') right center no-repeat;
+  background: url('/images/selector.png') right center no-repeat, #e6e6e6 url('../images/search-option.jpg') top left repeat-x;
   border-radius: 1.429em;
+  border-bottom: 1px solid #bfbfbf;
   cursor: pointer;
   z-index: 5;
 }
@@ -651,8 +658,12 @@ hr.lined {
   display: none;
   position: absolute;
   top: 1em;
-  background: #eaf1f4;
-  width: 16em;
+  background: #eaf1f4 url('/images/search-option-details.png') left bottom repeat-x;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aec2cc;
+  -webkit-box-shadow: rgba(0,0,0,.15) 0px 2px 2px;
+  width: 15.8em;
   padding: 2.4em 0 1em;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
@@ -675,7 +686,7 @@ hr.lined {
 
 .favorite-dictionary {
   float: right;
-  margin: -1em -1em 0 0;
+  margin: -.65em -1em 0 0;
 }
 
 .favorite-term {
