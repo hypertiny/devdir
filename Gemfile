@@ -19,9 +19,9 @@ group :development do
 end
 
 group :cucumber do
-  gem 'capybara'
-  gem 'cucumber'
-  gem 'cucumber-rails'
+  gem 'capybara', '0.3.9'
+  gem 'cucumber', '0.9.4'
+  gem 'cucumber-rails', '0.3.2'
   gem 'database_cleaner'
   gem 'email_spec', '0.6.4'
   gem 'factory_girl'

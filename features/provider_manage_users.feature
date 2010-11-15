@@ -8,7 +8,7 @@ Feature: Managing users on an account
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
       And I follow "Kooky Profile"
-      And I follow "Manage Users"
+      And I follow "Manage users"
       And I follow "company_profile.users.add_new" translation
       And I fill in "First Name" with "Ciara"
       And I fill in "Last Name" with "McGuire"
@@ -23,7 +23,7 @@ Feature: Managing users on an account
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
       And I follow "Kooky Profile"
-      And I follow "Manage Users"
+      And I follow "Manage users"
     Then I should see "billow"
       And I follow "billow"
       And I follow "user.edit" translation
@@ -39,11 +39,11 @@ Feature: Managing users on an account
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
       And I follow "Kooky Profile"
-      And I follow "Manage Users"
+      And I follow "Manage users"
       Then I should see "billow"
     When I follow "billow"
       And I follow "user.edit" translation
-    Then I should see "company_profile.users.edit_description" translation
+    Then I should see "Edit user"
       And I press "user.delete" translation
     Then I should see "company_profile.users.manage_headline" translation
     
@@ -53,6 +53,6 @@ Feature: Managing users on an account
     When I am on the homepage
       And I log in as "billowlowha@test.com" with password "buxtonbuxton"
       And I follow "Kooky Profile"
-      And I follow "Manage Users"
+      And I follow "Manage users"
     Then I should not see "general.edit"
     
