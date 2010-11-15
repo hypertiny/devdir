@@ -6,67 +6,72 @@
 <%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
 <%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
 
-
-<div class="search-options">
-  <div class="column_ten">
-    <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
-      <ul class="search-options-list">
-        <li class="search-option price-range">
-          <h3>
-            <%- if params[:search_params].present? && params[:search_params][:budget].present? -%>
-              &#36;<%= number_with_delimiter(params[:search_params][:budget].to_i) %>
-            <%- else -%>
-              Choose budget...
-            <%- end -%>
-          </h3>
-          <ul class="search-details">
-            <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
-              <li>
-                <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:search_params].present? && params[:search_params][:budget] == amount %>/>
-                <label for="amount-<%= amount %>">&#36;<%= number_with_delimiter(amount) %></label>
-              </li>
-            <%- end -%>
+<% content_for :search_options do -%>
+<div class="search-options-bar">
+  <div class="container">
+    <div class="search-options">
+      <div class="column_ten">
+        <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
+          <ul class="search-options-list">
+            <li class="search-option price-range">
+              <h3>
+                <%- if params[:search_params].present? && params[:search_params][:budget].present? -%>
+                  &#36;<%= number_with_delimiter(params[:search_params][:budget].to_i) %>
+                <%- else -%>
+                  Choose budget...
+                <%- end -%>
+              </h3>
+              <ul class="search-details">
+                <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
+                  <li>
+                    <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:search_params].present? && params[:search_params][:budget] == amount %>/>
+                    <label for="amount-<%= amount %>">&#36;<%= number_with_delimiter(amount) %></label>
+                  </li>
+                <%- end -%>
+              </ul>
+            </li>
+            <li class="search-option capabilities">
+              <h3 data-original-value="Choose Service(s)...">
+                <%- if @services.present? -%>
+                  <%= truncate(@services.collect { |s| s.name }.join(', '), :length => 17) %>
+                <%- else -%>
+                  <%= Service.checked.collect { |s| s.name }.join(', ') %>
+                <%- end -%>
+              </h3>
+              <ul class="search-details">
+                <%- Service.ordered.each do |service| -%>
+                  <li>
+                    <input
+                     name="service_ids[]"
+                     data-label="<%= service.name %>"
+                     type="checkbox"
+                     id="<%= service.name.parameterize %>"
+                     value="<%= service.id %>"
+                     <%- if @services.present? -%>
+                      <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %>
+                     <%- else -%>
+                       <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
+                     <%- end -%>
+                    <label for="<%= service.name.parameterize %>"><%= service.name %></label>
+                  </li>
+                <%- end -%>
+              </ul>
+            </li>
           </ul>
-        </li>
-        <li class="search-option capabilities">
-          <h3 data-original-value="Choose Service(s)...">
-            <%- if @services.present? -%>
-              <%= truncate(@services.collect { |s| s.name }.join(', '), :length => 17) %>
-            <%- else -%>
-              <%= Service.checked.collect { |s| s.name }.join(', ') %>
-            <%- end -%>
-          </h3>
-          <ul class="search-details">
-            <%- Service.ordered.each do |service| -%>
-              <li>
-                <input
-                 name="service_ids[]"
-                 data-label="<%= service.name %>"
-                 type="checkbox"
-                 id="<%= service.name.parameterize %>"
-                 value="<%= service.id %>"
-                 <%- if @services.present? -%>
-                  <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %>
-                 <%- else -%>
-                   <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
-                 <%- end -%>
-                <label for="<%= service.name.parameterize %>"><%= service.name %></label>
-              </li>
-            <%- end -%>
-          </ul>
-        </li>
-      </ul>
-      <input name="commit" id="go-button" class="copy-button" type="submit" value="Go." />
-    <%- end -%>
+          <input name="commit" id="go-button" class="copy-button" type="submit" value="Go." />
+        <%- end -%>
+      </div>
+      <div class="column_two">
+        <dl class="favorite-dictionary">
+          <dt class="favorite-term"><%= link_to 'Favorites', favorites_path %></dt>
+          <dd class="favorite-data"><%= @favorites.count %></dd>
+        </dl>
+      </div>
+      <hr class="clear" />
+    </div>
   </div>
-  <div class="column_two">
-    <dl class="favorite-dictionary">
-      <dt class="favorite-term"><%= link_to 'Favorites', favorites_path %></dt>
-      <dd class="favorite-data"><%= @favorites.count %></dd>
-    </dl>
-  </div>
-  <hr class="clear" />
 </div>
+<% end -%>
 
 <div class="developer">
   <div class="column_three">

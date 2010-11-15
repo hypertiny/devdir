@@ -33,47 +33,52 @@
 </head>
 <body>
   <div class="focus">
-    <div id="header" class="container">
-      <div class="column_seven">
-        <h1>
-          <%= link_to "Sencha Development Directory", root_path %>
-        </h1>
-      </div>
-      <%- if !logged_in? -%>
-        <div class="call-to-action">
-          <div class="column_four text">
-            <div class="plain-text">
-              <strong>Devs: Get listed today!</strong><br />
-              Show your skills. Reach more prospects.
-            </div>
-          </div>
-          <div class="column_one">
-            <div class="button">
-              <%= link_to t('provider.signup'), new_provider_path, :class => 'copy-button', :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %>
-            </div>
-          </div>
+    <div class="top-bar">
+      <div id="header" class="container">
+        <div class="column_seven">
+          <h1>
+            <%= link_to "Sencha Development Directory", root_path %>
+          </h1>
         </div>
-      <%- end -%>
-      <hr class="clear" />
-      <ul class="user-navigation-list">
-        <%- if logged_in? -%>
-          <li class="username user-navigation-item"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>
-          <%- if current_user.provider and current_user.can_edit?(current_user.provider) -%>
-            <li class="user-navigation-item">
-              <%= link_to "#{current_user.provider.company_name} Profile", provider_path(current_user.provider) %>
-            </li>
-          <%- end -%>
-          <% if current_user.admin? %>
-            <li class="user-navigation-item"><%= link_to t('navigation.admin'), admin_dashboard_path %></li>
-          <%- end -%>
-          <li class="user-navigation-item"><%= link_to t('navigation.provider_directory'), provider_directory_path %></li>
-          <li class="user-navigation-item"><%= link_to t('general.sign_out'), logout_path %></li>
-        <%- else -%>
-          <li class="user-navigation-item"><%= link_to t('home.find_a_provider'), provider_directory_path %></li>
-          <li class="user-navigation-item"><%= link_to t('provider.sign_in'), login_path, :rel => "nofollow" %></li>
+        <%- if !logged_in? -%>
+          <div class="call-to-action">
+            <div class="column_four text">
+              <div class="plain-text">
+                <strong>Devs: Get listed today!</strong><br />
+                Show your skills. Reach more prospects.
+              </div>
+            </div>
+            <div class="column_one">
+              <div class="button">
+                <%= link_to t('provider.signup'), new_provider_path, :class => 'copy-button', :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %>
+              </div>
+            </div>
+          </div>
         <%- end -%>
-      </ul>
+        <hr class="clear" />
+        <ul class="user-navigation-list">
+          <%- if logged_in? -%>
+            <li class="username user-navigation-item"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>
+            <%- if current_user.provider and current_user.can_edit?(current_user.provider) -%>
+              <li class="user-navigation-item">
+                <%= link_to "#{current_user.provider.company_name} Profile", provider_path(current_user.provider) %>
+              </li>
+            <%- end -%>
+            <% if current_user.admin? %>
+              <li class="user-navigation-item"><%= link_to t('navigation.admin'), admin_dashboard_path %></li>
+            <%- end -%>
+            <li class="user-navigation-item"><%= link_to t('navigation.provider_directory'), provider_directory_path %></li>
+            <li class="user-navigation-item"><%= link_to t('general.sign_out'), logout_path %></li>
+          <%- else -%>
+            <li class="user-navigation-item"><%= link_to t('home.find_a_provider'), provider_directory_path %></li>
+            <li class="user-navigation-item"><%= link_to t('provider.sign_in'), login_path, :rel => "nofollow" %></li>
+          <%- end -%>
+        </ul>
+      </div>
     </div>
+  </div>
+  <%= yield :search_options %>
+  <div class="focus">
     <div class="container">
       <%- if flash[:notice] -%>
         <div class="notice"><%= flash[:notice] %></div>

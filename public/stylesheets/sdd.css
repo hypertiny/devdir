@@ -239,6 +239,11 @@ hr.lined {
 
 /* the header. */
 
+.top-bar {
+  background: #fff bottom left repeat-x url('/images/header-bg.jpg');
+  border-bottom: 1px solid #a1a1a1;
+}
+
 #header {
   position: relative;
   padding: 4.8em 0 3.6em;
@@ -257,7 +262,7 @@ hr.lined {
   margin: -1.5em 0 0 -2.2em;
   width: 30em;
   height: 6.4em;
-  background: url('/images/sm_logo.jpg') top left no-repeat;
+  background: url('/images/header-logo.png') top left no-repeat;
   text-indent: -999em;
 }
 
@@ -495,6 +500,55 @@ hr.lined {
   font-size: 1.2em;
 }
 
+.ui-datepicker { 
+  width: 17em; 
+  padding: .2em .2em 0;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  position:relative;
+  padding:.2em 0;
+  font-size: 1.2em;
+  color: #ffffff;
+  text-shadow: #0f5599 0 -1px 0;
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #0f5599;
+  background: #1a65ad;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { color: #fff4e6; font-weight: normal; position:absolute; top: 5px; width: 1.8em; height: 1.8em; cursor: pointer; }
+.ui-datepicker .ui-datepicker-prev { left:2px; }
+.ui-datepicker .ui-datepicker-next { right:10px; }
+.ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.ui-datepicker .ui-datepicker-next-hover { right:9px; }
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.ui-datepicker .ui-datepicker-title { font-weight: bold; margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 49%;}
+.ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; background: #3689d9; border-bottom: 1px solid #3689d9; color: #dae6f2; }
+.ui-datepicker th { padding: .7em .3em; text-align: right; font-weight: bold; border: 0; }
+.ui-datepicker td { border: 0; padding: 1px; background: #b8cfe6; border-bottom: 1px solid #a3bed9; }
+.ui-datepicker td:hover { background: #d8e1eb; }
+.ui-datepicker td.ui-datepicker-unselectable:hover { background: #b8cfe6; }
+.ui-datepicker td span, .ui-datepicker td a { color: #333; display: block; padding: .2em; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+
+.ui-datepicker.ui-datepicker-multi { width:auto; }
+.ui-datepicker-multi .ui-datepicker-group { float:left; }
+.ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.ui-datepicker-row-break { clear:both; width:100%; }
+
 /* errors! */
 
 .errorExplanation {
@@ -528,18 +582,8 @@ hr.lined {
   padding: 0;
 }
 
-.highlight .search-options .go-button {
-  text-align: center;
+.highlight .search-options .copy-button {
   display: block;
-  background: #1a65ad;
-  font-weight: bold;
-  color: #fff;
-  font-size: 1.4em;
-  border-radius: .357em;
-  border-width: 0;
-  padding: .45em .714em .55em;
-	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
-  text-shadow: 0 1px 1px #1c488c;
 }
 
 .highlight .search-options .go-button:hover {
@@ -554,8 +598,7 @@ hr.lined {
 }
 
 .highlight .search-options .search-option h3 {
-  color: #d3dceb;
-  background-color: #1a65ad;
+  padding: 1.125em 2em .75em 1em;
 }
 
 .highlight .search-options .search-option .search-details {
@@ -567,13 +610,19 @@ hr.lined {
   color: #134a80;
 }
 
+.search-options-bar {
+  border-bottom: 1px solid #8c8c8c;
+  background: #dadada url('/images/search-options-bar.jpg') top left repeat-x;
+  margin-bottom: 3em;
+}
+
 .search-options {
   height: auto;
-  padding: 0 0 3.6em;
+  padding: .75em 0 0em;
 }
 
 .search-options-list {
-  margin: -1.35em 0 1em -1em;
+  margin: -.5em 0 .5em -1em;
 }
 
 .search-options-list .search-option {
@@ -586,9 +635,10 @@ hr.lined {
   font-size: 1.2em;
   font-weight: normal;
   margin: 0 .833em 0 0;
-  padding: 1.041em 2.083em 0.833em 1.041em;
-  background: #e6e6e6 url('../images/selector.png') right center no-repeat;
+  padding: .85em 2em .65em 1em;
+  background: url('/images/selector.png') right center no-repeat, #e6e6e6 url('../images/search-option.jpg') top left repeat-x;
   border-radius: 1.429em;
+  border-bottom: 1px solid #bfbfbf;
   cursor: pointer;
   z-index: 5;
 }
@@ -597,8 +647,12 @@ hr.lined {
   display: none;
   position: absolute;
   top: 1em;
-  background: #eaf1f4;
-  width: 16em;
+  background: #eaf1f4 url('/images/search-option-details.png') left bottom repeat-x;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aec2cc;
+  -webkit-box-shadow: rgba(0,0,0,.15) 0px 2px 2px;
+  width: 15.8em;
   padding: 2.4em 0 1em;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
@@ -621,7 +675,7 @@ hr.lined {
 
 .favorite-dictionary {
   float: right;
-  margin: -1em -1em 0 0;
+  margin: -.65em -1em 0 0;
 }
 
 .favorite-term {
@@ -754,14 +808,14 @@ hr.lined {
 /* highlight */
 
 .highlight {
-  background: #226fb7 url(/images/highlight-light.png) center top no-repeat;
-  border-bottom: 1px solid #c4d8f1;
+  background: url('/images/highlight-light.png') center top no-repeat, #226fb7 url('/images/highlight-bg.jpg') left bottom repeat-x;
+  border-bottom: 1px solid #0b4184;
 }
 
 .highlight h3 {
   font-size: 2.4em;
-  padding: .750em 0;
-  background: transparent url(/images/highlight-arrow.png) right center no-repeat;
+  padding: .72em 0;
+  background: transparent url('/images/highlight-arrow.png') right center no-repeat;
   border-width: 0;
   margin: 0;
   line-height: .65;
@@ -932,7 +986,8 @@ hr.lined {
 .copy-button, .copy-button:visited {
   text-align: center;
   display: block;
-  background: #1388d6;
+  background: #1388d6 url('/images/btn-bg.jpg') top left repeat-x;
+  border: 1px solid #0f58cd;
   color: #fff;
   font-size: 1.4em;
   padding: .714em;
@@ -940,7 +995,7 @@ hr.lined {
 }
 
 input.copy-button {
-  border-width: 0;
+  border: 1px solid #0f58cd;
   padding: .5em .714em;
 	font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, Verdana, Geneva, sans-serif;
 }
