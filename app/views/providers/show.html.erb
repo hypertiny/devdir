@@ -206,7 +206,7 @@
                 <%- end -%>
               </div>
               <div class="details">
-                <h4><%= provider.company_name %></h4>
+                <h4><%= link_to provider.company_name, provider %></h4>
                 <ul class="meta-data">
                   <li class="meta-datum"><%= provider.private_address.join(", ") %></li>
                   <li class="meta-datum inline">
