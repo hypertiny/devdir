@@ -25,7 +25,9 @@
                 <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
                   <li>
                     <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:search_params].present? && params[:search_params][:budget] == amount %>/>
-                    <label for="amount-<%= amount %>">&#36;<%= number_with_delimiter(amount) %></label>
+                    <label for="amount-<%= amount %>">
+                      &#36;<%= number_with_delimiter(amount) %>
+                    </label>
                   </li>
                 <%- end -%>
               </ul>
@@ -35,7 +37,11 @@
                 <%- if @services.present? -%>
                   <%= truncate(@services.collect { |s| s.name }.join(', '), :length => 17) %>
                 <%- else -%>
-                  <%= Service.checked.collect { |s| s.name }.join(', ') %>
+                  <%- if Service.checked.any? -%>
+                    <%= Service.checked.collect { |s| s.name }.join(', ') %>
+                  <%- else -%>
+                    Choose Service(s)...
+                  <%- end -%>
                 <%- end -%>
               </h3>
               <ul class="search-details">
@@ -48,7 +54,7 @@
                      id="<%= service.name.parameterize %>"
                      value="<%= service.id %>"
                      <%- if @services.present? -%>
-                      <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %>
+                       <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %>
                      <%- else -%>
                        <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
                      <%- end -%>

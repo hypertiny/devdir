@@ -55,15 +55,9 @@
       <ul class="ticks">
         <%- f.fields_for :requested_services do |rf| -%>
           <li>
-            <%- if rf.object.checked -%>
-              <%= image_tag '/images/icon-check.png', :class=>"check"%>
-              <!-- <%= check_box_tag "dummy-#{dom_id(rf.object)}", 0, true, :disabled => true %> -->
-              <%= label_tag "dummy-#{dom_id(rf.object)}", rf.object.name %>
-            <%- else -%>
-              <%= rf.check_box :add %>
+              <%= rf.check_box :add, :checked => rf.object.checked %>
               <%= rf.label :add, rf.object.name %>
               <%= rf.hidden_field :name %>
-            <%- end -%>
           </li>
         <%- end -%>
       </ul>

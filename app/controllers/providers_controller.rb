@@ -4,6 +4,7 @@ class ProvidersController < ApplicationController
 
   def index
     @providers = Provider.all_by_company_name.paginate(:page => params[:page])
+    render :search
   end
   
   def by_location
