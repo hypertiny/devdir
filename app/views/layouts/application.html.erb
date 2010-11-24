@@ -9,6 +9,7 @@
     <%- end -%>
     <%= t('general.site_title') %>
   </title>
+  <meta charset="utf-8"/>
   <meta name="page" content="<%= @page_url || "#{controller.controller_name}/#{controller.action_name}" %>"/>
       <%- if @page_content and @page_content.enable_keywords? -%>
         <meta name="keywords" content="<%= @page_content.keywords %>">

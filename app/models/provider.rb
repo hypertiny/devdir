@@ -3,7 +3,6 @@ class Provider < ActiveRecord::Base
   include AASM
   
   validates_presence_of :company_name, :email, :company_url
-  validates_uniqueness_of :slug
   validate_on_create :first_user_has_email_matching_company_url
   validates_acceptance_of :terms_of_service
   validates_length_of :marketing_description, :maximum => 800, :allow_nil => true
@@ -12,6 +11,7 @@ class Provider < ActiveRecord::Base
   audit
   has_attached_file :avatar, :styles => { :larger => "384x384>", :display => "108x108>" }
   has_attached_file :logo, :styles => { :larger => "384x384>", :display => "108x108>" }
+  has_friendly_id :company_name, :use_slug => true
   xss_terminate :sanitize => [:marketing_description]
   format_dates :timestamps
   
@@ -26,7 +26,7 @@ class Provider < ActiveRecord::Base
   
   url_field :company_url
   
-  attr_protected :aasm_state, :slug, :user_id, :endorsements_count, :featured
+  attr_protected :aasm_state, :user_id, :endorsements_count, :featured
   
   has_many :users, :dependent => :destroy
   has_many :favorites
@@ -43,7 +43,6 @@ class Provider < ActiveRecord::Base
   
   accepts_nested_attributes_for :users
   
-  before_validation_on_create :save_slug
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider
   after_create :set_first_user_as_owner
@@ -61,14 +60,6 @@ class Provider < ActiveRecord::Base
   named_scope :from_state, lambda { |state| {:conditions => {:state_province => state.to_s}}}
   named_scope :inactive, :conditions => {:aasm_state => 'inactive'}, :order => :company_name
   named_scope :us_based, :conditions => {:country => 'US'}
-  
-  def self.find(*args)
-    if args.not.many? and args.first.kind_of?(String) and args.first.not.match(/^\d*$/)
-      find_by_slug(args)
-    else
-      super(*args)
-    end
-  end
   
   def self.search(params)
     conditions = ["aasm_state != 'flagged'"]
@@ -127,10 +118,6 @@ class Provider < ActiveRecord::Base
     end
     out
   end
-
-  def to_param
-    slug
-  end
   
   def self.options_for_company_size
     [["2-10", 2], ["11-30", 11], ["31-100", 31], ["100+", 100]]
@@ -166,10 +153,6 @@ class Provider < ActiveRecord::Base
     aasm_state
   end
   
-  def slugged_company_name
-    company_name.downcase.gsub(/[^a-z0-9\s]/, '').gsub(/\s/,'-') if company_name
-  end
-  
   def users_for_select
     users.collect { |u| [u.name, u.id] }
   end
@@ -197,9 +180,6 @@ class Provider < ActiveRecord::Base
   end
   
 private
-  def save_slug
-    self.slug = slugged_company_name
-  end
   
   def first_user_has_email_matching_company_url
     return true unless users.first and company_url.not.blank? and users.first.email.not.blank?
@@ -244,7 +224,7 @@ private
   end
   
   def name_is_not_a_reserved_country_name
-    if Country.slugs.include?(slugged_company_name) or State.slugs.include?(slugged_company_name)
+    if Country.slugs.include?(friendly_id) or State.slugs.include?(friendly_id)
       errors.add(:company_name, I18n.t('provider.validations.reserved_name'))
     end
   end

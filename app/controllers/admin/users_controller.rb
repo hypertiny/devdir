@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.provider = Provider.find_by_slug(params[:user][:provider_id]) if params[:user][:provider_id]
+    @user.provider = Provider.find_by_cached_slug(params[:user][:provider_id]) if params[:user][:provider_id]
     @user.password = params[:user][:password]
     @user.password_confirmation = @user.password
     @user.reset_perishable_token!

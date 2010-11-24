@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101021170928) do
+ActiveRecord::Schema.define(:version => 20101124203550) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(:version => 20101021170928) do
     t.string   "aasm_state"
     t.string   "further_street_address"
     t.integer  "user_id"
-    t.string   "slug"
+    t.string   "cached_slug"
     t.string   "company_url"
     t.text     "marketing_description"
     t.integer  "endorsements_count",                                    :default => 0
@@ -140,8 +140,8 @@ ActiveRecord::Schema.define(:version => 20101021170928) do
     t.boolean  "featured",                                              :default => false
   end
 
+  add_index "providers", ["cached_slug"], :name => "index_providers_on_slug"
   add_index "providers", ["featured"], :name => "index_providers_on_featured"
-  add_index "providers", ["slug"], :name => "index_providers_on_slug"
 
   create_table "recommendations", :force => true do |t|
     t.string   "name"
@@ -219,6 +219,18 @@ ActiveRecord::Schema.define(:version => 20101021170928) do
   end
 
   add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
+
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "top_cities", :force => true do |t|
     t.string   "city"

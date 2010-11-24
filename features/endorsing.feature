@@ -24,6 +24,7 @@ Feature: Recommending a provider
     Then I should see "view endorsements"
     Given "Hashrocket" have requested "Brian Flanagan <btf@coralmade.net>" submit an endorsement
       And "btf@coralmade.net" follows the emailed endorsement link
+      And show me the page
     Then I should see "provider.endorsement_headline" translation
     When I fill in "endorsement[name]" with "Brian Flanagan"
       And I select "2007" from "endorsement[year_hired]"

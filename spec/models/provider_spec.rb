@@ -140,21 +140,6 @@ describe Provider do
       @provider.user.should == @provider.users.first
     end
   end
-  
-  describe "creating a slug" do
-    before do
-      @provider = Provider.new(@valid_attributes.merge({:company_name => "The big Friendly Six's Are parting", :city => "Test"}))
-    end
-    
-    it "should reformat the slug" do
-      @provider.slugged_company_name.should == 'the-big-friendly-sixs-are-parting'
-    end
-    
-    it "should save the slug" do
-      @provider.save!
-      @provider.slug.should == @provider.slugged_company_name
-    end
-  end
 
   describe "making sure that the email and url domain match" do
     before do

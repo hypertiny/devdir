@@ -8,7 +8,6 @@
     <%= f.label :user_id, t("provider.admin") %> <%= f.select :user_id, @provider.users_for_select %> <br />
     
     <%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %> <br />
-    <%= f.label :slug, t("provider.slug") %> <%= f.text_field :slug %> <br />
 		<%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}" %> <%= f.text_area :marketing_description, :class => "count", :"data-count" => 300 %> <br />
     <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %> <br />
     <label></label><%= f.text_field :further_street_address %> <br />
