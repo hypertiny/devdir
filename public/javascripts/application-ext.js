@@ -104,8 +104,11 @@ Ext.onReady(function() {
     }
     var selected_items = [];
     Ext.get(this).select('input:checked').each(function(element){
-      var item = Ext.select('label[for=' + Ext.get(element).getAttribute('id') + ']').elements[0].innerHTML
-      selected_items.push(item)
+      if(Ext.select('label[for=' + Ext.get(element).getAttribute('id') + ']').elements.length > 0)
+      {
+        var item = Ext.select('label[for=' + Ext.get(element).getAttribute('id') + ']').elements[0].innerHTML
+        selected_items.push(item)
+      }
     })
     if(selected_items.length === 0)
     {
@@ -113,7 +116,8 @@ Ext.onReady(function() {
     }
     else
     {
-      h3.update(Ext.util.Format.ellipsis(selected_items.join(', '), 20));
+      var out = Ext.util.Format.trim(selected_items.join(', '))
+      h3.update(Ext.util.Format.ellipsis(out, 20));
     }
   }
   

@@ -14,16 +14,12 @@
         <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
           <ul class="search-options-list">
             <li class="search-option price-range">
-              <%- 
-                if params[:search_params].present? && params[:search_params][:budget].present?
-                  original_value = "&#36;#{number_with_delimiter(params[:search_params][:budget].to_i)}"
-                else
-                  "Choose budget..."
-                end
-                
-               -%>
-              <h3 data-original-value="<%= original_value %>">
-                <%= original_value %>
+              <h3 data-original-value="Choose budget...">
+                <%- if params[:search_params].present? && params[:search_params][:budget].present? -%>
+                  &#36;<%= number_with_delimiter(params[:search_params][:budget].to_i) %>
+                <%- else -%>
+                  Choose budget...
+                <%- end -%>
               </h3>
               <ul class="search-details">
                 <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
