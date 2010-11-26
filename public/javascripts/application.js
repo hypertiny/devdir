@@ -1,17 +1,4 @@
 $(document).ready(function(){
-
-
-  
-  $('textarea[data-count]').keyup(textarea_maxlength)
-  $('textarea[data-count]').change(textarea_maxlength)
-  
-  $('input#next').click(function(){
-    if($('input[type=checkbox][checked]').length > 3)
-    {
-      alert(I18n.t('rfp.three_provider_max'))
-      return false
-    }
-  })
   
   $('.date').datepicker()
   
