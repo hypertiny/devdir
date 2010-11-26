@@ -8,7 +8,7 @@ gem 'eyeballs_rails', '0.1.4', :require => 'eyeballs_rails_helper'
 gem "highline"
 gem 'hpricot'
 gem "RedCloth", :require => 'redcloth'
-gem "authlogic", '2.1.2'
+gem "authlogic", '2.1.6'
 gem "fastercsv"
 gem "friendly_id"
 gem "nokogiri", '>= 1.3.3'

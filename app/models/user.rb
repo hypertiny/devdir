@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   after_create :reset_token
   after_create :send_welcome
 
-  acts_as_authentic
+  acts_as_authentic do |config|
+    config.validate_email_field=false
+  end
   can_has?
   
   attr_protected :admin, :provider_id, :password, :password_confirmation

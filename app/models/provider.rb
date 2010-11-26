@@ -189,7 +189,7 @@ private
       errors.add_to_base(I18n.t('provider.validations.user_email_cannot_be_different_domain'))
     end
   rescue
-    errors.add_to_base(I18n.t('provider.validations.valid_url'))
+    # errors.add_to_base(I18n.t('provider.validations.valid_url'))
   end
   
   def set_first_user_as_owner
