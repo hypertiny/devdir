@@ -98,7 +98,7 @@
         <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path, :class => 'copy-button' %></li>
         <li><%= link_to t('endorsement.manage'), my_endorsements_path, :class => 'copy-button' %></li>
       <%- else -%>
-        <li class="request"><strong><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class => 'copy-button' %></strong></li>
+        <li class="request"><strong><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :class => 'copy-button' %></strong></li>
         <%- if @provider.endorsements.approved.not.empty? -%>
           <li><%= link_to t('provider.view_endorsements'), provider_endorsements_path(@provider), :class => 'copy-button' %></li>
         <%- end -%>
