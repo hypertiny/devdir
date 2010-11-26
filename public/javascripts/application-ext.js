@@ -132,8 +132,19 @@ Ext.onReady(function() {
     Ext.get(this).select('.search-details').toggleClass('clicked')
   })
   
-  // $('ul.search-details').click(function(){
+  Ext.select('body').on('click', function(e){
+    if(!Ext.get(e.target).findParent('.search-option'))
+    {
+      Ext.select('.search-details').removeClass('clicked')
+    }
+    // if(Ext.get(e.target).findParent('.search-option'))
+    // {
+    //   Ext.select('.search-details').removeClass('clicked')
+    // }
+  })
 
-  // })
+  var RecaptchaOptions = {
+    theme : 'clean'
+  };
   
 });
