@@ -19,7 +19,6 @@ Feature: Provider Signup
       And I check "provider[terms_of_service]"
     When I press "Sign up"
     Then I should see "Users password doesn't match confirmation"
-      And I should see "provider.validations.valid_url" translation
     When I fill in the "Password" with "americanpolka"
       And I fill in the "Retype Password" with "americanpolka"
       And I fill in the "Company Website" with "oleopry.com"

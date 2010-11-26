@@ -14,7 +14,7 @@ class EndorsementsController < ApplicationController
   def create
     @endorsement = Endorsement.new(params[:endorsement])
     @endorsement.provider = @provider
-    
+
     if verify_recaptcha(:model => @endorsement) && @endorsement.save
       flash[:notice] = I18n.t('endorsement.thanks')
       redirect_to @provider
@@ -31,7 +31,7 @@ private
   
   def validate_recipient
     @recipient = EndorsementRequestRecipient.find_by_validation_token(params[:key])
-    unless @recipient and @recipient.endorsement_request.provider.slug == params[:provider_id]
+    unless @recipient and @recipient.endorsement_request.provider.cached_slug == params[:provider_id]
       flash[:error] = I18n.t('endorsement.validations.use_the_key')
       redirect_to @provider
     end
