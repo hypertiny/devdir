@@ -455,6 +455,10 @@ hr.lined {
   clear: both;
 }
 
+.plain-form .field .hint .charCount .number.over-limit {
+  color: #C00;
+}
+
 .plain-form .field .error {
   float: right;
   display: block;
