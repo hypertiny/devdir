@@ -1169,3 +1169,11 @@ input.copy-button {
   background-color: #d0e6cf;
   border-color: #9cd998;
 }
+
+.fieldWithErrors { font-weight: bold;}
+.plain-form .field .fieldWithErrors input, .plain-form .field .fieldWithErrors textarea {
+  border-top: 1px solid #C00;
+  border-bottom: 1px solid #C00;
+  border-left: 1px solid #FCC;
+  border-right: 1px solid #FCC;
+}

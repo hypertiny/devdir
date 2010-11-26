@@ -96,6 +96,7 @@ Ext.onReady(function() {
     }();
   }
   
+  // set the text of the select boxes depending on the selected items
   var update_select_boxes = function(){
     h3 = Ext.get(this).prev('h3');
     if(h3.getAttribute('data-original-value') === void(0))
@@ -128,23 +129,44 @@ Ext.onReady(function() {
     update_select_boxes.apply(element)
   })
   
+  // drop down the search options when the list is clicked
   Ext.select('li.search-option').on('click', function(e){
     Ext.get(this).select('.search-details').toggleClass('clicked')
   })
   
+  // hide the select boxes when clicked outside
   Ext.select('body').on('click', function(e){
     if(!Ext.get(e.target).findParent('.search-option'))
     {
       Ext.select('.search-details').removeClass('clicked')
     }
-    // if(Ext.get(e.target).findParent('.search-option'))
-    // {
-    //   Ext.select('.search-details').removeClass('clicked')
-    // }
   })
+  
+  if(Ext.get('sorting-endorsements'))
+  {
+    // hide the sorting endorsements list
+    Ext.get("sorting-endorsements").hide()
 
-  var RecaptchaOptions = {
-    theme : 'clean'
-  };
+    Ext.select('a.sort-endorsements').on('click',function(){
+      if(Ext.get('sorting-endorsements').isVisible())
+      {
+        Ext.get('sorting-endorsements').hide()
+        Ext.get('non-sorting-endorsements').show()
+        Ext.get(this).update(I18n.t('provider.sort_endorsements'))
+      }
+      else
+      {
+        Ext.get('sorting-endorsements').show()
+        Ext.get('non-sorting-endorsements').hide()
+        Ext.get(this).update(I18n.t('provider.done_sorting'))
+      }
+      return false
+    })
+  }
   
 });
+
+// set the recaptcha theme to a basic white one
+var RecaptchaOptions = {
+  theme : 'clean'
+};
