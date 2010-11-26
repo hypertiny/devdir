@@ -69,7 +69,7 @@ Ext.onReady(function() {
      return text;
   }
   
-  
+  // display tweets as appropriate
   if(Ext.get('tweet-list'))
   {
     var display_tweets = function(){
@@ -95,5 +95,41 @@ Ext.onReady(function() {
         });
     }();
   }
+  
+  var update_select_boxes = function(){
+    h3 = Ext.get(this).prev('h3');
+    if(h3.getAttribute('data-original-value') === void(0))
+    {
+      h3.set({'data-original-value': h3.innerHTML})
+    }
+    var selected_items = [];
+    Ext.get(this).select('input:checked').each(function(element){
+      var item = Ext.select('label[for=' + Ext.get(element).getAttribute('id') + ']').elements[0].innerHTML
+      selected_items.push(item)
+    })
+    if(selected_items.length === 0)
+    {
+      h3.update(h3.getAttribute('data-original-value'));
+    }
+    else
+    {
+      h3.update(Ext.util.Format.ellipsis(selected_items.join(', '), 20));
+    }
+  }
+  
+  // dropdowns for searching
+  Ext.select('ul.search-details').on('click', update_select_boxes)
+  
+  Ext.select('ul.search-details').each(function(element){
+    update_select_boxes.apply(element)
+  })
+  
+  Ext.select('li.search-option').on('click', function(e){
+    Ext.get(this).select('.search-details').toggleClass('clicked')
+  })
+  
+  // $('ul.search-details').click(function(){
+
+  // })
   
 });
