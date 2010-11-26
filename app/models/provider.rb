@@ -11,7 +11,7 @@ class Provider < ActiveRecord::Base
   audit
   has_attached_file :avatar, :styles => { :larger => "384x384>", :display => "108x108>" }
   has_attached_file :logo, :styles => { :larger => "384x384>", :display => "108x108>" }
-  has_friendly_id :company_name, :use_slug => true
+  has_friendly_id :company_name, :use_slug => true, :allow_nil => true
   xss_terminate :sanitize => [:marketing_description]
   format_dates :timestamps
   
