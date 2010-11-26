@@ -1,9 +1,11 @@
-// Path to the blank image must point to a valid location on your server
 Ext.BLANK_IMAGE_URL = '/ext/resources/images/default/s.gif';
 
-// Main application entry point
 Ext.onReady(function() {
-// write your application here
+  
+  Ext.select('input.confirm, input.delete').on('click', function(){
+    return confirm(I18n.t('forms.confirm'));
+  })
+
   function textarea_maxlength(e){
     var textarea = Ext.get(e.target)
     remaining = textarea.dom.attributes['data-count'].value - textarea.getValue().length

@@ -1,20 +1,6 @@
 $(document).ready(function(){
-  $('input.confirm').click(function(){
-    return confirm(I18n.t('forms.confirm'));
-  })
-  
-  function textarea_maxlength(){
-    remaining = $(this).attr('data-count') - $(this).val().length
-    $('em.number').text(remaining + '')
-    if(remaining >= 0)
-    {
-        $('.number').removeClass('over-limit')
-    }
-    else
-    {
-      $('.number').addClass('over-limit')
-    }
-  }
+
+
   
   $('textarea[data-count]').keyup(textarea_maxlength)
   $('textarea[data-count]').change(textarea_maxlength)
