@@ -16,3 +16,4 @@ config/site_config.yml
 Capfile
 config/deploy.rb
 capybara*
+*.tmproj
