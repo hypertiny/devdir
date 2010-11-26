@@ -146,7 +146,7 @@
     <div class="column_three">
       <div class="twitter">
         <h3 class="latest-tweets">Latest Tweets</h3>
-        <ul class="tweet-list" data-username="<%= escape_javascript @provider.twitter %>">
+        <ul id="tweet-list" class="tweet-list" data-username="<%= escape_javascript @provider.twitter %>">
           
         </ul>
         <a href="http://www.twitter.com/<%= @provider.twitter %>" class="follow-link">Follow @<%= @provider.twitter %></a>

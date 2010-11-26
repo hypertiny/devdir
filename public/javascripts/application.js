@@ -2,57 +2,6 @@ $(document).ready(function(){
   
   $('.date').datepicker()
   
-  $('a.tooltip').tooltip({showURL: false})
-  
-  $('input#country-US, label[for=country-US]').click(function(){
-    if($('input#country-US').is(':checked'))
-    {
-      $('input#country-US').parents('li').find('li input[type=checkbox]').attr('checked', true)
-    }
-    else
-    {
-      $('input#country-US').parents('li').find('li input[type=checkbox]').attr('checked', false)
-    }
-  })
-  
-  $('ul.location input').each(function(){
-    if($(this).attr('id') != 'everywhere')
-    {
-      $(this).attr('disabled', true)
-    }
-  })
-  
-  $('input#everywhere, li.everywhere label').click(function(){
-    if($('input#everywhere').is(':checked'))
-    {
-      $('ul.location input').attr('checked', 'true').attr('disabled', true)
-      $('input#everywhere').attr('checked', true).attr('disabled', false)
-    }
-    else
-    {
-      $('ul.location input').attr('checked', false).attr('disabled', false)
-    }
-  })
-  
-  $('ul.states li input, ul.states li label').click(function(){
-    if($('ul.states li input[type=checkbox]:checked').length == 0)
-    {
-      $('input#country-US').attr('checked', false)
-    }
-    else
-    {
-      $('input#country-US').attr('checked', true)
-    }
-  })
-  
-  $('form#search-form').submit(function(){
-    if($.trim($('input[name=budget]').val()) == '')
-    {
-      alert(I18n.t('home.enter_budget'))
-      return false
-    }
-  })
-  
   $('a.sort-endorsements').click(function(){
     if($('div#sorting-endorsements').is(':hidden'))
     {
@@ -77,34 +26,6 @@ $(document).ready(function(){
   })
   
   $("div#sorting-endorsements").hide()
-  
-  function linkify(text){
-      if (text) {
-          text = text.replace(
-              /((https?\:\/\/)|(www\.))(\S+)(\w{2,4})(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi,
-              function(url){
-                  var full_url = url;
-                  if (!full_url.match('^https?:\/\/')) {
-                      full_url = 'http://' + full_url;
-                  }
-                  return '<a href="' + full_url + '">' + url + '</a>';
-              }
-          );
-      }
-      return text;
-  }
-
-  $('ul.tweet-list').each(function(){
-    var ul = $(this);
-    var twitter_username = ul.attr('data-username');
-    $.jTwitter(twitter_username, 3, function(posts){
-      for(var i=0; i<posts.length; i++){
-        ul.append('<li class="tweet-item">'  + linkify(posts[i].text) +  '</li>');
-      }
-      return false;
-    });
-    return false;
-  });
   
   $('ul.search-details').click(function(){
     h3 = $(this).prev('h3:first');
