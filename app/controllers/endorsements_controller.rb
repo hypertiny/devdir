@@ -23,7 +23,7 @@ class EndorsementsController < ApplicationController
     end
   end
   
-  private
+private
   
   def find_provider
     @provider = Provider.find(params[:provider_id])
