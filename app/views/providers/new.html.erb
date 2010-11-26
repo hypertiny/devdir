@@ -25,9 +25,9 @@
     <%- f.fields_for :users do |uf| -%>
       <div class="field"><%= uf.label :first_name, t("user.first_name") %> <%= uf.text_field :first_name %></div>
       <div class="field"><%= uf.label :last_name, t("user.last_name") %> <%= uf.text_field :last_name %></div>
-      <div class="field"><%= uf.label :email, t("user.email") %> <%= uf.text_field :email %></div>
-      <div class="field"><%= uf.label :password, t("user.password") %> <%= uf.password_field :password %></div>
-      <div class="field"><%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %></div>
+      <div class="field required"><%= uf.label :email, t("user.email") %> <%= uf.text_field :email %></div>
+      <div class="field required"><%= uf.label :password, t("user.password") %> <%= uf.password_field :password %></div>
+      <div class="field required"><%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %></div>
     <%- end -%>
     
   </fieldset>

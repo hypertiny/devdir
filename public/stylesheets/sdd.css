@@ -326,6 +326,18 @@ hr.lined {
   overflow: hidden;
 }
 
+.plain-form .fields .field.required {
+  font-weight: bold;
+}
+
+.fieldWithErrors { font-weight: bold;}
+.plain-form .field .fieldWithErrors input, .plain-form .field .fieldWithErrors textarea {
+  border-top: 1px solid #C00;
+  border-bottom: 1px solid #C00;
+  border-left: 1px solid #FCC;
+  border-right: 1px solid #FCC;
+}
+
 .plain-form .field label {
   text-align: right;
   float: left;
@@ -1170,10 +1182,3 @@ input.copy-button {
   border-color: #9cd998;
 }
 
-.fieldWithErrors { font-weight: bold;}
-.plain-form .field .fieldWithErrors input, .plain-form .field .fieldWithErrors textarea {
-  border-top: 1px solid #C00;
-  border-bottom: 1px solid #C00;
-  border-left: 1px solid #FCC;
-  border-right: 1px solid #FCC;
-}

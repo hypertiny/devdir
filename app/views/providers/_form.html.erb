@@ -1,5 +1,5 @@
 <fieldset class="fields">
-  <div class="field"><%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %></div>
+  <div class="field required"><%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %></div>
   <div class="field">
     <%= f.label :marketing_description, "#{t("provider.marketing_description")}" %>
     <%= f.text_area :marketing_description, :'data-count' => 800  %>
@@ -18,8 +18,8 @@
   <div class="field"><%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %></div>
   <div class="field"><%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %></div>
   <div class="field"><%= f.label :phone_number, t("provider.phone_number") %> <%= f.text_field :phone_number %></div>
-  <div class="field"><%= f.label :email, t("provider.email") %> <%= f.text_field :email %></div>
-  <div class="field"><%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %></div>
+  <div class="field required"><%= f.label :email, t("provider.email") %> <%= f.text_field :email %></div>
+  <div class="field required"><%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %></div>
   <div class="field">
     <%= f.label :twitter, "Twitter Username" %>
     <%= f.text_field :twitter %>
