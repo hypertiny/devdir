@@ -949,6 +949,7 @@ hr.lined {
   width: 10.8em;
   float: left;
   overflow: hidden;
+  text-align: left;
 }
 
 .developer-result .imagery .avatar {
