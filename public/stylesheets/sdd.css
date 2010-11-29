@@ -629,7 +629,6 @@ hr.lined {
 .search-options-bar {
   border-bottom: 1px solid #8c8c8c;
   background: #dadada url('/images/search-options-bar.jpg') top left repeat-x;
-  margin-bottom: 3em;
 }
 
 .search-options {
@@ -713,7 +712,7 @@ hr.lined {
 /* the devs. */
 
 .developer {
-  padding: 0 0 3.6em;
+  padding: 3em 0 3.6em;
 }
 
 .developer .imagery {
