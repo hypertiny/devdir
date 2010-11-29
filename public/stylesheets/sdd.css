@@ -925,7 +925,8 @@ hr.lined {
 }
 
 .developer-result .imagery .avatar {
-  width: 10.8em;
+  width: 9.8em;
+  overflow: hidden;
 }
 
 .developer-result .details {
