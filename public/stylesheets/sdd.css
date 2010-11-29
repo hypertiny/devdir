@@ -740,6 +740,7 @@ hr.lined {
 
 .developer {
   padding: 3em 0 3.6em;
+  overflow: hidden;
 }
 
 .developer .imagery {
