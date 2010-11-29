@@ -197,9 +197,13 @@
     <div class="container">
       <div class="column_twelve addendum">
         <h3>Other developers from your search</h3>
-        <%- link_to(search_providers_path(params[:search_params])) do -%>
-          Return to full results
-        <%- end -%>
+        <ul class="action-items">
+          <li class="action">
+            <%- link_to(search_providers_path(params[:search_params]), :class => 'action-item') do -%>
+              Return to full results
+            <%- end -%>
+          </li>
+        </ul>
       </div>
       <hr class="clear" />
       <ul class="developer-results">
