@@ -432,6 +432,7 @@ hr.lined {
   display: block;
   clear: both;
   text-align: left;
+  padding: 0 0 .5em;
 }
 
 .plain-form .field .ticks li .hint {
@@ -445,7 +446,7 @@ hr.lined {
   float: none;
   display: inline;
   font-size: 1.1em;
-  padding: 0;
+  padding: 0 0 0 .5em;
 }
 
 .plain-form .field .hint {

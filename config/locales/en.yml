@@ -370,8 +370,8 @@ en:
     submission:
       thanks_for_submitting: Thanks for submitting your request
       description: Developers will get in touch with you shortly.
+      # change this email!
       instructions: "If you have any questions or don't receive a timely response, please contact us at <a href='mailto:info@railsdevelopment.com'>info@railsdevelopment.com</a>"
-    
     
     terms_of_service: Terms of use
     accept_terms_of_service: 'I accept the <a target="_BLANK" href="/pages/terms-of-use">Terms of Use</a>'
