@@ -116,6 +116,32 @@ h4 {
   text-align: left;
 }
 
+/* the dictionary */
+
+.plain-dictionary {
+  display: block;
+  font-size: 1.3em;
+  line-height: 1.4em;
+  text-align: left;
+  overflow: hidden;
+}
+
+.plain-dictionary dt, .plain-dictionary dd {
+  float: left;
+  padding: 0 0 8px;
+}
+
+.plain-dictionary dt {
+  width: 120px;
+  clear: left;
+  font-weight: bold;
+}
+
+.plain-dictionary dd {
+  width: 320px;
+  clear: right;
+}
+
 /* the table. */
 
 .plain-table {
@@ -1036,6 +1062,7 @@ input.copy-button {
   font-size: 3.6em;
   text-align: center;
   padding-bottom: .25em;
+  overflow: hidden;
 }
 
 .heading .plain-text {
@@ -1055,20 +1082,20 @@ input.copy-button {
   border-bottom: 0;
 }
 
-.box-heading .action-items {
+.box-heading .action-items, .heading .action-items {
   clear: both;
   overflow: hidden;
   margin: 0;
   padding: 0 0 1em;
 }
 
-.box-heading .action-items li {
+.box-heading .action-items li, .heading .action-items li {
   float: left;
   margin: 0;
   padding: 0;
 }
 
-.box-heading .action-items li a {
+.box-heading .action-items li a, .heading .action-items li a {
   margin: 0;
   padding: 0;
   padding-left: 1em;

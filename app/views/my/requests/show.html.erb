@@ -1,122 +1,80 @@
-<div class="request">
-  <div class="pageHead">
-    <h2><%= t('rfp.show_rfp') %>: <strong><%= @rfp.project_name %></strong></h2>
-    <div class="timestamp"><%= t('rfp.submitted_on') %> <%= @rfp.created_at_formatted %></div>
-    
-    <ul class="action-items">
-      <li>
-        <%= link_to "return to requests", my_dashboard_path, :class => 'action-item' %>
-      </li>
-    </ul>
-  </div>
+<div class="heading">
+  <h2><%= t('rfp.show_rfp') %>: <strong><%= @rfp.project_name %></strong></h2>
+  <div class="plain-text"><%= t('rfp.submitted_on') %> <%= @rfp.created_at_formatted %></div>
   
+  <ul class="action-items">
+    <li>
+      <%= link_to "return to requests", my_dashboard_path, :class => 'action-item' %>
+    </li>
+  </ul>
+</div>
 
-  <div class="narrow">
-
-  <div class="block">
-  
+<div class="container">
+  <div class="column_six">
     <h3><%= t('rfp.project_owner') %></h3>
-  
-    <div class="column">
-      <h4><%= t('rfp.submitted_by') %></h4>
-      <%= @rfp.first_name %> <%= @rfp.last_name %>
-  
-      <h4><%= t('rfp.email') %></h4>
-      <%= mail_to @rfp.email %>
-  
-      <h4><%= t('rfp.phone_number') %></h4>
-      <%= @rfp.phone_number %>
-    </div>
-  
-    <div class="column">
-      <h4><%= t('rfp.company_name') %></h4>
-      <p><%= @rfp.company_name %></p>
-  
-      <address>
-      <%= @rfp.office_location %>
-      <%= @rfp.postal_code %>
-      </address>
-      
-      <h4><%= t('rfp.time_zone') %></h4>
-      <%= @rfp.time_zone %>
-    </div>
+    <dl class="plain-dictionary">
+      <dt><%= t('rfp.submitted_by') %></dt>
+      <dd><%= @rfp.first_name %> <%= @rfp.last_name %></dd>
+      <dt><%= t('rfp.email') %></dt>
+      <dd><%= mail_to @rfp.email %></dd>
+      <dt><%= t('rfp.phone_number') %></dt>
+      <dd><%= @rfp.phone_number %></dd>
+      <dt><%= t('rfp.company_name') %></dt>
+      <dd><%= @rfp.company_name %></dd>
+      <dt>Address</dt>
+      <dd><%= @rfp.office_location %><br /><%= @rfp.postal_code %></dd>
+      <dt><%= t('rfp.time_zone') %></dt>
+      <dd><%= @rfp.time_zone %></dd>
+    </dl>
   </div>
 
-  <div class="block">
-  
+  <div class="column_six">
     <h3><%= t('rfp.project_details') %></h3>
-
-    <div class="column">
-      <h4><%= t('rfp.project_name') %></h4>
-      <%= @rfp.project_name %>
-      
-      <h4><%= t('rfp.budget') %></h4>
-      <%= price @rfp.budget %>
-    </div>
-
-    <div class="column">
-      <h4><%= t('rfp.start_date') %></h4>
-      <%= @rfp.start_date_formatted %>
-
-      <h4><%= t('rfp.duration') %></h4>
-      <%= @rfp.duration %>
-    </div>
-
-    <div class="clear">
-      <div class="column services">
-        <h4><%= t('rfp.services') %></h4>
-        <ul>
+    
+    <dl class="plain-dictionary">
+      <dt><%= t('rfp.project_name') %></dt>
+      <dd><%= @rfp.project_name %></dd>
+      <dt><%= t('rfp.budget') %></dt>
+      <dd><%= price @rfp.budget %></dd>
+      <dt><%= t('rfp.start_date') %></dt>
+      <dd><%= @rfp.start_date_formatted %></dd>
+      <dt><%= t('rfp.duration') %></dt>
+      <dd><%= @rfp.duration %></dd>
+      <dt><%= t('rfp.services') %></dt>
+      <dd>
+        <ul class="facts">
           <% @rfp.requested_services.each do |service| %>
             <li><%= service.name %></li>
           <%- end -%>
         </ul>
-      </div>
-      <div class="column services">
-        <h4><%= t('rfp.insurance_requirements') %></h4>
-        <ul>
+      </dd>
+      <dt><%= t('rfp.insurance_requirements') %></dt>
+      <dd>
+        <ul class="facts">
           <li><%= t('rfp.general_liability_insurance') %>: <%= yes_or_no(@rfp.general_liability_insurance)%></li>
           <li><%= t('rfp.professional_liability_insurance') %>: <%= yes_or_no(@rfp.professional_liability_insurance) %></li>
         </ul>
-      </div>
-    </div>
-    
-    <h4><%= t('rfp.details') %></h4>
-
-    <%= t('rfp.nda_required') if @rfp.nda_required? %>
-    <%= @rfp.project_description %>
-
-    <h4><%= t('rfp.platform_requirements')%></h4>
-    <%= @rfp.platform_requirements %>
-
-    <h4><%= t('rfp.additional_services') %></h4>
-    <%= @rfp.additional_services %>
-    
-  </div>
+      </dd>
+      <dt><%= t('rfp.details') %></dt>
+      <dd><%= t('rfp.nda_required') if @rfp.nda_required? %></dd>
+      <dt>Project Description</dt>
+      <dd><%= @rfp.project_description %></dd>
+      <dt><%= t('rfp.platform_requirements')%></dt>
+      <dd><%= @rfp.platform_requirements %></dd>
+      <dt><%= t('rfp.additional_services') %></dt>
+      <dd><%= @rfp.additional_services %></dd>
+    </dl>
   </div>
 
-
-  <div class="sidebar">
-    
-    <!-- Needs to be implemented -->
-      
-    <!-- <ul class="actions">
-      <li class="requestRFP"><%= link_to t('rfp.reply'), '', :class=>'request' %></li>
-    </ul>
-
-    <ul class="actions">
-      <li class="email"><%= link_to t('rfp.send_email') %></li>
-      <li class="address"><%= link_to t('rfp.add_address') %></li>
-      <li class="calendar"><%= link_to t('rfp.add_calendar') %></li>
-      <li class="download"><%= link_to t('rfp.download_csv') %></li>
-      <li class="document"><%= link_to t('rfp.download_txt') %></li>
-    </ul> -->
+  <hr class="clear fatty" />
   
-    <p class="note"><%= t('rfp.delete_note') %></p>
+  <div class="column_twelve">
+    <p class="plain-text"><%= t('rfp.delete_note') %></p>
   
-    <% form_for [:my, @request], :html => {:method => :delete} do |f| -%>
-      <%= f.submit t('rfp.delete'), :class => "delete" %>
+    <% form_for [:my, @request], :html => {:method => :delete, :class => 'plain-form'} do |f| -%>
+      <fieldset>
+        <%= f.submit t('rfp.delete'), :class => "delete copy-button" %>
+      </fieldset>
     <% end -%>
-
   </div>
-
 </div>
