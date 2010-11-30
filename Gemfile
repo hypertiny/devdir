@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem 'rails', '2.3.10'
-gem 'mysql'
+#gem 'mysql'
 
 gem 'eyeballs'
 gem 'eyeballs_rails', '0.1.4', :require => 'eyeballs_rails_helper'

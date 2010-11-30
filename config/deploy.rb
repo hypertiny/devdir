@@ -23,7 +23,7 @@ set :use_sudo, false
 set :mongrel_conf, "#{deploy_to}/current/config/mongrel_cluster.yml"
 
 # run this the first time
-after "deploy:setup", "deploy:create_id_rsa"
+#after "deploy:setup", "deploy:create_id_rsa"
 after "deploy:update_code", "deploy:database_config"
 
 namespace :deploy do
