@@ -55,12 +55,6 @@ namespace :deploy do
   #   run "sudo /etc/init.d/nginx restart"
   # end
   
-  desc "Copy deploy key to id_rsa"
-  task :create_id_rsa, :roles => :app do
-    put File.read(File.join('doc', 'deploy')), "/home/paulca/.ssh/id_rsa"
-    run "chmod 0600 /home/paulca/.ssh/id_rsa"
-  end
-
   desc "Install gems"
   task :bundle_install, :roles => :app do
     run "cd  #{current_path} && bundle install --deployment"

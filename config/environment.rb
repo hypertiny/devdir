@@ -35,7 +35,7 @@ Rails::Initializer.run do |config|
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
   
-  config.action_mailer.default_url_options = { :host => "www.senchadevelopment.com" }
+  config.action_mailer.default_url_options = { :host => "www.senchadevs.com" }
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
