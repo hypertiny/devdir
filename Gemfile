@@ -13,7 +13,7 @@ gem "fastercsv"
 gem "friendly_id"
 gem "nokogiri", '>= 1.3.3'
 gem 'behavior', '0.1.1'
-gem 'rest-client'
+gem 'rest-client' 
 
 group :development do
   gem 'mongrel'
