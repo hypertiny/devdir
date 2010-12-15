@@ -67,7 +67,7 @@ body {
 	text-align: center;
 }
 
-strong { 
+strong {
   font-weight: bold;
 }
 
@@ -89,19 +89,19 @@ a:hover {
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, Verdana, Geneva, sans-serif;
-	line-height: 1.1;
+	line-height: 1.1em;
 	color: #000;
     text-rendering: optimizeLegibility;
 }
 
 h2 {
-  font-size: 2.4em;
+  font-size: 1.8em;
   font-weight: bold;
   text-align: left;
 }
 
 h3 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-weight: bold;
   text-align: left;
   color: #444;
@@ -120,7 +120,7 @@ h4 {
 
 .plain-dictionary {
   display: block;
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.4em;
   text-align: left;
   overflow: hidden;
@@ -146,7 +146,7 @@ h4 {
 
 .plain-table {
   display: block;
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.4em;
   text-align: left;
 }
@@ -167,8 +167,8 @@ h4 {
 /* the text. */
 
 .plain-text {
-  font-size: 1.3em;
-  line-height: 1.4em;
+  font-size: 1.4em;
+  line-height: 1.7em;
   text-align: left;
 }
 
@@ -249,7 +249,7 @@ hr {
 
 * html .clearfix {
   height: 1%; }
-  
+
 hr.fatty {
   padding: 3.6em 0;
 }
@@ -543,8 +543,8 @@ hr.lined {
   font-size: 1.2em;
 }
 
-.ui-datepicker { 
-  width: 17em; 
+.ui-datepicker {
+  width: 17em;
   padding: .2em .2em 0;
 }
 
@@ -569,7 +569,7 @@ hr.lined {
 .ui-datepicker .ui-datepicker-title { font-weight: bold; margin: 0 2.3em; line-height: 1.8em; text-align: center; }
 .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
 .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
-.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year { width: 49%;}
 .ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; background: #3689d9; border-bottom: 1px solid #3689d9; color: #dae6f2; }
 .ui-datepicker th { padding: .7em .3em; text-align: right; font-weight: bold; border: 0; }
@@ -1211,4 +1211,3 @@ input.copy-button {
   background-color: #d0e6cf;
   border-color: #9cd998;
 }
-
