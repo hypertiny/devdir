@@ -9,7 +9,7 @@ class Notification < ActionMailer::Base
 
   def endorsement_request(endorsement_request, recipient)
     setup_email
-    from "#{endorsement_request.provider.company_name} <sso@engineyard.com>"
+    from "#{endorsement_request.provider.company_name} <senchadevs@sencha.com>"
     reply_to endorsement_request.provider.email
     subject t('email.endorsement_request.subject', :company_name => endorsement_request.provider.company_name)
     recipients recipient.email
@@ -44,7 +44,7 @@ class Notification < ActionMailer::Base
   end
   
   def setup_email
-    from "#{site_config(:email_name)} <sso@engineyard.com>"
+    from "#{site_config(:email_name)} <senchadevs@sencha.com>"
     reply_to "#{site_config(:email_address)}"
   end
   

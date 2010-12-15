@@ -41,7 +41,7 @@
       <div id="header" class="container">
         <div class="column_seven">
           <h1>
-            <%= link_to "Sencha Development Directory", root_path %>
+            <%= link_to "SenchaDevs", root_path %>
           </h1>
         </div>
         <%- if !logged_in? -%>
@@ -100,18 +100,19 @@
     <div class="container">
       <div class="column_twelve">
         <ul class="footer-data">
-          <li><%= link_to t('general.contact_us'), '/pages/contact-us', :rel => "nofollow" %></li>
-          <li><%= link_to t('general.terms'), '/pages/terms-of-use', :rel => "nofollow" %></li>
+          <li><%= link_to t('general.contact_us'), 'http://www.sencha.com/contact/', :rel => "nofollow" %></li>
+          <li><%= link_to t('general.terms'), 'http://www.sencha.com/privacy/', :rel => "nofollow" %></li>
+<%- if false -%>
           <li><%= link_to t('home.full_listing'), providers_path %></li>
           <li><%= link_to t('home.by_location'), by_location_providers_path %></li>
           <li><%= link_to t('home.top_cities'), top_cities_path %></li>
+<%- end -%>
           <li><%= t('general.copyright') %></li>
         </ul>
       </div>
       <hr class="clear" />
     </div>
   </div>
-  <% eyeballs_javascripts('jquery-ui', 'datepicker', 'jquery.tooltip', 'jquery.jtwitter.min', 'jquery.string', 'application') %>
   <script type="text/javascript" src="/ext/adapter/ext/ext-base.js"></script>
   <%- if Rails.env.production? -%>
     <script type="text/javascript" src="/ext/ext-all.js"></script>

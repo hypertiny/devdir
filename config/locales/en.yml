@@ -3,8 +3,8 @@
 
 en:
   general:
-    site_title: Sencha Development Directory
-    site_title_admin: Sencha Development Directory Admin
+    site_title: SenchaDevs
+    site_title_admin: SenchaDevs Admin
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
@@ -71,7 +71,7 @@ en:
     change_password: Change Password
     dashboard:
       title: Admin Dashboard
-      welcome: This is the administrator section of the Sencha Development Directory
+      welcome: This is the administrator section of SenchaDevs
       total_providers: "Total number of developers: {{providers_size}}"
       active_providers: "active: {{active_providers_size}}"
       inactive_providers: "inactive: {{inactive_providers_size}}"
@@ -544,40 +544,40 @@ en:
       greeting: "Hi {{name}}"
       introduction: A new request has been submitted. Click below to view the request.
       thanks: Thanks.
-      signoff: The Sencha Development Directory team
+      signoff: The SenchaDevs Team
 
     endorsement_request: 
       greeting: "Hi {{name}}"
       subject: 'Can you endorse {{company_name}}?'
       instructions: "To write your endorsement, go to:"
-      appendage: This was sent from the Sencha Development Directory.
+      appendage: This was sent from SenchaDevs.
     
     endorsement_notification:
       greeting: "Hi {{name}}"
-      subject: You've been endorsed in the Sencha Development Directory
-      instructions: "{{name}} has endorsed you on the Sencha Development Directory. To approve this endorsement, go to:"
-      appendage: This was sent from the Sencha Development Directory
+      subject: You've been endorsed in SenchaDevs
+      instructions: "{{name}} has endorsed you on SenchaDevs. To approve this endorsement, go to:"
+      appendage: This was sent from SenchaDevs
 
     user_welcome: 
-      subject: 'Welcome to the Sencha Development Directory'
+      subject: 'Welcome to SenchaDevs'
       greeting: "Hi {{name}}"
-      message: You've been set up with an account on the Sencha Development Directory
+      message: You've been set up with an account on SenchaDevs
       credentials: "You can get started by clicking the link below"
       email: "Email:"
       password: "You can get started using the link below"
       signoff: "Regards, The Sencha Team"
 
     provider_welcome: 
-      subject: 'Welcome to the Sencha Development Directory'
+      subject: 'Welcome to SenchaDevs'
       greeting: Hi {{name}},
-      message: Thanks for signing up to the Sencha Development Directory
+      message: Thanks for signing up to SenchaDevs
       credentials: "You can log in at {{url}} and your details are below"
       email: "Email:"
       password: "Password:"
       signoff: "Regards, The Sencha Team"
 
     password_reset: 
-      subject: 'Welcome to the Sencha Development Directory'
+      subject: 'Welcome to SenchaDevs'
       greeting: Hi {{name}},
       instructions: You can reset your password using the link below
       signoff: "Regards, The Sencha Team"
