@@ -128,7 +128,7 @@ en:
       valid_url: Please enter a valid URL
       reserved_name: is reserved. Please try another.
     signup: Sign up
-    signup_headline: Get Better Referrals
+    signup_headline: Welcome to SenchaDevs!
     signup_description: "It only takes a few minutes to create an account."
     sign_in: Log in
     
