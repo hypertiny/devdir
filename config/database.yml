@@ -55,7 +55,8 @@ production:
   pool: 5
   username: root
   password: 
-  socket: /tmp/mysql.sock
+#  socket: /tmp/mysql.sock
+  host: sencha1.c59pnykg7amm.us-east-1.rds.amazonaws.com
 
 cucumber:
   <<: *test
