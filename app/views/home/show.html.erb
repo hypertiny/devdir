@@ -4,8 +4,7 @@
 
 <div class="heading">
   <%- if @page -%>
-      <%- if @page.title != '&nbsp;' -%><h2><%= @page.title %></h2>  <%- end -%>
-
+    <h2><%= @page.title %></h2>
     <div class="plain-text"><p><%= @page.description %></p></div>
   <%- else -%>
     <h2><%= t('home.welcome') %></h2>

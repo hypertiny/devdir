@@ -96,7 +96,7 @@ h1,h2,h3,h4,h5,h6 {
 
 h2 {
   font-size: 1.8em;
-  font-weight: bold;
+  font-weight: 300;
   text-align: left;
   color: #66ab16!important;
 
@@ -109,7 +109,7 @@ h3 {
   font-family:"klavika-web-1", "klavika-web-2", sans-serif;
   font-size: 2.4em;
 
-  font-weight: normal;
+  font-weight: 300;
   text-align: left;
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: .25em;
@@ -378,11 +378,8 @@ hr.lined {
 }
 
 .fieldWithErrors { font-weight: bold;}
-.plain-form .field .fieldWithErrors input, .plain-form .field .fieldWithErrors textarea {
-  border-top: 1px solid #C00;
-  border-bottom: 1px solid #C00;
-  border-left: 1px solid #FCC;
-  border-right: 1px solid #FCC;
+.fieldWithErrors input, .fieldWithErrors textarea, .fieldWithErrors select {
+  background-color: #fee!important;
 }
 
 .plain-form .field label {
@@ -410,7 +407,7 @@ hr.lined {
   font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
   border-width: 1px;
   border-style: solid;
-  border-color: #bbb #eee;
+  border-color: #bbb;
   background: #fafafa;
 }
 
@@ -457,7 +454,7 @@ hr.lined {
   font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
   border-width: 1px;
   border-style: solid;
-  border-color: #bbb #eee;
+  border-color: #bbb;
   background: #fafafa;
 }
 

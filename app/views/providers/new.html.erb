@@ -19,9 +19,9 @@
   <h3><%= t('provider.administrator_password_headline') %></h3>
 
   <p class="plain-text explanation"><%= t('provider.administrator_password_description')%></p>
-    
+
   <fieldset class="fields">
-    
+
     <%- f.fields_for :users do |uf| -%>
       <div class="field"><%= uf.label :first_name, t("user.first_name") %> <%= uf.text_field :first_name %></div>
       <div class="field"><%= uf.label :last_name, t("user.last_name") %> <%= uf.text_field :last_name %></div>
@@ -29,16 +29,16 @@
       <div class="field required"><%= uf.label :password, t("user.password") %> <%= uf.password_field :password %></div>
       <div class="field required"><%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %></div>
     <%- end -%>
-    
+
   </fieldset>
-  
+
   <hr class="padding" />
-  
+
   <h3><%= t('provider.company_details_headline') %></h3>
-  <p class="plain-text explanation"><% t('provider.company_details_descrpition') %></p>
-    
+  <p class="plain-text explanation"><%= t('provider.company_details_description') %></p>
+
   <%= render :partial => 'providers/form', :locals => {:f => f} %>
-  
+
   <hr class="padding" />
 
   <hr class="padding lined" />
@@ -50,7 +50,7 @@
   <hr class="padding lined" />
 
   <fieldset class="fields">
-    
+
     <div class="field">
       <label><%= t('provider.terms_of_service') %></label>
       <ul class="ticks">

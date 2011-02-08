@@ -218,7 +218,7 @@ en:
     administrator_password_headline: Please choose an administrator username and password
     administrator_password_description: "The administrator can edit company details and add additional users to the account."
     company_details_headline: Please enter some details about your company
-    company_details_description: "The more information that you provide about your company, the easier it will be for other businesses looking for your services to find you."
+    company_details_description: "This is the information about your business that appears in the directory."
   
   user:
     add_new: Add a new user
