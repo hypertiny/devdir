@@ -1,9 +1,9 @@
 Ext.BLANK_IMAGE_URL = '/ext/resources/images/default/s.gif';
 
 Ext.onReady(function() {
-  
+
   Ext.QuickTips.init();
-  
+
   // confirm dialog for deletes
   Ext.select('input.confirm, input.delete').on('click', function(){
     return confirm(I18n.t('forms.confirm'));
@@ -24,10 +24,10 @@ Ext.onReady(function() {
       Ext.select('.number').addClass('over-limit')
     }
   }
-  
+
   Ext.select('textarea[data-count]').on('keyup',textarea_maxlength)
   Ext.select('textarea[data-count]').on('change',textarea_maxlength)
-  
+
   // before submitting an enquiry, check if devs have been checked
   // and only allow a max of 3
   if(Ext.get('next'))
@@ -45,13 +45,13 @@ Ext.onReady(function() {
       }
     })
   }
-  
+
   // Tooltip on providers#search
   new Ext.ToolTip({
        target: 'confirmed-explanation',
        html: I18n.t('provider.confirmed_explanation')
    });
-  
+
   // convert URLs in string to A tags
   function linkify(text){
      if (text) {
@@ -68,7 +68,7 @@ Ext.onReady(function() {
      }
      return text;
   }
-  
+
   // display tweets as appropriate
   if(Ext.get('tweet-list'))
   {
@@ -89,13 +89,13 @@ Ext.onReady(function() {
             callbackKey: 'callback',
             params: {
                 format: 'json',
-                count: '3'                 
+                count: '7'
             },
             callback: display_tweets
         });
     }();
   }
-  
+
   // set the text of the select boxes depending on the selected items
   var update_select_boxes = function(){
     h3 = Ext.get(this).prev('h3');
@@ -121,19 +121,19 @@ Ext.onReady(function() {
       h3.update(Ext.util.Format.ellipsis(out, 20));
     }
   }
-  
+
   // dropdowns for searching
   Ext.select('ul.search-details').on('click', update_select_boxes)
-  
+
   Ext.select('ul.search-details').each(function(element){
     update_select_boxes.apply(element)
   })
-  
+
   // drop down the search options when the list is clicked
   Ext.select('li.search-option').on('click', function(e){
-    Ext.get(this).select('.search-details').toggleClass('clicked')
+    Ext.get(this).select('.search-details').addClass('clicked')
   })
-  
+
   // hide the select boxes when clicked outside
   Ext.select('body').on('click', function(e){
     if(!Ext.get(e.target).findParent('.search-option'))
@@ -141,7 +141,7 @@ Ext.onReady(function() {
       Ext.select('.search-details').removeClass('clicked')
     }
   })
-  
+
   if(Ext.get('sorting-endorsements'))
   {
     // hide the sorting endorsements list
@@ -163,7 +163,7 @@ Ext.onReady(function() {
       return false
     })
   }
-  
+
 });
 
 // set the recaptcha theme to a basic white one

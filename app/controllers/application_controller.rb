@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :number
-  
+
   before_filter :get_page_content
   before_filter :get_favorites
-  
+
   def permission_denied
     respond_to do |format|
       format.html {
@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
     end
     return false
   end
-  
+
 protected
-  
+
   def get_favorites
     @favorites = Favorite.paginate(:conditions => {:session_id => session.session_id}, :page => params[:page])
   end
@@ -33,8 +33,10 @@ protected
   def admin_required
     return access_denied unless logged_in? and current_user.admin?
   end
-  
+
   def get_page_content
+    @services = Service.find(params[:service_ids]) if params[:service_ids]
+
     @page_content = Page.find_by_url("#{controller_name}/#{action_name}")
   end
 
@@ -63,13 +65,13 @@ private
     @current_user = current_user_session && current_user_session.user
   end
   helper_method :current_user
-  
+
   def access_denied
     store_location
     redirect_to login_path
     return false
   end
-  
+
   def require_user
     unless current_user
       access_denied

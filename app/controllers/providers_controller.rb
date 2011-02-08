@@ -1,28 +1,31 @@
 class ProvidersController < ApplicationController
-  
+
   ssl_required :new, :create
 
   def index
     @providers = Provider.all_by_company_name.paginate(:page => params[:page])
     render :search
   end
-  
+
   def by_location
     @providers = Provider.all_by_location
   end
-  
+
   def search
+    params[:search_params] = params
     @providers = Provider.search(params)
   end
-  
+
   def show
     @provider = Provider.find(params[:id])
     if params[:search_params].present?
       @other_providers = Provider.search(params[:search_params]).reject { |p| p == @provider }
-      @services = Service.find(params[:search_params][:service_ids]) if params[:search_params][:service_ids]
+
+       @other_providers = @other_providers[0,4]
+
     end
   end
-  
+
   def new
     @provider = Provider.new
   end

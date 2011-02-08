@@ -30,7 +30,24 @@
       <%- if @page_content and @page_content.robots.not.blank? -%>
         <meta name="robots" content="<%= @page_content.robots %>">
       <%- end -%>
+
+  <!--
+  <link rel="stylesheet" type="text/css" href="http://sencha.com/css/master.css" />
+  -->
+
   <link rel="stylesheet" type="text/css" href="/stylesheets/sdd.css" />
+
+    <script type="text/javascript">
+        var host_start = (("https:" == document.location.protocol) ? "https://" : "http://");
+        function writeScriptSrc(src) {
+            document.write(unescape("%3Cscript src='" + host_start + src + "' type='text/javascript'%3E%3C/script%3E"));
+        }
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        writeScriptSrc('use.typekit.com/uxj6dew.js');
+    </script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
   <script type="text/javascript" charset="utf-8">
     AUTH_TOKEN = '<%= escape_javascript(form_authenticity_token) %>';
   </script>
@@ -39,7 +56,7 @@
   <div class="focus">
     <div class="top-bar">
       <div id="header" class="container">
-        <div class="column_seven">
+        <div class="column_six">
           <h1>
             <%= link_to "SenchaDevs", root_path %>
           </h1>
@@ -47,14 +64,14 @@
         <%- if !logged_in? -%>
           <div class="call-to-action">
             <div class="column_four text">
-              <div class="plain-text">
-                <strong>Devs: Get listed today!</strong><br />
+              <div class="plain-text" style='line-height: 2.7em;'>
                 Show your skills. Reach more prospects.
+
               </div>
             </div>
-            <div class="column_one">
+            <div class="column_two">
               <div class="button">
-                <%= link_to t('provider.signup'), new_provider_path, :class => 'copy-button', :rel => "nofollow" %>
+                <%= link_to "Sign up now", new_provider_path, :class => 'copy-button', :rel => "nofollow" %>
               </div>
             </div>
           </div>
@@ -81,6 +98,10 @@
       </div>
     </div>
   </div>
+
+<%= render :partial => 'shared/search_bar' %>
+
+
   <%= yield :search_options %>
   <div class="focus">
     <div class="container">
@@ -94,6 +115,8 @@
       <hr class="clear" />
     </div>
   </div>
+
+
   <%= yield :highlight %>
   <%= yield :addendum %>
   <div id="footer">

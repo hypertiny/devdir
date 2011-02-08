@@ -1,4 +1,4 @@
-<% 
+<%
   # Title: <name> Developer Profile | Rails Developer in <city> <state> | Rails Development Directory
   # Meta Description: View the Rails developer profile for <name>, located in <city>, <state>, <country>, providing <services offered>.
  %>
@@ -6,85 +6,13 @@
 <%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
 <%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
 
-<% content_for :search_options do -%>
-<div class="search-options-bar">
-  <div class="container">
-    <div class="search-options">
-      <div class="column_ten">
-        <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
-          <ul class="search-options-list">
-            <li class="search-option price-range">
-              <h3 data-original-value="Choose budget...">
-                <%- if params[:search_params].present? && params[:search_params][:budget].present? -%>
-                  &#36;<%= number_with_delimiter(params[:search_params][:budget].to_i) %>
-                <%- else -%>
-                  Choose budget...
-                <%- end -%>
-              </h3>
-              <ul class="search-details">
-                <%- ['1000', '5000', '10000', '20000', '50000', '100000'].each do |amount| -%>
-                  <li>
-                    <input name="budget" type="radio" id="amount-<%= amount %>" value="<%= amount %>" <%= 'checked' if params[:search_params].present? && params[:search_params][:budget] == amount %>/>
-                    <label for="amount-<%= amount %>">
-                      &#36;<%= number_with_delimiter(amount) %>
-                    </label>
-                  </li>
-                <%- end -%>
-              </ul>
-            </li>
-            <li class="search-option capabilities">
-              <h3 data-original-value="Choose Service(s)...">
-                <%- if @services.present? -%>
-                  <%= truncate(@services.collect { |s| s.name }.join(', '), :length => 17) %>
-                <%- else -%>
-                  <%- if Service.checked.any? -%>
-                    <%= Service.checked.collect { |s| s.name }.join(', ') %>
-                  <%- else -%>
-                    Choose Service(s)...
-                  <%- end -%>
-                <%- end -%>
-              </h3>
-              <ul class="search-details">
-                <%- Service.ordered.each do |service| -%>
-                  <li>
-                    <input
-                     name="service_ids[]"
-                     data-label="<%= service.name %>"
-                     type="checkbox"
-                     id="<%= service.name.parameterize %>"
-                     value="<%= service.id %>"
-                     <%- if @services.present? -%>
-                       <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %>
-                     <%- else -%>
-                       <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
-                     <%- end -%>
-                    <label for="<%= service.name.parameterize %>"><%= service.name %></label>
-                  </li>
-                <%- end -%>
-              </ul>
-            </li>
-          </ul>
-          <input name="commit" id="go-button" class="copy-button" type="submit" value="Go." />
-        <%- end -%>
-      </div>
-      <div class="column_two">
-        <dl class="favorite-dictionary">
-          <dt class="favorite-term"><%= link_to 'Favorites', favorites_path %></dt>
-          <dd class="favorite-data"><%= @favorites.count %></dd>
-        </dl>
-      </div>
-      <hr class="clear" />
-    </div>
-  </div>
-</div>
-<% end -%>
-
 <div class="developer">
   <div class="column_three">
     <%- if @provider.avatar_file_name.not.blank? or @provider.logo_file_name.not.blank? -%>
       <div class="imagery">
         <%- if @provider.avatar_file_name.not.blank? -%>
           <%= image_tag(@provider.avatar.url(:display), :class => "avatar") %>
+          <br />
         <%- end -%>
         <%- if @provider.logo_file_name.not.blank? -%>
           <%= image_tag(@provider.logo.url(:display), :class => "logo") %>
@@ -98,12 +26,12 @@
         <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path, :class => 'copy-button' %></li>
         <li><%= link_to t('endorsement.manage'), my_endorsements_path, :class => 'copy-button' %></li>
       <%- else -%>
-        <li class="request"><strong><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :class => 'copy-button' %></strong></li>
+        <li class="request"><strong><%= link_to 'Send a request', new_rfp_path(:provider_id => @provider.id), :class => 'copy-button' %></strong></li>
         <%- if @provider.endorsements.approved.not.empty? -%>
-          <li><%= link_to t('provider.view_endorsements'), provider_endorsements_path(@provider), :class => 'copy-button' %></li>
+          <li><%= link_to 'View endorsements', provider_endorsements_path(@provider), :class => 'copy-button' %></li>
         <%- end -%>
         <%- if @provider.portfolio_items.not.empty? -%>
-          <li><%= link_to t('provider.view_portfolio_items'), provider_portfolio_items_path(@provider), :class => 'copy-button' %></li>
+          <li><%= link_to 'View portfolio', provider_portfolio_items_path(@provider), :class => 'copy-button' %></li>
         <%- end -%>
       <%- end -%>
     </ul>
@@ -117,7 +45,7 @@
         </li>
         <li class="meta-datum inline">
           <img src="/images/icon_money.gif" alt="Price Range" title="price range">
-          &#36;<%= number_with_delimiter @provider.min_budget.to_i %> +
+          &#36;<%= number_with_delimiter @provider.min_budget.to_i %>+
         </li>
         <li class="meta-datum inline">
           <img src="/images/icon_people.gif" alt="employees icon" title="number of employees">
@@ -130,7 +58,7 @@
 
       <hr class="padding clear" />
 
-      <h4><%= t('provider.services') %></h4>
+      <h4>Services offered:</h4>
       <%- if @provider.services.empty? -%>
         <div class="card-alert"><p class="plain-text"><%= t('provider.no_services') %></p></div>
       <%- else -%>
@@ -147,7 +75,7 @@
       <div class="twitter">
         <h3 class="latest-tweets">Latest Tweets</h3>
         <ul id="tweet-list" class="tweet-list" data-username="<%= escape_javascript @provider.twitter %>">
-          
+
         </ul>
         <a href="http://www.twitter.com/<%= @provider.twitter %>" class="follow-link">Follow @<%= @provider.twitter %></a>
       </div>
@@ -164,7 +92,7 @@
           <a href="/">Get in touch!</a>
         </h3>
       </div>
-      <div class="column_seven">
+      <div class="column_nine">
         <ul class="contact-details">
           <li class="website">
             <%= link_to @provider.company_url, @provider.company_url %>
@@ -174,20 +102,22 @@
           </li>
         </ul>
       </div>
-      <div class="column_two">
-        <ul class="developer-actions">
-          <li>
-            <%- if @favorites.collect { |f| f.provider}.include?(@provider).present? -%>
-              <a href="#" class="favorite" data-bind="favorites#destroy" data-id="<%= @favorites.select { |f| f.provider_id == @provider.id }.first.id %>">
-                Remove
-              </a>
-            <%- else -%>
-              <%- link_to new_provider_favorite_path(@provider), :class => 'favorite', 'data-bind' => 'favorites#create', 'data-provider-id' => @provider.id do %>
-                Favorite
+      <%- if false -%>
+        <div class="column_two">
+          <ul class="developer-actions">
+            <li>
+              <%- if @favorites.collect { |f| f.provider}.include?(@provider).present? -%>
+                <a href="#" class="favorite" data-bind="favorites#destroy" data-id="<%= @favorites.select { |f| f.provider_id == @provider.id }.first.id %>">
+                  Remove
+                </a>
+              <%- else -%>
+                <%- link_to new_provider_favorite_path(@provider), :class => 'favorite', 'data-bind' => 'favorites#create', 'data-provider-id' => @provider.id do %>
+                  Favorite
+                <%- end -%>
               <%- end -%>
-            <%- end -%>
-        </ul>
-      </div>
+          </ul>
+        </div>
+      <%- end -%>
       <hr class="clear" />
     </div>
   </div>
@@ -228,9 +158,6 @@
                     <%= company_size(provider) %>
                   </li>
                 </ul>
-                <div class="synopsis plain-text">
-                  <%= sanitize(simple_format(provider.marketing_description)) %>
-                </div>
               </div>
             </div>
           </li>

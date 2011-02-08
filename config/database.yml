@@ -14,24 +14,26 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+
+
+#development:
+#  adapter: mysql
+#  encoding: utf8
+#  reconnect: false
+#  database: devdir_development
+#  pool: 5
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock
+
 development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: devdir_development
+  database: hypertiny
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
-
-development2:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: devdir_development
-  pool: 5
-  username: devdir
-  password: devdir
+  username: hypertiny
+  password: hypertiny
   host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and
@@ -51,10 +53,10 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: devdir_production
+  database: hypertiny
   pool: 5
-  username: root
-  password: 
+  username: hypertiny
+  password: 6ZmhmpPBjuEcbTKv
 #  socket: /tmp/mysql.sock
   host: sencha1.c59pnykg7amm.us-east-1.rds.amazonaws.com
 

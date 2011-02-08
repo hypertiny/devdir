@@ -8,7 +8,7 @@ en:
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
-    copyright: '&copy; 2010 Sencha Inc.'
+    copyright: '&copy; 2011 Sencha Inc.'
     contact_us: 'Contact Us'
     terms: 'Terms of Use'
     
@@ -210,7 +210,7 @@ en:
     terms_of_service: Terms of Use
     services: Services
     no_services: No services have been selected yet
-    action: Send Request To
+    action: Send Request
     verified: Verified?
     
     accept_terms_of_service: 'I accept the <a target="_BLANK" href="/pages/provider-terms-of-use">Terms of Use</a>'

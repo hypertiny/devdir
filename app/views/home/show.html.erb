@@ -4,7 +4,8 @@
 
 <div class="heading">
   <%- if @page -%>
-    <h2><%= @page.title %></h2>
+      <%- if @page.title != '&nbsp;' -%><h2><%= @page.title %></h2>  <%- end -%>
+
     <div class="plain-text"><p><%= @page.description %></p></div>
   <%- else -%>
     <h2><%= t('home.welcome') %></h2>
@@ -15,6 +16,9 @@
 <div class="plain-text">
 <%= @page.content if @page %>
 </div>
+
+
+<%- if false -%>
 
 <%- content_for :highlight do %>
   <div class="highlight">
@@ -29,7 +33,7 @@
           <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
             <ul class="search-options-list">
               <li class="search-option price-range">
-                <h3 data-original-value="Choose Budget...">Choose Budget...</h3>
+                <h3 data-original-value="Choose Budget">Choose Budget</h3>
                 <ul class="search-details">
                   <li>
                     <input name="budget" type="radio" id="onethousand" value="1000"/>
@@ -58,11 +62,11 @@
                 </ul>
               </li>
               <li class="search-option capabilities">
-                <h3 data-original-value="Choose Service(s)...">
+                <h3 data-original-value="Choose Technology">
                   <%- if Service.checked.any? -%>
                     <%= Service.checked.collect { |s| s.name }.join(', ') %>
                   <%- else -%>
-                    Choose Service(s)...
+                    Choose Technology
                   <%- end -%>
                 </h3>
                 <ul class="search-details">
@@ -93,7 +97,6 @@
   </div>
 <% end -%>
 
-<%- if false -%>
 
 <% content_for :addendum do -%>
   <div class="container">
