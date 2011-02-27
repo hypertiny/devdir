@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css">
-
   <title>
     <% if @page_content and @page_content.title.not.empty? %>
       <%= @page_content.title %> |
@@ -31,26 +29,15 @@
         <meta name="robots" content="<%= @page_content.robots %>">
       <%- end -%>
 
-  <!--
-  <link rel="stylesheet" type="text/css" href="http://sencha.com/css/master.css" />
-  -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sdd.css" />
 
-  <link rel="stylesheet" type="text/css" href="/stylesheets/sdd.css" />
-
-    <script type="text/javascript">
-        var host_start = (("https:" == document.location.protocol) ? "https://" : "http://");
-        function writeScriptSrc(src) {
-            document.write(unescape("%3Cscript src='" + host_start + src + "' type='text/javascript'%3E%3C/script%3E"));
-        }
-    </script>
-    <script type="text/javascript" charset="utf-8">
-        writeScriptSrc('use.typekit.com/uxj6dew.js');
-    </script>
+    <script type="text/javascript" src="http://use.typekit.com/uxj6dew.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" charset="utf-8">
+      AUTH_TOKEN = '<%= escape_javascript(form_authenticity_token) %>';
+    </script>
+    <%= javascript_include_tag 'ext-core.js', 'i18n', 'translations', 'application-ext.js', 'jsonp.js' %>
 
-  <script type="text/javascript" charset="utf-8">
-    AUTH_TOKEN = '<%= escape_javascript(form_authenticity_token) %>';
-  </script>
 </head>
 <body>
   <div class="focus">
@@ -136,12 +123,5 @@
       <hr class="clear" />
     </div>
   </div>
-  <script type="text/javascript" src="/ext/adapter/ext/ext-base.js"></script>
-  <%- if Rails.env.production? -%>
-    <script type="text/javascript" src="/ext/ext-all.js"></script>
-  <%- else -%>
-    <script type="text/javascript" src="/ext/ext-all-debug.js"></script>
-  <%- end -%>
-  <%= javascript_include_tag '/ext/jsonp.js', 'i18n', 'translations', 'application-ext.js' %>
 </body>
 </html>

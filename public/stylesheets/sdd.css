@@ -151,7 +151,7 @@ h4 {
 /* the table. */
 
 .plain-table {
-  display: block;
+  width:100%;
   font-size: 14px;
   line-height: 1.4em;
   text-align: left;
@@ -1244,4 +1244,17 @@ input.search {
 .notice {
   background-color: #d0e6cf;
   border-color: #9cd998;
+}
+
+.pagination {
+  font-size:1.4em!important;
+  padding-top:2em;
+  text-align:left;
+  font-weight:bold;
+}
+
+.search-details-scroll {
+  height: 20em;
+  overflow-y: scroll;
+  margin-bottom: 0.5em;
 }

@@ -12,15 +12,14 @@ class ProvidersController < ApplicationController
   end
 
   def search
-    params[:search_params] = params
+#    params[:search_params] = params
     @providers = Provider.search(params)
   end
 
   def show
     @provider = Provider.find(params[:id])
-    if params[:search_params].present?
-      @other_providers = Provider.search(params[:search_params]).reject { |p| p == @provider }
-
+    if params.present?
+      @other_providers = Provider.search(params).reject { |p| p == @provider }
        @other_providers = @other_providers[0,4]
 
     end

@@ -1,20 +1,20 @@
 require 'exportable'
 class Provider < ActiveRecord::Base
   include AASM
-  
+
   validates_presence_of :company_name, :email, :company_url
   validate_on_create :first_user_has_email_matching_company_url
   validates_acceptance_of :terms_of_service
   validates_length_of :marketing_description, :maximum => 800, :allow_nil => true
   validate :name_is_not_a_reserved_country_name
-  
+
   audit
   has_attached_file :avatar, :styles => { :larger => "384x384>", :display => "108x108>" }
   has_attached_file :logo, :styles => { :larger => "384x384>", :display => "108x108>" }
   has_friendly_id :company_name, :use_slug => true, :allow_nil => true
   xss_terminate :sanitize => [:marketing_description]
   format_dates :timestamps
-  
+
   aasm_initial_state :inactive
 
   aasm_state :active
@@ -23,11 +23,11 @@ class Provider < ActiveRecord::Base
   aasm_event :activate do
     transitions :to => :active, :from => [:inactive]
   end
-  
+
   url_field :company_url
-  
+
   attr_protected :aasm_state, :user_id, :endorsements_count, :featured
-  
+
   has_many :users, :dependent => :destroy
   has_many :favorites
   has_many :requests, :dependent => :destroy, :order => 'created_at desc'
@@ -35,20 +35,20 @@ class Provider < ActiveRecord::Base
   has_many :endorsements, :order => "sort_order asc"
   has_many :endorsement_requests
   has_many :portfolio_items, :order => "year_completed desc"
-  
+
   has_many :provided_services, :dependent => :destroy
   has_many :services, :through => :provided_services
-  
+
   belongs_to :user
-  
+
   accepts_nested_attributes_for :users
-  
+
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider
   after_create :set_first_user_as_owner
   after_create :send_owner_welcome
   after_create :set_default_services
-  
+
   named_scope :active, :conditions => {:aasm_state => 'active'}, :order => :company_name
   named_scope :all_by_company_name, :order => :company_name
   named_scope :all_by_location, :order => "country, state_province", :conditions => "country != ''"
@@ -60,7 +60,7 @@ class Provider < ActiveRecord::Base
   named_scope :from_state, lambda { |state| {:conditions => {:state_province => state.to_s}}}
   named_scope :inactive, :conditions => {:aasm_state => 'inactive'}, :order => :company_name
   named_scope :us_based, :conditions => {:country => 'US'}
-  
+
   def self.search(params)
     conditions = ["aasm_state != 'flagged'"]
     if params[:budget].not.blank?
@@ -77,7 +77,7 @@ class Provider < ActiveRecord::Base
         conditions << id.to_i
       end
     end
-    
+
     if params[:location].not.blank?
       if params[:location][0,3] == 'US-'
         conditions[0] << " and state_province = ?"
@@ -87,12 +87,12 @@ class Provider < ActiveRecord::Base
         conditions << params[:location]
       end
     end
-    
+
     if params[:countries].not.blank? and params[:countries].is_a?(Array)
       conditions[0] << " and country IN (?)"
       conditions << params[:countries]
     end
-    
+
     if params[:states].not.blank? and params[:states].is_a?(Array)
       if params[:countries].not.blank? and params[:countries].is_a?(Array)
         conditions[0] << "CASE WHEN country = 'US' THEN state_province IN (?) ELSE ? END"
@@ -107,10 +107,10 @@ class Provider < ActiveRecord::Base
     paginate(:joins => joins,
         :group => group,
         :conditions => conditions,
-        :order => "aasm_state asc, CASE WHEN endorsements_count >= 3 THEN endorsements_count ELSE 0 END desc, RAND()",
+        :order => "endorsements_count desc, id asc",
         :page => params[:page] || 1)
   end
-  
+
   def self.locations_for_select
     out = []
     by_country.each do |provider|
@@ -118,19 +118,27 @@ class Provider < ActiveRecord::Base
     end
     out
   end
-  
+
+  def self.locations_for_select_find(countries)
+    out = []
+    countries.each do |c|
+      out << [I18n.t("countries.#{c}"), c]
+    end
+    out
+  end
+
   def self.options_for_company_size
     [["2-10", 2], ["11-30", 11], ["31-100", 31], ["100+", 100]]
   end
-  
+
   def self.states
     aasm_states.collect { |s| s.name.to_s }
   end
-  
+
   def active?
     aasm_state == 'active'
   end
-  
+
   def address
     [
       street_address,
@@ -140,28 +148,28 @@ class Provider < ActiveRecord::Base
       country.blank? ? nil : I18n.t('countries')[country.to_sym]
         ].reject { |part| part.blank?}
   end
-  
+
   def private_address
-    [ 
+    [
       city,
       State.by_code(state_province),
       country.blank? ? nil : I18n.t('countries')[country.to_sym]
         ].reject { |part| part.blank?}
   end
-  
+
   def status
     aasm_state
   end
-  
+
   def users_for_select
     users.collect { |u| [u.name, u.id] }
   end
-  
+
   def hourly_rate_formatted
     return nil if hourly_rate.nil?
     "%.2f" % hourly_rate
   end
-  
+
   def min_budget_formatted
     return nil if min_budget.nil?
     "%.2f" % min_budget
@@ -174,13 +182,13 @@ class Provider < ActiveRecord::Base
   def has_enough_portfolio_items?
     portfolio_items.size >= 3
   end
-  
+
   def can_edit?(user)
     users.include?(user)
   end
-  
+
 private
-  
+
   def first_user_has_email_matching_company_url
     return true unless users.first and company_url.not.blank? and users.first.email.not.blank?
     company_url_host = URI.parse(cleaned_company_url).host
@@ -191,38 +199,38 @@ private
   rescue
     # errors.add_to_base(I18n.t('provider.validations.valid_url'))
   end
-  
+
   def set_first_user_as_owner
     update_attribute(:user, users.first) if users.first
   end
-  
+
   def set_first_user_provider
     users.first.provider = self if users.first
   end
-  
+
   def send_owner_welcome
     Notification.deliver_provider_welcome(user) if user
   end
-  
+
   def owner_name
     user.name if user
   end
-  
+
   def owner_email
     user.email if user
   end
-  
+
   def set_default_services
     Service.checked.each do |service|
       services << service
     end
   end
-  
+
   def filter_carraige_returns
     return if marketing_description.blank?
     self.marketing_description = marketing_description.gsub("\r\n", "\n")
   end
-  
+
   def name_is_not_a_reserved_country_name
     if Country.slugs.include?(friendly_id) or State.slugs.include?(friendly_id)
       errors.add(:company_name, I18n.t('provider.validations.reserved_name'))

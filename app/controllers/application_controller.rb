@@ -36,7 +36,7 @@ protected
 
   def get_page_content
     @services = Service.find(params[:service_ids]) if params[:service_ids]
-
+    @countries = Provider.locations_for_select_find(params[:countries]) if params[:countries]
     @page_content = Page.find_by_url("#{controller_name}/#{action_name}")
   end
 

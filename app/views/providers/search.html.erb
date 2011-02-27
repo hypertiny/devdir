@@ -19,13 +19,15 @@
           </tr>
           <%- @providers.each do |provider| -%>
             <tr <%= provider.active? ? ' style="background:#ffffee"' : '' %></td>
-              <td class='title'><%= link_to provider.company_name, provider_path(provider, :budget => params[:budget], :service_ids => params[:service_ids]) %></td>
+              <td class='title'><%= link_to provider.company_name, provider_path(provider, :budget => params[:budget], :service_ids => params[:service_ids], :countries => params[:countries]) %></td>
               <td><%= provider.private_address.join(', ') %></td>
               <td><%= provider.endorsements.approved.size>0 ? provider.endorsements.approved.size : '&nbsp;' %></td>
               <td><%= check_box_tag 'provider_ids[]', provider.id, false, :id => dom_id(provider) %></td>
             </tr>
           <%- end -%>
         </table>
+
+<%= will_paginate @providers %>
 
         <%= hidden_field_tag 'budget', params[:budget] %>
         <%- if params[:service_ids] -%>

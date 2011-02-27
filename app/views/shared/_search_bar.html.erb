@@ -25,35 +25,66 @@
               </ul>
             </li>
             <li class="search-option capabilities">
-              <h3 data-original-value="Choose Technology">
+              <h3 data-original-value="Choose Technologies">
                 <%- if @services.present? -%>
-                  <%= truncate(@services.collect { |s| s.name }.join(', '), :length => 17) %>
+                  <%= truncate(@services.collect { |s| s.name }.join(', ')) %>
                 <%- else -%>
                   <%- if Service.checked.any? -%>
                     <%= Service.checked.collect { |s| s.name }.join(', ') %>
                   <%- else -%>
-                    Choose Technology
+                    Choose Technologies
                   <%- end -%>
                 <%- end -%>
               </h3>
-              <ul class="search-details">
-                <%- Service.ordered.each do |service| -%>
-                  <li>
-                    <input
-                     name="service_ids[]"
-                     data-label="<%= service.name %>"
-                     type="checkbox"
-                     id="<%= service.name.parameterize %>"
-                     value="<%= service.id %>"
-                     <%- if @services.present? -%>
-                       <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %> />
-                     <%- else -%>
-                       <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
-                     <%- end -%>
-                    <label for="<%= service.name.parameterize %>"><%= service.name %></label>
-                  </li>
+              <div class="search-details">
+                <ul class="search-details-scroll">
+                  <%- Service.ordered.each do |service| -%>
+                    <li>
+                      <input
+                       name="service_ids[]"
+                       data-label="<%= service.name %>"
+                       type="checkbox"
+                       id="<%= service.name.parameterize %>"
+                       value="<%= service.id %>"
+                       <%- if @services.present? -%>
+                         <%= 'checked' if @services.collect{ |s| s.id }.include?(service.id) %> />
+                       <%- else -%>
+                         <%= 'checked="checked"' if service.checked? and @services.blank? %>/>
+                       <%- end -%>
+                      <label for="<%= service.name.parameterize %>"><%= service.name %></label>
+                    </li>
+                  <%- end -%>
+                </ul>
+              </div>
+            </li>
+
+            <li class="search-option countries">
+              <h3 data-original-value="Choose Countries">
+                <%- if @countries.present? -%>
+                  <%= truncate(@countries.collect { |c| c[0] }.join(', ')) %>
+                <%- else -%>
+                  Choose Countries
                 <%- end -%>
-              </ul>
+              </h3>
+              <div class="search-details">
+                <ul class="search-details-scroll">
+                  <%- Provider.locations_for_select.each do |country| -%>
+                    <li>
+                      <input
+                       name="countries[]"
+                       data-label="<%= country[0] %>"
+                       type="checkbox"
+                       id="<%= country[0].parameterize %>"
+                       value="<%= country[1] %>"
+                      <%- if @countries.present? -%>
+                        <%= 'checked' if @countries.collect{ |c| c[1] }.include?(country[1]) %>
+                      <%- end -%>
+                      />
+                      <label for="<%= country[0].parameterize %>"><%= country[0] %></label>
+                    </li>
+                  <%- end -%>
+                </ul>
+              </div>
             </li>
           </ul>
           <input name="commit" id="go-button" class="copy-button _search" type="submit" value="Search" />

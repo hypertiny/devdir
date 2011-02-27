@@ -2,7 +2,7 @@ Ext.BLANK_IMAGE_URL = '/ext/resources/images/default/s.gif';
 
 Ext.onReady(function() {
 
-  Ext.QuickTips.init();
+//  Ext.QuickTips.init();
 
   // confirm dialog for deletes
   Ext.select('input.confirm, input.delete').on('click', function(){
@@ -47,10 +47,10 @@ Ext.onReady(function() {
   }
 
   // Tooltip on providers#search
-  new Ext.ToolTip({
-       target: 'confirmed-explanation',
-       html: I18n.t('provider.confirmed_explanation')
-   });
+  //new Ext.ToolTip({
+  //     target: 'confirmed-explanation',
+  //     html: I18n.t('provider.confirmed_explanation')
+  // });
 
   // convert URLs in string to A tags
   function linkify(text){
@@ -117,15 +117,18 @@ Ext.onReady(function() {
     }
     else
     {
-      var out = Ext.util.Format.trim(selected_items.join(', '))
-      h3.update(Ext.util.Format.ellipsis(out, 20));
+      var out = selected_items.join(', ').replace(/^\s+|\s+$/g,"");
+      if (out.length > 18) {
+        out = out.substr(0, 18) + '...';
+      }
+      h3.update(out);
     }
   }
 
   // dropdowns for searching
-  Ext.select('ul.search-details').on('click', update_select_boxes)
+  Ext.select('.search-details').on('click', update_select_boxes)
 
-  Ext.select('ul.search-details').each(function(element){
+  Ext.select('.search-details').each(function(element){
     update_select_boxes.apply(element)
   })
 

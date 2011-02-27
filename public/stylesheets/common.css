@@ -142,7 +142,7 @@ label {
   margin-top: 10px;
   clear: both;
   display: block;
-  width: auto; 
+  width: auto;
   float: none;
 }
 input[type="checkbox"] {
@@ -213,7 +213,7 @@ form li label {
 form .testability {
   font-size: 0.8em;
   margin-top: 0;
-  
+
 }
 form .testability li {
   display: inline-block;
@@ -346,14 +346,14 @@ table.layout tr:hover {
   margin: inherit auto;
 }
 /* System Messages */
-div.flash, .errorExplanation, .error, .notice { 
+div.flash, .errorExplanation, .error, .notice {
   padding: 0.5em 1em;
   margin: 2em 0 1em;
 }
-div.error, .errorExplanation { 
+div.error, .errorExplanation {
 	background-color: #FEE;
 }
-div.flash ul, .errorExplanation ul, .error ul, .notice ul { 
+div.flash ul, .errorExplanation ul, .error ul, .notice ul {
   margin-left: 0;
 }
 .errorExplanation * {
