@@ -213,7 +213,7 @@ en:
     action: Send Request
     verified: Verified?
     
-    accept_terms_of_service: 'I accept the <a target="_BLANK" href="/pages/provider-terms-of-use">Terms of Use</a>'
+    accept_terms_of_service: 'I accept the <a target="_BLANK" href="/pages/terms">Terms of Use</a>'
     
     administrator_password_headline: Please choose an administrator username and password
     administrator_password_description: "The administrator can edit company details and add additional users to the account."

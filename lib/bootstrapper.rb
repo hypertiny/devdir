@@ -14,29 +14,29 @@ class Bootstrapper
       rfp.save!
 
       provider.rfps << rfp
-      
+
       Factory.create(:page, :title => "Terms and Conditions", :url => "terms-of-use", :content => "Terms go here")
-      Factory.create(:page, :title => "Provider Terms and conditions", :url => "provider-terms-of-use", :content => "Contact details here")
+      Factory.create(:page, :title => "Provider Terms and conditions", :url => "terms", :content => "Contact details here")
       Factory.create(:page, :title => "Provider signup", :url => 'provider-signup', :content => %Q[<ol class="wizard">
         <li class="step1">Fill out this form</li>
         <li class="step2">Create your portfolio</li>
         <li class="step3">Get 3 endorsements</li>
       </ol>])
-      
+
       Service.make
       Service.make(:name => "Visual Design", :checked => false)
       Service.make(:name => "Ext JS", :checked => true)
-      
+
     end
-    
+
     def provider
       @provider ||= Factory.build(:provider)
     end
-    
+
     def rfp
       @rfp ||= Factory.build(:rfp)
     end
-    
+
     def user
       return @user if @user
       email = ask("Enter your email:  ") { |q| q.echo = true }
