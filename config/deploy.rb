@@ -67,9 +67,9 @@ production:
   adapter: mysql
   encoding: utf8
   username: hypertiny
-  password: 6ZmhmpPBjuEcbTKv
+  password: hypertiny
   database: hypertiny
-  host: 'sencha1.c59pnykg7amm.us-east-1.rds.amazonaws.com'
+  host: somewhere
 
     EOF
 
