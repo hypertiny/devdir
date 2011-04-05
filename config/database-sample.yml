@@ -56,9 +56,9 @@ production:
   database: hypertiny
   pool: 5
   username: hypertiny
-  password: 6ZmhmpPBjuEcbTKv
+  password: hypertiny
 #  socket: /tmp/mysql.sock
-  host: sencha1.c59pnykg7amm.us-east-1.rds.amazonaws.com
+  host: somewhere
 
 cucumber:
   <<: *test
