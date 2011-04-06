@@ -1,6 +1,6 @@
-role :app, "web1.sencha.com", "web2.sencha.com", "web3.sencha.com", "web4.sencha.com"
-role :web, "web1.sencha.com", "web2.sencha.com", "web3.sencha.com", "web4.sencha.com"
-role :db,  "web1.sencha.com", "web2.sencha.com", "web3.sencha.com", "web4.sencha.com", :primary => true
+role :app, "web1.sencha.com", "web2.sencha.com", "ec2-204-236-210-152.compute-1.amazonaws.com", "ec2-50-17-92-71.compute-1.amazonaws.com"
+role :web, "web1.sencha.com", "web2.sencha.com", "ec2-204-236-210-152.compute-1.amazonaws.com", "ec2-50-17-92-71.compute-1.amazonaws.com"
+role :db,  "web1.sencha.com", "web2.sencha.com", "ec2-204-236-210-152.compute-1.amazonaws.com", "ec2-50-17-92-71.compute-1.amazonaws.com", :primary => true
 set :rails_env, 'production'
 set :branch, "master"
 set :deploy_to, "/mnt/ruby/hypertiny/#{application}"
