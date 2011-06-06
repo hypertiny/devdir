@@ -21,7 +21,7 @@ class RecaptchaClientHelperTest < Test::Unit::TestCase
   end
   
   def test_recaptcha_tags_with_ssl
-    assert_match /https:\/\/www.google.com/recaptcha/api//, recaptcha_tags(:ssl => true)
+    assert_match /https:\/\/www.google.com/recaptcha/api/, recaptcha_tags(:ssl => true)
   end
 
   def test_recaptcha_tags_without_noscript
